@@ -1,5 +1,0 @@
-D:\work\github\Chanjet.TP\src\Chanjet.TP\bin\Debug\Chanjet.TP.dll
-D:\work\github\Chanjet.TP\src\Chanjet.TP\bin\Debug\Chanjet.TP.pdb
-D:\work\github\Chanjet.TP\src\Chanjet.TP\obj\Debug\Chanjet.TP.csprojResolveAssemblyReference.cache
-D:\work\github\Chanjet.TP\src\Chanjet.TP\obj\Debug\Chanjet.TP.dll
-D:\work\github\Chanjet.TP\src\Chanjet.TP\obj\Debug\Chanjet.TP.pdb
