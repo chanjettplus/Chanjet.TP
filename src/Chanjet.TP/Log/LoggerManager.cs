@@ -9,12 +9,12 @@ namespace Chanjet.TP
 	{
         public static ILogger GetLogger(string name)
         {
-            throw new NotImplementedException();
+            return Log4NetAdapter.GetLogger(name);
         }
 
 		public static ILogger GetLogger(Type type)
 		{
-            throw new NotImplementedException();
+            return Log4NetAdapter.GetLogger(type);
 		}
 	}
 }
