@@ -29,9 +29,20 @@ namespace Chanjet.TP.ServiceHosting.Modules
 
         private object Invoke(string domain, string model, string methodName, object[] parameters )
         {
-            var type = AppDomainAssemblyTypeScanner.Types.Where(t => t.Name.Contains(String.Format("Chanjet.TP.{0}.Data.{1}", domain, model))).First();
-            var ret = ((dynamic)ServicesFactory.GetServices(type)).GetAll(parameters) as object;
-            return Response.AsJson(ret);
+            var modelType =
+                (from type in AppDomainAssemblyTypeScanner.Types
+                where type.FullName.Contains(String.Format("Chanjet.TP.{0}.Data.{1}", domain, model))
+                select type).First();
+
+
+            var repositoryType = typeof(IRepository<>).MakeGenericType(modelType);
+
+            object srv = ServicesFactory.GetServices(repositoryType);
+            return Response.AsJson(srv.GetType().GetMethod(methodName).Invoke(srv, parameters));
+
+            //var type = AppDomainAssemblyTypeScanner.Types.Where(t => t.Name.Contains(String.Format("Chanjet.TP.{0}.Data.{1}", domain, model))).First();
+           // var ret = ((dynamic)ServicesFactory.GetServices(type1)).GetAll(parameters) as object;
+           // return Response.AsJson(ret);
 
             /*
             string typeName = String.Format("Chanjet.TP.{0}.Data.{1}, Chanjet.TP.{0}.Data", domain, model);

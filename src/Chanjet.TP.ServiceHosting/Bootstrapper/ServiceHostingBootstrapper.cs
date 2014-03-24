@@ -25,15 +25,17 @@ namespace Chanjet.TP.ServiceHosting
         protected override void ConfigureApplicationContainer(ILifetimeScope existingContainer)
         {
             base.ConfigureApplicationContainer(existingContainer);
+            
+            var fileNames = (from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Data.dll")
+                            select Path.GetFileName(file)).ToArray();
 
-            AppDomainAssemblyTypeScanner.LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory, "*.Data.dll");
+            AppDomainAssemblyTypeScanner.AddAssembliesToScan(fileNames);
 
             var builder = new ContainerBuilder();
 
             builder.RegisterType<ExceptionInterceptor>();
             builder.RegisterType<DynamicProxyInterceptor>();
 
-   
             builder.RegisterType<ServicesFactory>()
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()
