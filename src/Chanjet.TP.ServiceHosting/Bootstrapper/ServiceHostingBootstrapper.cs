@@ -15,24 +15,24 @@ using System.Reflection;
 
 using Nancy.Bootstrapper;
 using Nancy.Authentication.Stateless;
-using Chanjet.TP.Authentication.Stateless;
 
 
 
 namespace Chanjet.TP.ServiceHosting
 {
-    public class SelfHostBootstrapper : Nancy.Bootstrappers.Autofac.AutofacNancyBootstrapper , IDIContainer
+    public class ServiceHostBootstrapper : Nancy.Bootstrappers.Autofac.AutofacNancyBootstrapper , IDIContainer
     {
         protected override void ConfigureApplicationContainer(ILifetimeScope existingContainer)
         {
             base.ConfigureApplicationContainer(existingContainer);
+
+            AppDomainAssemblyTypeScanner.LoadAssemblies(AppDomain.CurrentDomain.BaseDirectory, "*.Data.dll");
 
             var builder = new ContainerBuilder();
 
             builder.RegisterType<ExceptionInterceptor>();
             builder.RegisterType<DynamicProxyInterceptor>();
 
-            builder.RegisterType<SelfHosting>().As<ISelfHosting>().SingleInstance();
    
             builder.RegisterType<ServicesFactory>()
                 .AsImplementedInterfaces()
@@ -52,7 +52,7 @@ namespace Chanjet.TP.ServiceHosting
 
             builder.Update(existingContainer.ComponentRegistry);
 
-            ModelLoader.LoadModels(existingContainer);
+           // ModelLoader.LoadModels(existingContainer);
 
             DIContainerManager.SetContainer(this);
 
@@ -66,7 +66,7 @@ namespace Chanjet.TP.ServiceHosting
             new StatelessAuthenticationConfiguration(nancyContext =>
             {
                 var apiKey = (string)nancyContext.Request.Query.ApiKey.Value;
-                return UserMapper.GetUserFromApiKey(apiKey);
+                return Chanjet.TP.Authentication.Stateless.UserMapper.GetUserFromApiKey(apiKey);
             });
 
             AllowAccessToConsumingSite(pipelines);

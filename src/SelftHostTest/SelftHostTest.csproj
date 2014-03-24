@@ -33,10 +33,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\ufida\ywt11.510\compiled\Appserver\server\</OutputPath>
+    <OutputPath>..\..\lib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\lib\SelftHostTest.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,9 +93,9 @@
       <Project>{75548254-f975-4b11-8e18-fcb85f6092c1}</Project>
       <Name>Chanjet.TP.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Chanjet.TP.ServiceHosting\Chanjet.TP.ServiceHosting.csproj">
-      <Project>{1e4a7eff-7cf8-44bb-b8f3-00276017ce2a}</Project>
-      <Name>Chanjet.TP.ServiceHosting</Name>
+    <ProjectReference Include="..\Chanjet.TP.Hosting.Self\Chanjet.TP.Hosting.Self.csproj">
+      <Project>{e859393f-bfff-48e3-a0f0-fe3387171ce9}</Project>
+      <Name>Chanjet.TP.Hosting.Self</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Chanjet.TP.Data;
+using Nancy.Bootstrapper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,9 +25,16 @@ namespace Chanjet.TP.ServiceHosting
                 _modelAssemblies.Add(assembly.GetName().Name, assembly);
                 assemblys.Add(assembly);
             }
+            
+            var repositorys =
+              from type in AppDomainAssemblyTypeScanner.Types
+              where !type.IsInterface
+              where !type.IsGenericType
+              where type.GetInterface("IRepository`1") != null
+              select type;
 
-            var repositorys = assemblys.ToArray().SelectMany(ass => ass.GetTypes())
-                 .Where(t => !t.IsInterface && !t.IsGenericType && t.GetInterface("IRepository`1") != null);
+            //var repositorys = assemblys.ToArray().SelectMany(ass => ass.GetTypes())
+            //     .Where(t => !t.IsInterface && !t.IsGenericType && t.GetInterface("IRepository`1") != null);
 
             foreach (var o in repositorys)
             {

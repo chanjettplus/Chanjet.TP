@@ -1,6 +1,6 @@
 ﻿
 using Chanjet.TP.Core;
-using Chanjet.TP.ServiceHosting;
+using Chanjet.TP.Hosting.Self;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

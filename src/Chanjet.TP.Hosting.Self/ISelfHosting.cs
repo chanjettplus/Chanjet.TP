@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Chanjet.TP.ServiceHosting
+namespace Chanjet.TP.Hosting.Self
 {
     public interface ISelfHosting : IDisposable
     {

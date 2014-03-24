@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Authentication.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Demo.Authentication.Stateless", "..\..\..\..\demo\Nancy\src\Nancy.Demo.Authentication.Stateless\Nancy.Demo.Authentication.Stateless.csproj", "{BAE74CD5-57C2-40E3-8F7A-EDE5721C2ACC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Hosting.Self", "Chanjet.TP.Hosting.Self\Chanjet.TP.Hosting.Self.csproj", "{E859393F-BFFF-48E3-A0F0-FE3387171CE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -311,6 +313,26 @@ Global
 		{BAE74CD5-57C2-40E3-8F7A-EDE5721C2ACC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BAE74CD5-57C2-40E3-8F7A-EDE5721C2ACC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{BAE74CD5-57C2-40E3-8F7A-EDE5721C2ACC}.Release|x86.ActiveCfg = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoDebug|x86.ActiveCfg = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoRelease|Any CPU.Build.0 = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoRelease|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoRelease|Mixed Platforms.Build.0 = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.MonoRelease|x86.ActiveCfg = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
