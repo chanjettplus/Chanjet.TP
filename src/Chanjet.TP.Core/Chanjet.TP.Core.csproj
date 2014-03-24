@@ -37,6 +37,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\DefaultCache.cs" />
+    <Compile Include="Cache\ICache.cs" />
     <Compile Include="DI\DIContainerManager.cs" />
     <Compile Include="Log\ILogger.cs" />
     <Compile Include="Log\ILoggerManager.cs">
@@ -47,7 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BootStrapper\" />
-    <Folder Include="Cache\" />
     <Folder Include="Configuration\" />
     <Folder Include="Context\" />
     <Folder Include="Exceptions\" />
