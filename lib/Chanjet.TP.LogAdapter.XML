@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Chanjet.TP.LogAdapter</name>
+    </assembly>
+    <members>
+        <member name="T:Chanjet.TP.Logger.Log4NetAdapter">
+            <summary>
+            Log4Net适配器
+            </summary>
+        </member>
+    </members>
+</doc>

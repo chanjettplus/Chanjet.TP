@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Chanjet.TP.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Chanjet.TP.Core.ILogger">
+            <summary>
+            ILogger 日志接口
+            </summary>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Debug(System.Object)">
+            <summary>
+            输出调试信息
+            </summary>
+            <param name="message">信息对象</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Info(System.Object)">
+            <summary>
+            输出提示信息
+            </summary>
+            <param name="message">信息对象</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Warn(System.Object)">
+            <summary>
+            输出警告信息
+            </summary>
+            <param name="message">信息对象</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Error(System.Object)">
+            <summary>
+            输出错误信息
+            </summary>
+            <param name="message">信息对象</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Fatal(System.Object)">
+            <summary>
+            输出严重错误信息
+            </summary>
+            <param name="message">信息对象</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Debug(System.String,System.Object[])">
+            <summary>
+            输出调试信息
+            </summary>
+            <param name="msgFormat">信息格式化串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Info(System.String,System.Object[])">
+            <summary>
+            输出提示信息
+            </summary>
+            <param name="msgFormat">信息格式化串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Warn(System.String,System.Object[])">
+            <summary>
+            输出警告信息
+            </summary>
+            <param name="msgFormat">信息格式化串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Error(System.String,System.Object[])">
+            <summary>
+            输出错误信息
+            </summary>
+            <param name="msgFormat">信息格式化串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.ILogger.Fatal(System.String,System.Object[])">
+            <summary>
+            输出严重错误信息
+            </summary>
+            <param name="msgFormat">信息格式化串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="P:Chanjet.TP.Core.ILogger.IsDebugEnabled">
+            <summary>
+            取得是否允许Debug级信息输出
+            </summary>
+        </member>
+        <member name="P:Chanjet.TP.Core.ILogger.IsInfoEnabled">
+            <summary>
+            取得是否允许Info级信息输出
+            </summary>
+        </member>
+        <member name="P:Chanjet.TP.Core.ILogger.IsWarnEnabled">
+            <summary>
+            取得是否允许Warn级信息输出
+            </summary>
+        </member>
+        <member name="P:Chanjet.TP.Core.ILogger.IsErrorEnabled">
+            <summary>
+            取得是否允许Error级信息输出
+            </summary>
+        </member>
+        <member name="P:Chanjet.TP.Core.ILogger.IsFatalEnabled">
+            <summary>
+            取得是否允许Fatal级信息输出
+            </summary>
+        </member>
+    </members>
+</doc>
