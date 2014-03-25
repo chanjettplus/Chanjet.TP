@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" ?>
+<services  domain="baseService" desc="WebRAP服务">
+
+	<!--RAP服务Start-->
+	<service name="Ufida.T.IDE.Interface.IMenuService" className="Ufida.T.IDE.BP.MenuBP"  desc="菜单管理服务"  loadFrom="server\Ufida.T.IDE.BP.dll" mode="normal"  />
+
+	<service name="Ufida.T.IDE.Interface.IMenuTreeRelationService" className="Ufida.T.IDE.BP.MenuTreeRelationBP"  desc="菜单关系管理服务"  loadFrom="server\Ufida.T.IDE.BP.dll" mode="normal"  />
+	<!--RAP服务end-->
+	
+</services>

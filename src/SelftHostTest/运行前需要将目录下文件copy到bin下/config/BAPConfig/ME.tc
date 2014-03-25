@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SubSystem name="ME" dtoAssembly="Ufida.T.ME.DTO" interfaceAssembly="Ufida.T.ME.Interface" version="11.500.000.000" toolVersion="1.0.00.000">
+	<Modules>
+		<Module dtoName="Ufida.T.ME.DTO.IntegralForGiftSettingDTO" interfaceName="Ufida.T.ME.Interface.IIntegralForGiftSetting" name="ME20">
+			<DataAuth>
+				<Scenario name="findPage">
+					<Property name="idwarehouse" authObject="WarehouseDTO" type="1" />
+					<Property name="idinventory" authObject="InventoryDTO" type="1" />				
+				</Scenario>
+			</DataAuth>
+		</Module>		
+		<Module dtoName="Ufida.T.ME.DTO.IntegralForGiftDTO" interfaceName="Ufida.T.ME.Interface.IIntegralForGift" name="ME25">
+			<DataAuth>
+				<Scenario name="findPage">
+					<Property name="idwarehouse" authObject="WarehouseDTO" type="1" />
+					<Property name="makerId" authObject="UserDTO" type="1" />
+					<Property name="idstore" authObject="StoreDTO" type="1" />
+					<Property name="idwarehouse" authObject="WarehouseDTO" type="2" relationNameWithHead="idintegralForGiftDTO" belongTo="Ufida.T.ME.DTO.IntegralForGiftDetailDTO" />
+					<Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idIntegralForGiftDTO" belongTo="Ufida.T.ME.DTO.IntegralForGiftDetailDTO" />
+				</Scenario>
+			</DataAuth>
+		</Module>
+    <Module dtoName="Ufida.T.ME.DTO.IntegralForStorageDTO" interfaceName="Ufida.T.ME.Interface.IIntegralForStorage" name="ME28">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+	  <Property name="idstore" authObject="StoreDTO" type="1" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+<Module dtoName="Ufida.T.ME.DTO.MemberStorageDTO" interfaceName="Ufida.T.ME.Interface.IMemberStorage" name="ME26">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+	  <Property name="idstore" authObject="StoreDTO" type="1" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+	</Modules>
+</SubSystem>

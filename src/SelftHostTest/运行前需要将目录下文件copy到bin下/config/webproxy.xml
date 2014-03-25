@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<root>
+    <useproxy>0</useproxy>
+    <useieproxy>0</useieproxy>
+    <user>wjr</user>
+    <password>GLxUHr50KyuN9CnQyR045A==</password>
+    <domain>domain</domain>
+    <proxyip>192.168.8.122</proxyip>
+    <port>8080</port>
+</root>

@@ -1,0 +1,1228 @@
+﻿<?xml version="1.0"?>
+<!--文件说明 ： 凭证接口相关配置信息                  -->
+<!--    作者 ： 林华                               -->
+<!--    日期 ： 2010-6-5                             -->
+<!--    说明 ： 更多信息请参考凭证接口设计文档和代码   -->
+<DocSourceVoucher  Cached="False">
+  <Modle Name="PU" MergePurchaseArrivalAndRdRecive_TransactionDocGenerator="Ufida.T.UA.PU.FC.DocGenPurchaseArrivalMergeByWizardOption">
+    <Runtimes>
+      <Runtime Name="Ufida.T.PU.DTO"/>
+      <Runtime Name="Ufida.T.UA.PU"/>
+      <Runtime Name="Ufida.T.SM.FC"/>
+    </Runtimes>
+    <Voucher Code="PU03" Name="PurchaseArrivalDTO" Title="进货单">
+      <SimpleQuery Title="简单查询设置" Type="Ufida.T.SM.FC.AbstractSimpleQuery">
+        <!--当前单据到FC_DocSimpleSourceVoucher字段的映射,如果没有某个字段设置为NULL-->
+        <!--当前单据到FC_DocSimpleSourceVoucher字段的映射,SELECT部分和WHERE部分都需要配置-->
+        <Fields>
+          <Property Name="ID" MapProperty="NEWID()" Title="主键" />
+          <Property Name="UserId" MapProperty="{UserId}" Title="用户ID" />
+
+          <Property Name="VoucherId" MapProperty="PurchaseArrivalDTO.ID" Title="单据Id"/>
+          <Property Name="VoucherDate" MapProperty="PurchaseArrivalDTO.VoucherDate" Title="单据日期"/>
+          <Property Name="VoucherCode" MapProperty="PurchaseArrivalDTO.Code" Title="单据编号"/>
+          <Property Name="VoucherTs" MapProperty="PurchaseArrivalDTO.TS" Title="单据时间戳"/>
+          <Property Name="Idproject" MapProperty="PurchaseArrivalDTO.Idproject" Title="项目"/>
+          <Property Name="IdvoucherType" MapProperty="{IdvoucherType}" Title="单据类型"/>
+          <Property Name="Idcustomer" MapProperty="PurchaseArrivalDTO.idpartner" Title="供应商"/>
+          <Property Name="Iddepartment" MapProperty="PurchaseArrivalDTO.Iddepartment" Title="部门"/>
+          <Property Name="IdinRdStyle" MapProperty="PurchaseArrivalDTO.IdrdStyle" Title="入库类别"/>
+          <Property Name="Idclerck" MapProperty="PurchaseArrivalDTO.Idclerk" Title="业务员"/>
+          <Property Name="IdbusiType" MapProperty="PurchaseArrivalDTO.IdbusinessType" Title="业务类型"/>
+          <Property Name="Idcurrency" MapProperty="PurchaseArrivalDTO.Idcurrency" Title="币种"/>
+		  <Property Name ="OrigAmount" MapProperty ="PurchaseArrivalDTO.OrigTotalTaxAmount" title ="金额"></Property>
+		  <Property Name ="Amount" MapProperty ="PurchaseArrivalDTO.TotalTaxAmount" title ="本币金额"></Property>
+        </Fields>
+
+        <PropertyFilters>
+          <Filter Name="VoucherDate" MapProperty="PurchaseArrivalDTO.VoucherDate" Title="单据日期"/>
+          <Filter Name="VoucherCode" MapProperty="PurchaseArrivalDTO.Code" Title="单据编号"/>
+          <Filter Name="CustomerCode" MapProperty="PurchaseArrivalDTO.Partner.Code" Title="客户"/>
+			<Filter Name="PartnerClass" MapProperty="PurchaseArrivalDTO.Partner.IdpartnerClass" Title="客户分类"/>
+          <Filter Name="InventoryCode" MapProperty="PurchaseArrivalDTO.Details.Inventory.Code" Title="存货"/>
+          <Filter Name="InRdStyles" MapProperty="PurchaseArrivalDTO.IdrdStyle" Title="出库类别"/>
+          <Filter Name="InventoryClasss" MapProperty="PurchaseArrivalDTO.Details.Inventory.IdinventoryClass" Title="存货分类"/>
+			<Filter Name="ProjectClass" MapProperty="PurchaseArrivalDTO.Details.Project.IdClass" Title="项目分类"/>
+          <Filter Name="Departments" MapProperty="PurchaseArrivalDTO.Iddepartment" Title="部门"/>
+          <Filter Name="Persons" MapProperty="PurchaseArrivalDTO.Idclerk" Title="员工"/>
+          <Filter Name="Warehouses" MapProperty="PurchaseArrivalDTO.Details.Idwarehouse" Title="仓库"/>
+          <Filter Name="Projects" MapProperty="PurchaseArrivalDTO.Details.Idproject" Title="项目"/>
+          <Filter Name="Currencys" MapProperty="PurchaseArrivalDTO.Idcurrency" Title="币种"/>
+          <Filter Name="Bankaccounts" MapProperty="PurchaseArrivalDTO.ArrivalMultiSettleDetails.IdbankAccount" Title="账号"/>
+          <Filter Name="SettleStyles" MapProperty="PurchaseArrivalDTO.ArrivalMultiSettleDetails.IdsettleStyle" Title="结算方式"/>
+		  <Filter Name="OrigAmount" MapProperty="PurchaseArrivalDTO.OrigTotalTaxAmount" Title="金额"/>
+		  <Filter Name="Amount" MapProperty="PurchaseArrivalDTO.TotalTaxAmount" Title="本币金额"/>
+					<Filter Name="maker" MapProperty="PurchaseArrivalDTO.makerid"  Title="制单人"/>
+					<Filter Name="auditor" MapProperty="PurchaseArrivalDTO.auditorid"  Title="审核人"/>
+		</PropertyFilters>
+
+        <!--查询单据的过滤条件，多是不生成凭证过滤条件，也可以添加其他的自定义条件-->
+        <BusinessFilters ModeName="PS">
+          <Filter Name="未生效的不生成">
+            PurchaseArrivalDTO.VoucherState={VoucherState.Effective}
+          </Filter>
+          <Filter Name="已生成凭证的业务单据不生成">
+            PurchaseArrivalDTO.DocId IS NULL
+          </Filter>
+          <Filter Name="若本账套已期间结转，不能筛选出账套结转期间之后的单据生成凭证">
+            1=1
+          </Filter>
+          <Filter Name="该模块启用期间之前的期初单据不生成">
+            PurchaseArrivalDTO.VoucherDate>{ModelOpeningDate}
+          </Filter>
+          <Filter Name="进货单记账">
+            (select value from EAP_AccInformation where Name='PUAccount') = 0
+          </Filter>
+			<Filter Name="所属营销机构 !=“总部”的单据不生成凭证">
+				PurchaseArrivalDTO.IdmarketingOrgan='4AD74463-E871-4DC1-BEB0-6E6EAA0A6386'
+			</Filter>
+        </BusinessFilters>
+		  <IsContainZero Name="明细金额全为0不显示">
+			  Exists
+			  (
+			  select PurchaseArrivalDetail.id from pu_purchaseArrival_b PurchaseArrivalDetail where PurchaseArrivalDetail.idPurchaseArrivalDTO=PurchaseArrivalDTO.id and abs(PurchaseArrivalDetail.origDiscountAmount)>0
+			  )
+		  </IsContainZero>
+
+	  </SimpleQuery>
+      <FullQuery Name="完整查询设置" Type="Ufida.T.SM.FC.AbstractFullQuery">
+        <Header>
+          <Property Name="PurchaseArrivalDTO.ID"  Title="单据ID"/>
+          <Property Name="PurchaseArrivalDTO.TS"  Title="TS"/>
+          <Property Name="PurchaseArrivalDTO.IdbusinessType"  Title="业务类型ID"/>
+          <Property Name="PurchaseArrivalDTO.BusinessType.ID"  Title="业务类型"/>
+          <Property Name="PurchaseArrivalDTO.BusinessType.Name"  Title="业务类型"/>
+          <Property Name="PurchaseArrivalDTO.IdRdStyle"  Title="入库类别"/>
+          <Property Name="PurchaseArrivalDTO.RdStyle.ID"  Title="入库类别"/>
+          <Property Name="PurchaseArrivalDTO.RdStyle.Name"  Title="入库类别"/>
+          <Property Name="PurchaseArrivalDTO.RdStyle.Code"  Title="入库类别"/>
+          <Property Name="PurchaseArrivalDTO.VoucherDate"  Title="单据日期"/>
+          <Property Name="PurchaseArrivalDTO.Code"  Title="单据编号"/>
+          <Property Name="PurchaseArrivalDTO.Memo"  Title="备注"/>
+          <Property Name="PurchaseArrivalDTO.OrigPaymentCashAmount"  Title="现结金额合计"/>
+          <Property Name="PurchaseArrivalDTO.PaymentCashAmount"  Title="现结金额（本币）合计"/>
+          <Property Name="PurchaseArrivalDTO.idCurrency"  Title="币种ID"/>
+          <Property Name="PurchaseArrivalDTO.Currency.ID"  Title="币种"/>
+          <Property Name="PurchaseArrivalDTO.Currency.Name"  Title="币种名称"/>
+          <Property Name="PurchaseArrivalDTO.ExchangeRate"  Title="汇率"/>
+          <Property Name="PurchaseArrivalDTO.idDepartment"  Title="部门ID"/>
+          <Property Name="PurchaseArrivalDTO.Department.ID"  Title="部门"/>
+          <Property Name="PurchaseArrivalDTO.Department.Code"  Title="部门编码"/>
+          <Property Name="PurchaseArrivalDTO.Department.Name"  Title="部门名称"/>
+          <Property Name="PurchaseArrivalDTO.idClerk"  Title="人员ID"/>
+          <Property Name="PurchaseArrivalDTO.Clerk.ID"  Title="人员"/>
+          <Property Name="PurchaseArrivalDTO.Clerk.Code"  Title="人员编码"/>
+          <Property Name="PurchaseArrivalDTO.Clerk.Name"  Title="人员名称"/>
+          <Property Name="PurchaseArrivalDTO.idPartner"  Title="客户ID"/>
+          <Property Name="PurchaseArrivalDTO.Partner.ID"  Title="客户"/>
+          <Property Name="PurchaseArrivalDTO.Partner.Code"  Title="客户编码"/>
+          <Property Name="PurchaseArrivalDTO.Partner.Name"  Title="客户名称"/>
+          <Property Name="PurchaseArrivalDTO.Partner.IdpartnerClass"  Title="往来单位分类id"/>
+          <Property Name="PurchaseArrivalDTO.Partner.PartnerClass.ID"  Title="往来单位分类"/>
+          <Property Name="PurchaseArrivalDTO.Partner.PartnerClass.Name"  Title="往来单位名称"/>
+          <Property Name="PurchaseArrivalDTO.Partner.Iddistrict"  Title="地区id"/>
+          <Property Name="PurchaseArrivalDTO.Partner.District.ID"  Title="地区"/>
+          <Property Name="PurchaseArrivalDTO.Partner.District.Name"  Title="地区"/>
+          <Property Name="PurchaseArrivalDTO.Partner.District.Code"  Title="地区"/>
+          <Property Name="PurchaseArrivalDTO.idProject"  Title="项目ID"/>
+          <Property Name="PurchaseArrivalDTO.Project.ID"  Title="项目"/>
+			<Property Name="PurchaseArrivalDTO.OrigPaymentAmount"  Title="使用预付"/>
+			<Property Name="PurchaseArrivalDTO.TotalTaxAmount"  Title="含税金额合计"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefnvc1"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefnvc2"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefnvc3"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefnvc4"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefnvc5"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefnvc6"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefdecm1"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefdecm2"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefdecm3"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefdecm4"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefdecm5"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseArrivalDTO.pubuserdefdecm6"  Title="单据公用字符自定义数值项"/>>
+		</Header>
+        <Details>
+          <Detail DetailRuleName="ArrivalMultiSettleDetails" DTO="PurchaseArrivalMultiSettleDetailDTO" FK="idPurchaseArrivalDTO" Title="现结明细">
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.ID"  Title="ID"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.TS"  Title="TS"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.idSettleStyle"  Title="结算方式id"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.SettleStyle.ID"  Title="结算方式"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.idBankAccount"  Title="账号id"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.BankAccount.ID"  Title="账号"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.BankAccount.BankNoType.ID"  Title="账号类型id"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.BankAccount.Idcurrency"  Title="账号币种id"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.DocumentCode"  Title="票据号"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.Amount"  Title="收款金额本币"/>
+            <Property Name="PurchaseArrivalMultiSettleDetailDTO.OrigAmount"  Title="收款金额"/>
+          </Detail>
+          <Detail DetailRuleName="Details" DTO="PurchaseArrivalDetailDTO" FK="IdPurchaseArrivalDTO" Title="单据明细">
+            <Property Name="PurchaseArrivalDetailDTO.ID"  Title="ID"/>
+            <Property Name="PurchaseArrivalDetailDTO.TS"  Title="TS"/>
+            <Property Name="PurchaseArrivalDetailDTO.Idwarehouse"  Title="仓库"/>
+            <Property Name="PurchaseArrivalDetailDTO.Warehouse.ID"  Title="仓库"/>
+            <Property Name="PurchaseArrivalDetailDTO.Warehouse.Name"  Title="仓库"/>
+            <Property Name="PurchaseArrivalDetailDTO.Warehouse.Code"  Title="仓库"/>
+            <Property Name="PurchaseArrivalDetailDTO.IdProject"  Title="项目"/>
+            <Property Name="PurchaseArrivalDetailDTO.Project.ID"  Title="项目"/>
+            <Property Name="PurchaseArrivalDetailDTO.Project.Name"  Title="项目"/>
+            <Property Name="PurchaseArrivalDetailDTO.Project.Code"  Title="项目"/>
+			<Property Name="PurchaseArrivalDetailDTO.Project.IdClass"  Title="项目分类"/>
+			<Property Name="PurchaseArrivalDetailDTO.Project.Class.ID"  Title="项目分类"/>
+			<Property Name="PurchaseArrivalDetailDTO.Project.Class.Name"  Title="项目分类"/>
+			<Property Name="PurchaseArrivalDetailDTO.Project.Class.Code"  Title="项目分类"/>
+            <Property Name="PurchaseArrivalDetailDTO.IdInventory"  Title="存货"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.ID"  Title="存货"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.Name"  Title="存货"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.Code"  Title="存货"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.IDUnit"  Title="计量单位"/>
+
+			<Property Name="PurchaseArrivalDetailDTO.Inventory.IsLaborCost"  Title="存货"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.IdinventoryClass" Title="存货分类"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.InventoryClass.ID" Title="存货分类"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.InventoryClass.Code" Title="存货分类"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.InventoryClass.Name" Title="存货分类"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.priuserdefnvc1"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.priuserdefnvc2"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.priuserdefnvc3"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.priuserdefnvc4"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseArrivalDetailDTO.Inventory.priuserdefnvc5"  Title="存货字符自定义项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefnvc1"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefnvc2"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefnvc3"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefnvc4"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefdecm1"  Title="明细公用字符自定义数值项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefdecm2"  Title="明细公用字符自定义数值项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefdecm3"  Title="明细公用字符自定义数值项"/>
+			  <Property Name="PurchaseArrivalDetailDTO.pubuserdefdecm4"  Title="明细公用字符自定义数值项"/>
+            <Property Name="PurchaseArrivalDetailDTO.OrigTaxAmount"  Title="原币含税金额"/>
+            <Property Name="PurchaseArrivalDetailDTO.TaxAmount"  Title="本币含税金额"/>
+            <Property Name="PurchaseArrivalDetailDTO.OrigDiscountAmount"  Title="原币金额"/>
+            <Property Name="PurchaseArrivalDetailDTO.DiscountAmount"  Title="本币金额"/>
+            <Property Name="PurchaseArrivalDetailDTO.OrigSettleAmount"  Title="本币累计结算金额"/>
+            <Property Name="PurchaseArrivalDetailDTO.SettleAmount"  Title="原币累计结算金额"/>
+            <Property Name="PurchaseArrivalDetailDTO.OrigTax"  Title="原币税额"/>
+            <Property Name="PurchaseArrivalDetailDTO.Tax"  Title="本币税额"/>
+            <Property Name="PurchaseArrivalDetailDTO.BaseQuantity"  Title="主计量数量"/>
+          </Detail>
+        </Details>
+      </FullQuery>
+      <TransactionDoc Type="Ufida.T.UA.PU.FC.DocGenPurchaseArrival">
+        <SummaryFields>
+          <Property Name="VoucherTypeId" Mapping="{IdvoucherType}" Title="单据类型ID"/>
+          <Property Name="BusiTypeId" Mapping="IdbusinessType" Title="业务类型ID"/>
+          <Property Name="BusiType" Mapping="BusinessType.Name" Title="业务类型"/>
+          <Property Name="PartnerClass" Mapping="Partner.PartnerClass.Name" Title="往来单位"/>
+          <Property Name="Partner" Mapping="Partner.Name" Title="往来单位"/>
+          <Property Name="Department" Mapping="Department.Name" Title="部门"/>
+          <Property Name="Person" Mapping="Clerk.Name" Title="人员"/>
+          <Property Name="Memo" Mapping="Memo" Title="备注"/>
+        </SummaryFields>
+        <!--借方开始-->
+		<!--存货科目-->
+        <TransactionEntry Code="DebitFromPurchase" Name="在途材料" DCDirection="Debit">
+          <Entry>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Property Doc="OrigAmountDr" SourceVoucher="OrigDiscountAmount" Title="借方原币"/>
+            <Property Doc="AmountDr" SourceVoucher="DiscountAmount" Title="借方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigDiscountAmount" Title="外币"/>
+            <Property Doc="QuantityDr" SourceVoucher="BaseQuantity" Title="借方数量"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseArrival.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseArrival.Memo" Title="备注"/>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Account AccountRuleType="Purchase">
+              <ExtendRuleProperty Name="IdinventoryClass" SourceVoucherProperty="Inventory.IdinventoryClass" Title="存货分类"/>
+              <ExtendRuleProperty Name="Idwarehouse" SourceVoucherProperty="Idwarehouse" Title="仓库"/>
+              <ExtendRuleProperty Name="Idinventory" SourceVoucherProperty="Idinventory" Title="存货"/>
+ 
+              <ExtendRuleProperty Name="IdpartnerClass" SourceVoucherProperty="PurchaseArrival.partner.IdPartnerClass" Title="客户分类"/>
+              <ExtendRuleProperty Name="Idpartner" SourceVoucherProperty="PurchaseArrival.Idpartner" Title="客户"/>
+              <ExtendRuleProperty Name="Iddepartment" SourceVoucherProperty="PurchaseArrival.Iddepartment"/>
+              <ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject" Title="项目"/>
+				
+				<ExtendRuleProperty Name="IsLaborCost" SourceVoucherProperty="Inventory.IsLaborCost" Title="存货属性"/>
+				<ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseArrival.Iddepartment" Title="部门"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseArrival.IdClerk" Title="人员"/>
+		<Property Doc="Idcustomer" SourceVoucher="PurchaseArrival.IdPartner" Title="往来单位"/>
+		<Property Doc="Idinventory" SourceVoucher="Idinventory" Title="存货"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+			  <Property Doc="Idproject" SourceVoucher="Idproject" Title="项目"/>
+			  <Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+			  <Property Doc="Idwarehouse" SourceVoucher="Idwarehouse" Title="仓库"/>
+			  <Property Doc="IdcustomerClass" SourceVoucher="PurchaseArrival.Partner.IdpartnerClass" Title="往来单位分类"/>
+			  <Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass" Title="存货分类"/>
+			  <Property Doc="Iddistrict" SourceVoucher="PurchaseArrival.Partner.Iddistrict" Title="地区"/>
+			  <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency" Title="币种"/>
+			  <Property Doc="idbusiType" SourceVoucher="PurchaseArrival.IdbusinessType" Title="业务类型"/>
+			  <Property Doc="VoucherCode" SourceVoucher="PurchaseArrival.Code" Title="单据编号"/>
+			  <Property Doc="VoucherDate" SourceVoucher="PurchaseArrival.VoucherDate" Title="单据日期"/>
+			  <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+			  <Property Doc="IdinRdStyle" SourceVoucher="PurchaseArrival.IdRdStyle" Title="入库类别"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseArrival.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseArrival.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+        <TransactionEntry Code="DebitFromArrivalTax" Name="应交税金" DCDirection="Debit">
+          <Entry>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Property Doc="OrigAmountDr" SourceVoucher="OrigTax" Title="借方原币"/>
+            <Property Doc="AmountDr" SourceVoucher="Tax" Title="借方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigTax" Title="外币"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseArrival.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseArrival.Memo" Title="备注"/>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Account AccountRuleType="ArrivalTax">
+				<ExtendRuleProperty Name="IsLaborCost" SourceVoucherProperty="Inventory.IsLaborCost" Title="存货属性"/>
+				<ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject" Title="项目"/>
+
+				<ExtendRuleProperty Name="Idinventory" SourceVoucherProperty="Idinventory" Title="存货"/>
+				<ExtendRuleProperty Name="IdinventoryClass" SourceVoucherProperty="Inventory.IdinventoryClass" Title="存货分类"/>
+				<ExtendRuleProperty Name="Idpartner" SourceVoucherProperty="PurchaseArrival.IdPartner" Title="供应商"/>
+				<ExtendRuleProperty Name="IdpartnerClass" SourceVoucherProperty="PurchaseArrival.Partner.IdpartnerClass" Title="供应商分类"/>
+
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseArrival.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseArrival.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseArrival.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseArrival.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseArrival.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="IdinRdStyle" SourceVoucher="PurchaseArrival.IdRdStyle"/>
+            <Property Doc="Idproject" SourceVoucher="Idproject"/>
+		<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+		<Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+            	<Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseArrival.Partner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseArrival.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseArrival.Partner.Iddistrict"/>
+            <Property Doc="Idwarehouse" SourceVoucher="Idwarehouse"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseArrival.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseArrival.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+        <TransactionEntry Code="DebitFromInventory" Name="库存商品" DCDirection="Debit">
+          <Entry>
+            <Property Doc="OrigAmountDr" SourceVoucher="OrigDiscountAmount" Title="借方原币"/>
+            <Property Doc="AmountDr" SourceVoucher="DiscountAmount" Title="借方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigDiscountAmount" Title="外币"/>
+            <Property Doc="QuantityDr" SourceVoucher="BaseQuantity" Title="借方数量"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseArrival.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseArrival.Memo" Title="备注"/>
+            <Account AccountRuleType="Inventory">
+              <ExtendRuleProperty Name="IdinventoryClass" SourceVoucherProperty="Inventory.IdinventoryClass" Title="存货分类"/>
+              <ExtendRuleProperty Name="Idwarehouse" SourceVoucherProperty="Idwarehouse" Title="仓库"/>
+              <ExtendRuleProperty Name="Idinventory" SourceVoucherProperty="Idinventory" Title="存货"/>
+              <ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject" Title="项目"/>
+				<ExtendRuleProperty Name="IsLaborCost" SourceVoucherProperty="Inventory.IsLaborCost" Title="存货属性"/>
+				<ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseArrival.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseArrival.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseArrival.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseArrival.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseArrival.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="IdinRdStyle" SourceVoucher="PurchaseArrival.IdRdStyle"/>
+            <Property Doc="Idproject" SourceVoucher="Idproject"/>
+		<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+		<Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+	        <Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseArrival.Partner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseArrival.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseArrival.Partner.Iddistrict"/>
+            <Property Doc="Idwarehouse" SourceVoucher="Idwarehouse"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseArrival.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseArrival.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+		<TransactionEntry Code="DebitFromAdv" Name="现结+使用预收>明细含税金额合计" DCDirection="Debit">
+			<Entry>
+				<Property Doc="Idcurrency" SourceVoucher="Idcurrency"/>
+				<Property Doc="ExchangeRate" SourceVoucher="ExchangeRate"/>
+				<Property Doc="Memoto" SourceVoucher="Memo"/>
+				<Account AccountRuleType="AdvPayment">
+					<ExtendRuleProperty Name="idbusiType" SourceVoucherProperty="idbusiType"/>
+					<ExtendRuleProperty Name="IdpartnerClass" SourceVoucherProperty="Partner.IdpartnerClass"/>
+					<ExtendRuleProperty Name="Idpartner" SourceVoucherProperty="IdPartner"/>
+					<ExtendRuleProperty Name="Iddistrict" SourceVoucherProperty="Partner.Iddistrict"/>
+					<ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="Idcurrency"/>
+					<ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject"/>
+					<ExtendRuleProperty Name="IdProjectClass" SourceVoucherProperty="Project.idclass"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="pubuserdefnvc5"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="pubuserdefnvc6"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="pubuserdefdecm5"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="pubuserdefdecm6"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc0" SourceVoucherProperty="priuserdefnvc1"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc1" SourceVoucherProperty="priuserdefnvc2"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc2" SourceVoucherProperty="priuserdefnvc3"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc3" SourceVoucherProperty="priuserdefnvc4"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc4" SourceVoucherProperty="priuserdefnvc5"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc5" SourceVoucherProperty="priuserdefnvc6"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm0" SourceVoucherProperty="priuserdefdecm1"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm1" SourceVoucherProperty="priuserdefdecm2"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm2" SourceVoucherProperty="priuserdefdecm3"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm3" SourceVoucherProperty="priuserdefdecm4"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm4" SourceVoucherProperty="priuserdefdecm5"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm5" SourceVoucherProperty="priuserdefdecm6"/>
+				</Account>
+			</Entry>
+			<Auxiliary>
+				<Property Doc="Idcustomer" SourceVoucher="Idpartner"/>
+				<Property Doc="IdcustomerClass" SourceVoucher="Partner.IdpartnerClass"/>
+				<Property Doc="Iddistrict" SourceVoucher="Partner.Iddistrict"/>
+				<Property Doc="Iddepartment" SourceVoucher="Iddepartment"/>
+				<Property Doc="Idperson" SourceVoucher="Idperson"/>
+				<Property Doc="Idcurrency" SourceVoucher="Idcurrency"/>
+				<Property Doc="Idproject" SourceVoucher="Idproject"/>
+				<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+				<Property Doc="idbusiType" SourceVoucher="IdbusinessType"/>
+				<Property Doc="VoucherCode" SourceVoucher="Code"/>
+				<Property Doc="VoucherDate" SourceVoucher="VoucherDate"/>
+				<Property Doc="IdVoucherType" SourceVoucher="{IdvoucherType}"/>
+				<Property Doc="IdIncome" SourceVoucher=""/>
+				<Property Doc="IdExpenseItem" SourceVoucher=""/>
+				<Property Doc="IdWarehouse" SourceVoucher=""/>
+	        		<Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+				<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+				<Property Doc="IdInventoryClass" SourceVoucher=""/>
+				<Property Doc="IdDocumentsUsageDTO" SourceVoucher=""/>
+				<Property Doc="IdInRdStyle" SourceVoucher=""/>
+				<!--<Property Doc="IdSettleStyle" SourceVoucher="IdsettleStyle"/>-->
+				<!--<Property Doc="IdDistrict" SourceVoucher="Partner.iddistrict"/>-->
+				<!--<Property Doc="IdBankAccount" SourceVoucher="IdbankAccount"/>-->
+			</Auxiliary>
+			<SourceRelation>
+				<Property Doc="SourceVoucherId" SourceVoucher="ID"/>
+				<Property Doc="SourceVoucherTs" SourceVoucher="Ts"/>
+			</SourceRelation>
+		</TransactionEntry>
+        <!--借方结束-->
+        <!--贷方开始-->
+        <TransactionEntry Code="CreditFromAp" Name="应付账款" DCDirection="Credit">
+          <Entry>
+            <Property Doc="OrigAmountCr" SourceVoucher="OrigDiscountAmount" Title="贷方原币"/>
+            <Property Doc="AmountCr" SourceVoucher="DiscountAmount" Title="贷方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigDiscountAmount" Title="外币"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseArrival.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseArrival.Memo" Title="备注"/>
+            <Account AccountRuleType="Ap">
+              <ExtendRuleProperty Name="idpartnerclass" SourceVoucherProperty="PurchaseArrival.Partner.IdPartnerClass" Title="客户分类"/>
+              <ExtendRuleProperty Name="idpartner" SourceVoucherProperty="PurchaseArrival.IdPartner" Title="客户"/>
+              <ExtendRuleProperty Name="Iddistrict" SourceVoucherProperty="PurchaseArrival.Partner.Iddistrict" Title="地区"/>
+              <ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="PurchaseArrival.Idcurrency" Title="币种"/>
+              <ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject" Title="项目"/>
+				<ExtendRuleProperty Name="IdinventoryClass" SourceVoucherProperty="Inventory.IdinventoryClass" Title="存货分类"/>
+				<ExtendRuleProperty Name="Idinventory" SourceVoucherProperty="Idinventory" Title="存货"/>
+				<ExtendRuleProperty Name="IsLaborCost" SourceVoucherProperty="Inventory.IsLaborCost" Title="存货属性"/>
+				<ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseArrival.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseArrival.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseArrival.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseArrival.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseArrival.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="IdinRdStyle" SourceVoucher="PurchaseArrival.IdRdStyle"/>
+            <Property Doc="Idproject" SourceVoucher="Idproject"/>
+		<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+		<Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+	        <Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseArrival.Partner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseArrival.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseArrival.Partner.Iddistrict"/>
+            <Property Doc="Idwarehouse" SourceVoucher="Idwarehouse"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseArrival.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseArrival.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+        <TransactionEntry Code="CreditFromCashOrBank" Name="现金、银行存款" DCDirection="Credit">
+          <Entry>
+            <Property Doc="OrigAmountCr" SourceVoucher="OrigAmount" Title="贷方原币"/>
+            <Property Doc="AmountCr" SourceVoucher="Amount" Title="贷方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigAmount" Title="外币"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseArrival.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseArrival.Memo" Title="备注"/>
+            <Property Doc="BillNo" SourceVoucher="DocumentCode" Title="票据号"/>
+            <Account AccountRuleType="Cash">
+              <!--现金-->
+              <ExtendRuleProperty Name="IdbankAccount" SourceVoucherProperty="IdbankAccount"/>
+              <ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="PurchaseArrival.Idcurrency"/>
+				<ExtendRuleProperty Name="Iddepartment" SourceVoucherProperty="PurchaseArrival.Iddepartment"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+            <Account AccountRuleType="Bank">
+              <!--银行存款-->
+              <ExtendRuleProperty Name="IdbankAccount" SourceVoucherProperty="IdbankAccount"/>
+              <ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="PurchaseArrival.Idcurrency"/>
+				<ExtendRuleProperty Name="Iddepartment" SourceVoucherProperty="PurchaseInvoice.Iddepartment"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseArrival.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseArrival.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseArrival.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseArrival.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseArrival.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseArrival.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseArrival.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseArrival.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="IdInRdStyle" SourceVoucher="PurchaseArrival.IdRdStyle"/>
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseArrival.Partner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseArrival.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseArrival.Partner.Iddistrict"/>
+            <Property Doc="InvoiceCode" SourceVoucher="DocumentCode"/>
+            <Property Doc="IdsettleStyle" SourceVoucher="IdsettleStyle"/>
+            <Property Doc="idBankAccount" SourceVoucher="IdbankAccount"/>
+	        <Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+		<Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseArrival.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseArrival.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+        <!--贷方结束-->
+      </TransactionDoc>
+      <DocUpdateBack Title="回写" Type="Ufida.T.UA.PU.FC.DocUpdateBackPurchaseArrival" />
+    </Voucher>
+    <Voucher Code="PU04" Name="PurchaseInvoiceDTO" Title="发票">
+      <SimpleQuery Title="简单查询设置" Type="Ufida.T.SM.FC.AbstractSimpleQuery">
+        <!--当前单据到FC_DocSimpleSourceVoucher字段的映射,如果没有某个字段设置为NULL-->
+        <!--当前单据到FC_DocSimpleSourceVoucher字段的映射,SELECT部分和WHERE部分都需要配置-->
+        <Fields>
+          <Property Name="ID" MapProperty="NEWID()" Title="主键" />
+          <Property Name="UserId" MapProperty="{UserId}" Title="用户ID" />
+
+          <Property Name="VoucherId" MapProperty="PurchaseInvoiceDTO.ID" Title="单据Id"/>
+          <Property Name="VoucherDate" MapProperty="PurchaseInvoiceDTO.VoucherDate" Title="单据日期"/>
+          <Property Name="VoucherCode" MapProperty="PurchaseInvoiceDTO.Code" Title="单据编号"/>
+          <Property Name="VoucherTs" MapProperty="PurchaseInvoiceDTO.TS" Title="单据时间戳"/>
+          <Property Name="Idproject" MapProperty="PurchaseInvoiceDTO.Idproject" Title="项目"/>
+          <Property Name="IdvoucherType" MapProperty="{IdvoucherType}" Title="单据类型"/>
+          <Property Name="Idcustomer" MapProperty="PurchaseInvoiceDTO.idpartner" Title="供应商"/>
+          <Property Name="Iddepartment" MapProperty="PurchaseInvoiceDTO.Iddepartment" Title="部门"/>
+          <Property Name="Idclerck" MapProperty="PurchaseInvoiceDTO.Idclerk" Title="业务员"/>
+          <Property Name="IdbusiType" MapProperty="PurchaseInvoiceDTO.IdbusinessType" Title="业务类型"/>
+          <Property Name="Idcurrency" MapProperty="PurchaseInvoiceDTO.Idcurrency" Title="币种"/>
+			<Property Name ="OrigAmount" MapProperty ="PurchaseInvoiceDTO.OrigTotalTaxAmount" title ="金额"></Property>
+			<Property Name ="Amount" MapProperty ="PurchaseInvoiceDTO.TotalTaxAmount" title ="本币金额"></Property>
+        </Fields>
+
+        <PropertyFilters>
+          <Filter Name="VoucherDate" MapProperty="PurchaseInvoiceDTO.VoucherDate" Title="单据日期"/>
+          <Filter Name="VoucherCode" MapProperty="PurchaseInvoiceDTO.Code" Title="单据编号"/>
+          <Filter Name="CustomerCode" MapProperty="PurchaseInvoiceDTO.InvoicePartner.Code" Title="客户"/>
+          <Filter Name="InventoryCode" MapProperty="PurchaseInvoiceDTO.PurchaseInvoiceDetails.Inventory.Code" Title="存货"/>
+          <Filter Name="InventoryClasss" MapProperty="PurchaseInvoiceDTO.PurchaseInvoiceDetails.Inventory.IdinventoryClass" Title="存货分类"/>
+			<Filter Name="ProjectClass" MapProperty="PurchaseInvoiceDTO.PurchaseInvoiceDetails.Project.IdClass" Title="项目分类"/>
+			<Filter Name="PartnerClass" MapProperty="PurchaseInvoiceDTO.Partner.IdpartnerClass" Title="客户分类"/>
+          <Filter Name="Departments" MapProperty="PurchaseInvoiceDTO.Iddepartment" Title="部门"/>
+          <Filter Name="Persons" MapProperty="PurchaseInvoiceDTO.Idclerk" Title="员工"/>
+          <Filter Name="Warehouses" MapProperty="PurchaseInvoiceDTO.PurchaseInvoiceDetails.Idwarehouse" Title="仓库"/>
+          <Filter Name="Projects" MapProperty="PurchaseInvoiceDTO.PurchaseInvoiceDetails.Idproject" Title="项目"/>
+          <Filter Name="Currencys" MapProperty="PurchaseInvoiceDTO.Idcurrency" Title="币种"/>
+          <Filter Name="Bankaccounts" MapProperty="PurchaseInvoiceDTO.PurchaseInvoiceMultiSettleDetails.IdbankAccount" Title="账号"/>
+          <Filter Name="SettleStyles" MapProperty="PurchaseInvoiceDTO.PurchaseInvoiceMultiSettleDetails.IdsettleStyle" Title="结算方式"/>
+			<Filter Name="OrigAmount" MapProperty="PurchaseInvoiceDTO.OrigTotalTaxAmount" Title="金额"/>
+			<Filter Name="Amount" MapProperty="PurchaseInvoiceDTO.TotalTaxAmount" Title="本币金额"/>
+					<Filter Name="maker" MapProperty="PurchaseInvoiceDTO.makerid"  Title="制单人"/>
+					<Filter Name="auditor" MapProperty="PurchaseInvoiceDTO.auditorid"  Title="审核人"/>
+        </PropertyFilters>
+
+        <!--查询单据的过滤条件，多是不生成凭证过滤条件，也可以添加其他的自定义条件-->
+        <BusinessFilters ModeName="PS">
+          <Filter Name="未生效的不生成">
+            PurchaseInvoiceDTO.VoucherState={VoucherState.Effective}
+          </Filter>
+          <Filter Name="已生成凭证的业务单据不生成">
+            PurchaseInvoiceDTO.DocId IS NULL
+          </Filter>
+          <Filter Name="若本账套已期间结转，不能筛选出账套结转期间之后的单据生成凭证">
+            1=1
+          </Filter>
+          <Filter Name="该模块启用期间之前的期初单据不生成">
+            PurchaseInvoiceDTO.VoucherDate>{ModelOpeningDate}
+          </Filter>
+          <Filter Name="发票记账">
+            (select value from EAP_AccInformation where Name='PUAccount') = 1
+          </Filter>
+			<Filter Name="所属营销机构 !=“总部”的单据不生成凭证">
+				PurchaseInvoiceDTO.IdmarketingOrgan='4AD74463-E871-4DC1-BEB0-6E6EAA0A6386'
+			</Filter>
+        </BusinessFilters>
+		  <IsContainZero Name="明细金额全为0不显示">
+			  Exists
+			  (
+			  select PurchaseInvoiceDetail.id from pu_purchaseInvoice_b PurchaseInvoiceDetail where PurchaseInvoiceDetail.idPurchaseInvoiceDTO=PurchaseInvoiceDTO.id and abs(PurchaseInvoiceDetail.origDiscountAmount)>0
+			  )
+		  </IsContainZero>
+      </SimpleQuery>
+      <FullQuery Name="完整查询设置" Type="Ufida.T.SM.FC.AbstractFullQuery">
+        <Header>
+          <Property Name="PurchaseInvoiceDTO.ID"  Title="单据ID"/>
+          <Property Name="PurchaseInvoiceDTO.TS"  Title="TS"/>
+          <Property Name="PurchaseInvoiceDTO.IdbusinessType"  Title="业务类型ID"/>
+          <Property Name="PurchaseInvoiceDTO.BusinessType.ID"  Title="业务类型"/>
+          <Property Name="PurchaseInvoiceDTO.BusinessType.Name"  Title="业务类型"/>
+          <Property Name="PurchaseInvoiceDTO.VoucherDate"  Title="单据日期"/>
+          <Property Name="PurchaseInvoiceDTO.Code"  Title="单据编号"/>
+          <Property Name="PurchaseInvoiceDTO.Memo"  Title="备注"/>
+          <Property Name="PurchaseInvoiceDTO.OrigPaymentCashAmount"  Title="现结金额合计"/>
+          <Property Name="PurchaseInvoiceDTO.PaymentCashAmount"  Title="现结金额（本币）合计"/>
+		<Property Name="PurchaseInvoiceDTO.OrigPaymentAmount"  Title="使用预付"/>
+		<Property Name="PurchaseInvoiceDTO.TotalTaxAmount"  Title="含税金额合计"/>
+          <Property Name="PurchaseInvoiceDTO.idCurrency"  Title="币种ID"/>
+          <Property Name="PurchaseInvoiceDTO.Currency.ID"  Title="币种"/>
+          <Property Name="PurchaseInvoiceDTO.Currency.Name"  Title="币种名称"/>
+          <Property Name="PurchaseInvoiceDTO.ExchangeRate"  Title="汇率"/>
+          <Property Name="PurchaseInvoiceDTO.idDepartment"  Title="部门ID"/>
+          <Property Name="PurchaseInvoiceDTO.Department.ID"  Title="部门"/>
+          <Property Name="PurchaseInvoiceDTO.Department.Code"  Title="部门编码"/>
+          <Property Name="PurchaseInvoiceDTO.Department.Name"  Title="部门名称"/>
+          <Property Name="PurchaseInvoiceDTO.idClerk"  Title="人员ID"/>
+          <Property Name="PurchaseInvoiceDTO.Clerk.ID"  Title="人员"/>
+          <Property Name="PurchaseInvoiceDTO.Clerk.Code"  Title="人员编码"/>
+          <Property Name="PurchaseInvoiceDTO.Clerk.Name"  Title="人员名称"/>
+          <Property Name="PurchaseInvoiceDTO.idPartner"  Title="客户ID"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.ID"  Title="客户"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.Code"  Title="客户编码"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.Name"  Title="客户名称"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.IdpartnerClass"  Title="往来单位分类id"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.PartnerClass.ID"  Title="往来单位分类"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.PartnerClass.Name"  Title="往来单位名称"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.Iddistrict"  Title="地区id"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.District.ID"  Title="地区"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.District.Name"  Title="地区"/>
+          <Property Name="PurchaseInvoiceDTO.InvoicePartner.District.Code"  Title="地区"/>
+          <Property Name="PurchaseInvoiceDTO.idProject"  Title="项目ID"/>
+          <Property Name="PurchaseInvoiceDTO.Project.ID"  Title="项目"/>
+          <Property Name="PurchaseInvoiceDTO.Project.Name"  Title="项目名称"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefnvc1"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefnvc2"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefnvc3"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefnvc4"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefnvc5"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefnvc6"  Title="单据专用字符自定义字符项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefdecm1"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefdecm2"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefdecm3"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefdecm4"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefdecm5"  Title="单据公用字符自定义数值项"/>
+			<Property Name="PurchaseInvoiceDTO.pubuserdefdecm6"  Title="单据公用字符自定义数值项"/>
+        </Header>
+        <Details>
+          <Detail DetailRuleName="PurchaseInvoiceMultiSettleDetails" DTO="PurchaseInvoiceMultiSettleDetailDTO" FK="idPurchaseInvoiceDTO" Title="现结明细">
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.ID"  Title="ID"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.TS"  Title="TS"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.idSettleStyle"  Title="结算方式id"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.SettleStyle.ID"  Title="结算方式"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.idBankAccount"  Title="账号id"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.BankAccount.ID"  Title="账号"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.BankAccount.BankNoType.ID"  Title="账号类型id"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.BankAccount.Idcurrency"  Title="账号币种id"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.DocumentCode"  Title="票据号"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.Amount"  Title="收款金额本币"/>
+            <Property Name="PurchaseInvoiceMultiSettleDetailDTO.OrigAmount"  Title="收款金额"/>
+          </Detail>
+          <Detail DetailRuleName="PurchaseInvoiceDetails" DTO="PurchaseInvoiceDetailDTO" FK="IdPurchaseInvoiceDTO" Title="单据明细">
+            <Property Name="PurchaseInvoiceDetailDTO.ID"  Title="ID"/>
+            <Property Name="PurchaseInvoiceDetailDTO.TS"  Title="TS"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Idwarehouse"  Title="仓库"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Warehouse.ID"  Title="仓库"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Warehouse.Name"  Title="仓库"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Warehouse.Code"  Title="仓库"/>
+            <Property Name="PurchaseInvoiceDetailDTO.IdProject"  Title="项目"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Project.ID"  Title="项目"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Project.Name"  Title="项目"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Project.Code"  Title="项目"/>
+			<Property Name="PurchaseInvoiceDetailDTO.Project.IdClass"  Title="项目分类"/>
+			<Property Name="PurchaseInvoiceDetailDTO.Project.Class.ID"  Title="项目分类"/>
+			<Property Name="PurchaseInvoiceDetailDTO.Project.Class.Name"  Title="项目分类"/>
+			<Property Name="PurchaseInvoiceDetailDTO.Project.Class.Code"  Title="项目分类"/>
+            <Property Name="PurchaseInvoiceDetailDTO.IdInventory"  Title="存货"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.ID"  Title="存货"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.Name"  Title="存货"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.Code"  Title="存货"/>
+			<Property Name="PurchaseInvoiceDetailDTO.Inventory.IsLaborCost"  Title="存货"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.IdinventoryClass" Title="存货分类"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.InventoryClass.ID" Title="存货分类"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.InventoryClass.Code" Title="存货分类"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.InventoryClass.Name" Title="存货分类"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.priuserdefnvc1"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.priuserdefnvc2"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.priuserdefnvc3"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.priuserdefnvc4"  Title="存货字符自定义项"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Inventory.priuserdefnvc5"  Title="存货字符自定义项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefnvc1"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefnvc2"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefnvc3"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefnvc4"  Title="明细专用字符自定义字符项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefdecm1"  Title="明细公用字符自定义数值项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefdecm2"  Title="明细公用字符自定义数值项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefdecm3"  Title="明细公用字符自定义数值项"/>
+			  <Property Name="PurchaseInvoiceDetailDTO.pubuserdefdecm4"  Title="明细公用字符自定义数值项"/>
+            <Property Name="PurchaseInvoiceDetailDTO.OrigTaxAmount"  Title="原币含税金额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.TaxAmount"  Title="本币含税金额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.OrigDiscountAmount"  Title="原币金额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.DiscountAmount"  Title="本币金额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.OrigSettleAmount"  Title="本币累计结算金额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.SettleAmount"  Title="原币累计结算金额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.OrigTax"  Title="原币税额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.Tax"  Title="本币税额"/>
+            <Property Name="PurchaseInvoiceDetailDTO.BaseQuantity"  Title="主计量数量"/>
+          </Detail>
+        </Details>
+      </FullQuery>
+      <TransactionDoc Type="Ufida.T.UA.PU.FC.DocGenPurchaseInvoice">
+        <SummaryFields>
+          <Property Name="VoucherTypeId" Mapping="{IdvoucherType}" Title="单据类型ID"/>
+          <Property Name="BusiTypeId" Mapping="IdbusinessType" Title="业务类型ID"/>
+          <Property Name="BusiType" Mapping="BusinessType.Name" Title="业务类型"/>
+          <Property Name="PartnerClass" Mapping="InvoicePartner.PartnerClass.Name" Title="往来单位"/>
+          <Property Name="Partner" Mapping="InvoicePartner.Name" Title="往来单位"/>
+          <Property Name="Department" Mapping="Department.Name" Title="部门"/>
+          <Property Name="Person" Mapping="Clerk.Name" Title="人员"/>
+          <Property Name="Memo" Mapping="Memo" Title="备注"/>
+        </SummaryFields>
+        <!--借方开始-->
+		  <!--存货科目-->
+        <TransactionEntry Code="DebitFromPurchase" Name="在途材料" DCDirection="Debit">
+          <Entry>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Property Doc="OrigAmountDr" SourceVoucher="OrigDiscountAmount" Title="借方原币"/>
+            <Property Doc="AmountDr" SourceVoucher="DiscountAmount" Title="借方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigDiscountAmount" Title="外币"/>
+            <Property Doc="QuantityDr" SourceVoucher="BaseQuantity" Title="借方数量"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseInvoice.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseInvoice.Memo" Title="备注"/>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Account AccountRuleType="Purchase">
+              <ExtendRuleProperty Name="IdinventoryClass" SourceVoucherProperty="Inventory.IdinventoryClass" Title="存货分类"/>
+              <ExtendRuleProperty Name="Idwarehouse" SourceVoucherProperty="Idwarehouse" Title="仓库"/>
+              <ExtendRuleProperty Name="Idinventory" SourceVoucherProperty="Idinventory" Title="存货"/>
+              <ExtendRuleProperty Name="IdpartnerClass" SourceVoucherProperty="PurchaseInvoice.InvoicePartner.IdPartnerClass" Title="客户分类"/>
+              <ExtendRuleProperty Name="Idpartner" SourceVoucherProperty="PurchaseInvoice.Idpartner" Title="客户"/>
+              <ExtendRuleProperty Name="Iddepartment" SourceVoucherProperty="PurchaseInvoice.Iddepartment"/>
+              <ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject" Title="项目"/>
+			  <ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="IsLaborCost" SourceVoucherProperty="Inventory.IsLaborCost" Title="存货属性"/>
+				<ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseInvoice.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseInvoice.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseInvoice.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseInvoice.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseInvoice.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="Idproject" SourceVoucher="Idproject"/>
+		<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+            	<Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+		<Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseInvoice.InvoicePartner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseInvoice.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseInvoice.InvoicePartner.Iddistrict"/>
+            <Property Doc="Idwarehouse" SourceVoucher="Idwarehouse"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseInvoice.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseInvoice.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+        <TransactionEntry Code="DebitFromArrivalTax" Name="应交税金" DCDirection="Debit">
+          <Entry>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Property Doc="OrigAmountDr" SourceVoucher="OrigTax" Title="借方原币"/>
+            <Property Doc="AmountDr" SourceVoucher="Tax" Title="借方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigTax" Title="外币"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseInvoice.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseInvoice.Memo" Title="备注"/>
+            <!--这段配置了没用处，需要倒挤，在代码里面算-->
+            <Account AccountRuleType="ArrivalTax">
+				<ExtendRuleProperty Name="IsLaborCost" SourceVoucherProperty="Inventory.IsLaborCost" Title="存货属性"/>
+				<ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject" Title="项目"/>
+
+				<ExtendRuleProperty Name="Idinventory" SourceVoucherProperty="Idinventory" Title="存货"/>
+				<ExtendRuleProperty Name="IdinventoryClass" SourceVoucherProperty="Inventory.IdinventoryClass" Title="存货分类"/>
+
+				<ExtendRuleProperty Name="IdpartnerClass" SourceVoucherProperty="PurchaseInvoice.InvoicePartner.IdpartnerClass" Title="供应商分类"/>
+				<ExtendRuleProperty Name="Idpartner" SourceVoucherProperty="PurchaseInvoice.IdInvoicePartner" Title="供应商"/>
+
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseInvoice.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseInvoice.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseInvoice.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseInvoice.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseInvoice.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="Idproject" SourceVoucher="Idproject"/>
+			<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+            	<Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+            <Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseInvoice.InvoicePartner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseInvoice.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseInvoice.InvoicePartner.Iddistrict"/>
+            <Property Doc="Idwarehouse" SourceVoucher="Idwarehouse"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseInvoice.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseInvoice.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+		<TransactionEntry Code="DebitFromAdv" Name="现结+使用预收>明细含税金额合计" DCDirection="Debit">
+			<Entry>
+				<Property Doc="Idcurrency" SourceVoucher="Idcurrency"/>
+				<Property Doc="ExchangeRate" SourceVoucher="ExchangeRate"/>
+				<Property Doc="Memoto" SourceVoucher="Memo"/>
+				<Account AccountRuleType="AdvPayment">
+					<ExtendRuleProperty Name="IdpartnerClass" SourceVoucherProperty="InvoicePartner.IdpartnerClass"/>
+					<ExtendRuleProperty Name="Idpartner" SourceVoucherProperty="IdInvoicePartner"/>
+					<ExtendRuleProperty Name="Iddistrict" SourceVoucherProperty="InvoicePartner.Iddistrict"/>
+					<ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="Idcurrency"/>
+					<ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject"/>
+					<ExtendRuleProperty Name="IdProjectClass" SourceVoucherProperty="Project.idclass"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="pubuserdefnvc5"/>
+					<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="pubuserdefnvc6"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="pubuserdefdecm5"/>
+					<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="pubuserdefdecm6"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc0" SourceVoucherProperty="priuserdefnvc1"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc1" SourceVoucherProperty="priuserdefnvc2"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc2" SourceVoucherProperty="priuserdefnvc3"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc3" SourceVoucherProperty="priuserdefnvc4"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc4" SourceVoucherProperty="priuserdefnvc5"/>
+					<ExtendRuleProperty Name="Headerpriuserdefnvc5" SourceVoucherProperty="priuserdefnvc6"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm0" SourceVoucherProperty="priuserdefdecm1"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm1" SourceVoucherProperty="priuserdefdecm2"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm2" SourceVoucherProperty="priuserdefdecm3"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm3" SourceVoucherProperty="priuserdefdecm4"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm4" SourceVoucherProperty="priuserdefdecm5"/>
+					<ExtendRuleProperty Name="Headerpriuserdefdecm5" SourceVoucherProperty="priuserdefdecm6"/>
+				</Account>
+			</Entry>
+			<Auxiliary>
+				<Property Doc="Idcustomer" SourceVoucher="IdInvoicePartner"/>
+				<Property Doc="IdcustomerClass" SourceVoucher="InvoicePartner.IdpartnerClass"/>
+				<Property Doc="Iddistrict" SourceVoucher="InvoicePartner.Iddistrict"/>
+				<Property Doc="Iddepartment" SourceVoucher="Iddepartment"/>
+				<Property Doc="Idperson" SourceVoucher="Idperson"/>
+				<Property Doc="Idcurrency" SourceVoucher="Idcurrency"/>
+				<Property Doc="Idproject" SourceVoucher="Idproject"/>
+				<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+				<Property Doc="idbusiType" SourceVoucher="IdbusinessType"/>
+				<Property Doc="VoucherCode" SourceVoucher="Code"/>
+				<Property Doc="VoucherDate" SourceVoucher="VoucherDate"/>
+				<Property Doc="IdVoucherType" SourceVoucher="{IdvoucherType}"/>
+				<Property Doc="IdIncome" SourceVoucher=""/>
+				<Property Doc="IdExpenseItem" SourceVoucher=""/>
+				<Property Doc="IdWarehouse" SourceVoucher=""/>
+	        <Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+				<Property Doc="IdInventoryClass" SourceVoucher=""/>
+				<Property Doc="IdDocumentsUsageDTO" SourceVoucher=""/>
+				<Property Doc="IdInRdStyle" SourceVoucher=""/>
+				<!--<Property Doc="IdSettleStyle" SourceVoucher="IdsettleStyle"/>-->
+				<!--<Property Doc="IdDistrict" SourceVoucher="Partner.iddistrict"/>-->
+				<!--<Property Doc="IdBankAccount" SourceVoucher="IdbankAccount"/>-->
+			</Auxiliary>
+			<SourceRelation>
+				<Property Doc="SourceVoucherId" SourceVoucher="ID"/>
+				<Property Doc="SourceVoucherTs" SourceVoucher="Ts"/>
+			</SourceRelation>
+		</TransactionEntry>
+        <!--借方结束-->
+        <!--贷方开始-->
+        <TransactionEntry Code="CreditFromAp" Name="应付账款" DCDirection="Credit">
+          <Entry>
+            <Property Doc="OrigAmountCr" SourceVoucher="OrigDiscountAmount" Title="贷方原币"/>
+            <Property Doc="AmountCr" SourceVoucher="DiscountAmount" Title="贷方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigDiscountAmount" Title="外币"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseInvoice.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseInvoice.Memo" Title="备注"/>
+            <Account AccountRuleType="Ap">
+              <ExtendRuleProperty Name="idpartnerclass" SourceVoucherProperty="PurchaseInvoice.InvoicePartner.IdPartnerClass" Title="客户分类"/>
+              <ExtendRuleProperty Name="idpartner" SourceVoucherProperty="PurchaseInvoice.IdPartner" Title="客户"/>
+              <ExtendRuleProperty Name="Iddistrict" SourceVoucherProperty="PurchaseInvoice.InvoicePartner.Iddistrict" Title="地区"/>
+              <ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="PurchaseInvoice.Idcurrency" Title="币种"/>
+              <ExtendRuleProperty Name="Idproject" SourceVoucherProperty="Idproject" Title="项目"/>
+				<ExtendRuleProperty Name="IdinventoryClass" SourceVoucherProperty="Inventory.IdinventoryClass" Title="存货分类"/>
+				<ExtendRuleProperty Name="Idinventory" SourceVoucherProperty="Idinventory" Title="存货"/>
+				<ExtendRuleProperty Name="IsLaborCost" SourceVoucherProperty="Inventory.IsLaborCost" Title="存货属性"/>
+				<ExtendRuleProperty Name="IdprojectClass" SourceVoucherProperty="Project.IdClass" Title="项目分类"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseInvoice.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseInvoice.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseInvoice.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseInvoice.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseInvoice.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="Idproject" SourceVoucher="Idproject"/>
+			<Property Doc="IdprojectClass" SourceVoucher="Project.IdClass" Title="项目分类"/>
+	        <Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+
+            <Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseInvoice.InvoicePartner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseInvoice.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseInvoice.InvoicePartner.Iddistrict"/>
+            <Property Doc="Idwarehouse" SourceVoucher="Idwarehouse"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseInvoice.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseInvoice.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+        <TransactionEntry Code="CreditFromCashOrBank" Name="现金、银行存款" DCDirection="Credit">
+          <Entry>
+            <Property Doc="OrigAmountCr" SourceVoucher="OrigAmount" Title="贷方原币"/>
+            <Property Doc="AmountCr" SourceVoucher="Amount" Title="贷方本币"/>
+            <Property Doc="OrigAmount" SourceVoucher="OrigAmount" Title="外币"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency" Title="币种"/>
+            <Property Doc="ExchangeRate" SourceVoucher="PurchaseInvoice.ExchangeRate" Title="汇率"/>
+            <Property Doc="Memoto" SourceVoucher="PurchaseInvoice.Memo" Title="备注"/>
+            <Property Doc="BillNo" SourceVoucher="DocumentCode" Title="票据号"/>
+            <Account AccountRuleType="Cash">
+              <!--现金-->
+              <ExtendRuleProperty Name="IdbankAccount" SourceVoucherProperty="IdbankAccount"/>
+              <ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="PurchaseInvoice.Idcurrency"/>
+				<ExtendRuleProperty Name="Iddepartment" SourceVoucherProperty="PurchaseInvoice.Iddepartment"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+            <Account AccountRuleType="Bank">
+              <!--银行存款-->
+              <ExtendRuleProperty Name="IdbankAccount" SourceVoucherProperty="IdbankAccount"/>
+              <ExtendRuleProperty Name="Idcurrency" SourceVoucherProperty="PurchaseInvoice.Idcurrency"/>
+				<ExtendRuleProperty Name="Iddepartment" SourceVoucherProperty="PurchaseInvoice.Iddepartment"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc0" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc1" Title="表头公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc1" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc2" Title="表头公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc2" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc3" Title="表头公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc3" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc4" Title="表头公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc4" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc5" Title="表头公共自定义字符项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefnvc5" SourceVoucherProperty="PurchaseInvoice.pubuserdefnvc6" Title="表头公共自定义字符项6"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm0" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm1" Title="表头公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm1" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm2" Title="表头公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm2" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm3" Title="表头公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm3" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm4" Title="表头公共自定义数值项4"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm4" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm5" Title="表头公共自定义数值项5"/>
+				<ExtendRuleProperty Name="Headerpubuserdefdecm5" SourceVoucherProperty="PurchaseInvoice.pubuserdefdecm6" Title="表头公共自定义数值项6"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc0" SourceVoucherProperty="pubuserdefnvc1" Title="表体公共自定义字符项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc1" SourceVoucherProperty="pubuserdefnvc2" Title="表体公共自定义字符项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc2" SourceVoucherProperty="pubuserdefnvc3" Title="表体公共自定义字符项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefnvc3" SourceVoucherProperty="pubuserdefnvc4" Title="表体公共自定义字符项4"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm0" SourceVoucherProperty="pubuserdefdecm1" Title="表体公共自定义数值项1"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm1" SourceVoucherProperty="pubuserdefdecm2" Title="表体公共自定义数值项2"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm2" SourceVoucherProperty="pubuserdefdecm3" Title="表体公共自定义数值项3"/>
+				<ExtendRuleProperty Name="Detailspubuserdefdecm3" SourceVoucherProperty="pubuserdefdecm4" Title="表体公共自定义数值项4"/>
+            </Account>
+          </Entry>
+          <Auxiliary>
+            <Property Doc="Iddepartment" SourceVoucher="PurchaseInvoice.Iddepartment"/>
+            <Property Doc="Idperson" SourceVoucher="PurchaseInvoice.IdClerk"/>
+            <Property Doc="Idcurrency" SourceVoucher="PurchaseInvoice.Idcurrency"/>
+            <Property Doc="idbusiType" SourceVoucher="PurchaseInvoice.IdbusinessType"/>
+            <Property Doc="VoucherCode" SourceVoucher="PurchaseInvoice.Code"/>
+            <Property Doc="VoucherDate" SourceVoucher="PurchaseInvoice.VoucherDate"/>
+            <Property Doc="IdvoucherType" SourceVoucher="{IdvoucherType}" Title="单据类型"/>
+            <Property Doc="IdcustomerClass" SourceVoucher="PurchaseInvoice.InvoicePartner.IdpartnerClass"/>
+            <Property Doc="Idcustomer" SourceVoucher="PurchaseInvoice.IdPartner"/>
+            <Property Doc="Iddistrict" SourceVoucher="PurchaseInvoice.InvoicePartner.Iddistrict"/>
+            <Property Doc="InvoiceCode" SourceVoucher="DocumentCode"/>
+            <Property Doc="IdsettleStyle" SourceVoucher="IdsettleStyle"/>
+            <Property Doc="idBankAccount" SourceVoucher="IdbankAccount"/>
+	        <Property Doc="Idinventory" SourceVoucher="Idinventory"/>
+		<Property Doc="IdUnit" SourceVoucher="IdUnit" Title="计量单位"/>
+		<Property Doc="IdinventoryClass" SourceVoucher="Inventory.IdinventoryClass"/>
+          </Auxiliary>
+          <SourceRelation>
+            <Property Doc="SourceVoucherId" SourceVoucher="PurchaseInvoice.ID"/>
+            <Property Doc="SourceVoucherTs" SourceVoucher="PurchaseInvoice.Ts"/>
+            <Property Doc="SourceVoucherDetailId" SourceVoucher="ID"/>
+            <Property Doc="SourceVoucherDetailTs" SourceVoucher="Ts"/>
+          </SourceRelation>
+        </TransactionEntry>
+        <!--贷方结束-->
+      </TransactionDoc>
+      <DocUpdateBack Title="回写" Type="Ufida.T.UA.PU.FC.DocUpdateBackPurchaseInvoice" />
+    </Voucher>
+  </Modle>
+</DocSourceVoucher>

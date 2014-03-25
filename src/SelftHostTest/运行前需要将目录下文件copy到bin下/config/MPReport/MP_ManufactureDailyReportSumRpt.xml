@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReportFullPathConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FullPathConfigs>
+    <item>
+      <key>
+        <string>DailyReportVoucher.VoucherDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.VoucherDate" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.Code" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefnvc1" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefnvc2" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefnvc3" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefnvc4" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefnvc5" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefnvc6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefnvc6" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefdecm1" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefdecm2" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefdecm3" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefdecm4" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefdecm5" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.priuserdefdecm6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.priuserdefdecm6" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefnvc1" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefnvc2" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefnvc3" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefnvc4" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefnvc5" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefnvc6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefnvc6" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefdecm1" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefdecm2" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefdecm3" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefdecm4" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefdecm5" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.pubuserdefdecm6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.pubuserdefdecm6" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher.Memo</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher.Memo" FullPathName="DailyReportDetail_DailyReportVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportVoucher_VoucherState.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportVoucher_VoucherState.Name" FullPathName="DailyReportDetail_DailyReportVoucher_VoucherState" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefnvc1" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefnvc2" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefnvc3" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefnvc4" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefnvc5" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefdecm1" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefdecm2" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefdecm3" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefdecm4" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.priuserdefdecm5" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.ID" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.Code" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Department.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Department.Name" FullPathName="DailyReportDetail_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.ManufactureOrderDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.ManufactureOrderDate" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.ManufactureOrderCode</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.ManufactureOrderCode" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Project.id</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Project.id" FullPathName="DailyReportDetail_Project" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Project.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Project.Name" FullPathName="DailyReportDetail_Project" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_InvClass.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_InvClass.ID" FullPathName="DailyReportDetail_Inventory_InvClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_InvClass.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_InvClass.Name" FullPathName="DailyReportDetail_Inventory_InvClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.ID" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Code" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Name" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Specification</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Specification" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc1" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc2" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc3" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc4" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc5" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm1" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm2" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm3" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm4" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm5" FullPathName="DailyReportDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem0</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem0" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem1" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem2" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem3" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem4" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem5" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem6" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem7</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem7" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem8</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem8" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.freeItem9</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.freeItem9" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_ProductInfo.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_ProductInfo.Name" FullPathName="DailyReportDetail_Inventory_ProductInfo" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.ID" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.Code" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.Name" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefnvc1" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefnvc2" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefnvc3" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefnvc4" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefnvc5" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefdecm1" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefdecm2" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefdecm3" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefdecm4" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcess.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ProductProcess.priuserdefdecm5" FullPathName="DailyReportDetail_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Clerk.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Clerk.ID" FullPathName="DailyReportDetail_Clerk" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Clerk.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Clerk.Code" FullPathName="DailyReportDetail_Clerk" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Clerk.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Clerk.Name" FullPathName="DailyReportDetail_Clerk" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.IsFinishProductProcess</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.IsFinishProductProcess" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.SaleOrderCode</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.SaleOrderCode" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefnvc1" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefnvc2" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefnvc3" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefnvc4" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefdecm1" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefdecm2" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefdecm3" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.priuserdefdecm4" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefnvc1" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefnvc2" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefnvc3" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefnvc4" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefdecm1" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefdecm2" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefdecm3" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.pubuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.pubuserdefdecm4" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BaseUnit.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="BaseUnit.ID" FullPathName="DailyReportDetail_BaseUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BaseUnit.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="BaseUnit.Name" FullPathName="DailyReportDetail_BaseUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.QualifiedBaseQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.QualifiedBaseQuantity" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.UnQualifiedBaseQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.UnQualifiedBaseQuantity" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.WasteSubQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.WasteSubQuantity" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.WasteBaseQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.WasteBaseQuantity" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SubUnit.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SubUnit.ID" FullPathName="DailyReportDetail_SubUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SubUnit.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SubUnit.Name" FullPathName="DailyReportDetail_SubUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.QualifiedSubQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.QualifiedSubQuantity" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.UnQualifiedSubQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.UnQualifiedSubQuantity" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DailyReportDetail.Amount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="DailyReportDetail.Amount" FullPathName="DailyReportDetail" />
+      </value>
+    </item>
+  </FullPathConfigs>
+</ReportFullPathConfig>

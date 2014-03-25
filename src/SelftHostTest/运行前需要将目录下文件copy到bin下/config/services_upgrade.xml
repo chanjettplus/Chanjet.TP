@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" ?>
+<services  domain="baseService" desc="基础服务">
+  <!-- 调度服务     mode = schedule 启动时加载至调度池,不需要服务接口,需要进行调度时间设置 -->
+  <!-- 持久服务     mode = persist  启动时加载,支持钝化 -->
+  <!-- 普通服务     mode = normal   由对象池管理其生存周期 -->
+
+  <!--升级服务start-->
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeHoldAuthService" className="Ufida.T.Tool.Upgrade.Service.UpgradeHoldAuthService"  desc="用户权限"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeCurrencyService" className="Ufida.T.Tool.Upgrade.Service.UpgradeCurrencyService"  desc="币种"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradePartnerClassService" className="Ufida.T.Tool.Upgrade.Service.UpgradePartnerClassService"  desc="往来单位分类"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradePartnerService" className="Ufida.T.Tool.Upgrade.Service.UpgradePartnerService"  desc="往来单位"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeUserDefineArticleDictService" className="Ufida.T.Tool.Upgrade.Service.UpgradeUserDefineArticleDictService"  desc="自定义档案分类"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"/>
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeUserDefineArticleService" className="Ufida.T.Tool.Upgrade.Service.UpgradeUserDefineArticleService"  desc="自定义档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeUserDefineArticleClassService" className="Ufida.T.Tool.Upgrade.Service.UpgradeUserDefineArticleClassService"  desc="自定义档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeCashFlowItemClassService" className="Ufida.T.Tool.Upgrade.Service.UpgradeCashFlowItemClassService"  desc="现金流量项目分类"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeCashFlowItemService" className="Ufida.T.Tool.Upgrade.Service.UpgradeCashFlowItemService"  desc="现金流量项目"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeAuxiliaryAccountingService" className="Ufida.T.Tool.Upgrade.Service.UpgradeAuxiliaryAccountingService"  desc="现金流量项目"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeDepartmentService" className="Ufida.T.Tool.Upgrade.Service.UpgradeDepartmentService"  desc="部门档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradePersonService" className="Ufida.T.Tool.Upgrade.Service.UpgradePersonService"  desc="人员档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeDistrictService" className="Ufida.T.Tool.Upgrade.Service.UpgradeDistrictService"  desc="地区档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeWarehouseService" className="Ufida.T.Tool.Upgrade.Service.UpgradeWarehouseService"  desc="仓库档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeExpenseItemService" className="Ufida.T.Tool.Upgrade.Service.UpgradeExpenseItemService"  desc="费用档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradePartnerClassService" className="Ufida.T.Tool.Upgrade.Service.UpgradePartnerClassService"  desc="往来单位分类档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradePartnerService" className="Ufida.T.Tool.Upgrade.Service.UpgradePartnerService"  desc="往来单位档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeInventoryClassService" className="Ufida.T.Tool.Upgrade.Service.UpgradeInventoryClassService"  desc="存货分类档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeInventoryService" className="Ufida.T.Tool.Upgrade.Service.UpgradeInventoryService"  desc="存货档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeAccountService" className="Ufida.T.Tool.Upgrade.Service.UpgradeAccountService"  desc="科目档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeDocTypeService" className="Ufida.T.Tool.Upgrade.Service.UpgradeDocTypeService"  desc="凭证类别档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeCommonSummaryService" className="Ufida.T.Tool.Upgrade.Service.UpgradeCommonSummaryService"  desc="常用摘要"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeSettleStyleService" className="Ufida.T.Tool.Upgrade.Service.UpgradeSettleStyleService"  desc="结算方式"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeUnitGroupService" className="Ufida.T.Tool.Upgrade.Service.UpgradeUnitGroupService"  desc="多计量"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeUnitService" className="Ufida.T.Tool.Upgrade.Service.UpgradeUnitService"  desc="单计量"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeReferenceDocService" className="Ufida.T.Tool.Upgrade.Service.UpgradeReferenceDocService"  desc="常用凭证"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeAccountPeriodBeginService" className="Ufida.T.Tool.Upgrade.Service.UpgradeAccountPeriodBeginService"  desc="科目期初"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeDocService" className="Ufida.T.Tool.Upgrade.Service.UpgradeDocService"  desc="凭证"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeRDRecordService" className="Ufida.T.Tool.Upgrade.Service.UpgradeRDRecordService"  desc="库存期初余额"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeBankAccountService" className="Ufida.T.Tool.Upgrade.Service.UpgradeBankAccountService"  desc="帐号"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeInvLocationService" className="Ufida.T.Tool.Upgrade.Service.UpgradeInvLocationService"  desc="存货档案"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeInventoryUserDefineService" className="Ufida.T.Tool.Upgrade.Service.UpgradeInventoryUserDefineService"  desc="存货自定义项"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeInventoryFreeItemService" className="Ufida.T.Tool.Upgrade.Service.UpgradeInventoryFreeItemService"  desc="存货自由项"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+  <service name="Ufida.T.Tool.Upgrade.Interface.IUpgradeDocUserDefineService" className="Ufida.T.Tool.Upgrade.Service.UpgradeDocUserDefineService"  desc="凭证自定义项"  loadFrom="server\Ufida.T.Tool.Upgrade.Service.dll" mode="normal"  />
+
+</services>

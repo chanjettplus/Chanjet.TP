@@ -1,0 +1,1301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReportFullPathConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FullPathConfigs>
+    <item>
+      <key>
+        <string>ConsignSettle.VoucherDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.VoucherDate" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.Code" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.TotalTaxAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.TotalTaxAmount" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_BusiType.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_BusiType.ID" FullPathName="ConsignSettleDetail_ConsignSettle_BusiType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_BusiType.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_BusiType.Name" FullPathName="ConsignSettleDetail_ConsignSettle_BusiType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_InvoiceType.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_InvoiceType.Name" FullPathName="ConsignSettleDetail_ConsignSettle_InvoiceType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.InvoiceNo</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.InvoiceNo" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_PartnerClass.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_PartnerClass.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_PartnerClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_PartnerClass.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_PartnerClass.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_PartnerClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.Code" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.PartnerAbbName</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.PartnerAbbName" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_District.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_District.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_District" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_District.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_District.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_District" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Department.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Department.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Department.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Department.Code" FullPathName="ConsignSettleDetail_ConsignSettle_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Department.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Department.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Clerk.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Clerk.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Clerk" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Clerk.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Clerk.Code" FullPathName="ConsignSettleDetail_ConsignSettle_Clerk" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Clerk.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Clerk.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Clerk" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Clerk.APBalance</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Clerk.APBalance" FullPathName="ConsignSettleDetail_ConsignSettle_Clerk" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_PayType.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_PayType.Name" FullPathName="ConsignSettleDetail_ConsignSettle_PayType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.PayDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.PayDate" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Currency.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Currency.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Currency" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Currency.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Currency.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Currency" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.ExchangeRate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.ExchangeRate" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.IsPriceCheck</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.IsPriceCheck" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.OrigPaymentCashAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.OrigPaymentCashAmount" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.OrigPaymentAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.OrigPaymentAmount" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.Memo</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.Memo" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.Maker</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.Maker" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.Reviser</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.Reviser" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.Auditor</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.Auditor" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.AuditedDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.AuditedDate" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_VoucherState.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_VoucherState.Name" FullPathName="ConsignSettleDetail_ConsignSettle_VoucherState" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_SettleState.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_SettleState.Name" FullPathName="ConsignSettleDetail_ConsignSettle_SettleState" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Project.id</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Project.id" FullPathName="ConsignSettleDetail_Project" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Project.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Project.Name" FullPathName="ConsignSettleDetail_Project" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SubUnit.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SubUnit.ID" FullPathName="ConsignSettleDetail_SubUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SubUnit.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SubUnit.Name" FullPathName="ConsignSettleDetail_SubUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SourceVoucherType.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SourceVoucherType.Name" FullPathName="ConsignSettleDetail_SourceVoucherType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SourceVoucherType.ModuleName</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SourceVoucherType.ModuleName" FullPathName="ConsignSettleDetail_SourceVoucherType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SourceVoucherType.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SourceVoucherType.Code" FullPathName="ConsignSettleDetail_SourceVoucherType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_InvClass.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_InvClass.ID" FullPathName="ConsignSettleDetail_Inventory_InvClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_InvClass.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_InvClass.Name" FullPathName="ConsignSettleDetail_Inventory_InvClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.ID" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Code" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Name" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Specification</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Specification" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.InventoryBarCode</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.InventoryBarCode" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.Quantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.Quantity" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.Quantity2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.Quantity2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Unit.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Unit.ID" FullPathName="ConsignSettleDetail_Unit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Unit.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Unit.Name" FullPathName="ConsignSettleDetail_Unit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Unit2.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Unit2.ID" FullPathName="ConsignSettleDetail_Unit2" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Unit2.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Unit2.Name" FullPathName="ConsignSettleDetail_Unit2" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.UnitExchangeRate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.UnitExchangeRate" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.Batch</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.Batch" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigPrice</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigPrice" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.DiscountRate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.DiscountRate" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigDiscountPrice</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigDiscountPrice" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.TaxRate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.TaxRate" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigTaxPrice</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigTaxPrice" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigDiscountAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigDiscountAmount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigTax</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigTax" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigTaxAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigTaxAmount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigDiscount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigDiscount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigDiscountPrice2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigDiscountPrice2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.DiscountPrice2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.DiscountPrice2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.DiscountPrice</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.DiscountPrice" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.DiscountAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.DiscountAmount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.Tax</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.Tax" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.TaxPrice</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.TaxPrice" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.TaxAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.TaxAmount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.Discount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.Discount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.OrigSettleAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.OrigSettleAmount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.SettleAmount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.SettleAmount" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.SourceVoucherCode</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.SourceVoucherCode" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.SourceVoucherId</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.SourceVoucherId" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.SaleOrderCode</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.SaleOrderCode" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.ID" FullPathName="ConsignSettleDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.Code" FullPathName="ConsignSettleDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.Name" FullPathName="ConsignSettleDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefnvc1" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefnvc2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefnvc3" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefnvc4" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefdecm1" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefdecm2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefdecm3" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.priuserdefdecm4" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefnvc1" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefnvc2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefnvc3" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefnvc4" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefdecm1" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefdecm2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefdecm3" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.pubuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.pubuserdefdecm4" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefnvc1" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefnvc2" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefnvc3" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefnvc4" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefnvc5" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefdecm1" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefdecm2" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefdecm3" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefdecm4" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.priuserdefdecm5" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefnvc1" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefnvc2" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefnvc3" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefnvc4" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefnvc5" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefnvc6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefnvc6" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefdecm1" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefdecm2" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefdecm3" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefdecm4" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefdecm5" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.priuserdefdecm6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.priuserdefdecm6" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefnvc1" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefnvc2" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefnvc3" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefnvc4" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefnvc5" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefnvc6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefnvc6" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefdecm1" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefdecm2" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefdecm3" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefdecm4" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefdecm5" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle.pubuserdefdecm6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle.pubuserdefdecm6" FullPathName="ConsignSettleDetail_ConsignSettle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc1" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc2" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc3" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc4" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc5" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm1" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm2" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm3" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm4" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm5" FullPathName="ConsignSettleDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem0</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem0" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem1" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem2" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem3" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem4" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem5" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem6" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem7</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem7" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem8</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem8" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettleDetail.freeItem9</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettleDetail.freeItem9" FullPathName="ConsignSettleDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_ProductInfo.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_ProductInfo.Name" FullPathName="ConsignSettleDetail_Inventory_ProductInfo" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner.BankAccount</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner.BankAccount" FullPathName="ConsignSettleDetail_ConsignSettle_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_SaleDepartment.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_SaleDepartment.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_SaleDepartment" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_SaleDepartment.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_SaleDepartment.Code" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_SaleDepartment" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_SaleDepartment.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_SaleDepartment.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_SaleDepartment" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_SaleMan.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_SaleMan.ID" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_SaleMan" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_SaleMan.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_SaleMan.Code" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_SaleMan" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignSettle_Partner_SaleMan.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ConsignSettle_Partner_SaleMan.Name" FullPathName="ConsignSettleDetail_ConsignSettle_Partner_SaleMan" />
+      </value>
+    </item>
+  </FullPathConfigs>
+</ReportFullPathConfig>

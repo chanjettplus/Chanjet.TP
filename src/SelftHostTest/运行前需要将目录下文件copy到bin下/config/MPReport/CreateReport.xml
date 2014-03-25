@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GetVoucherNameSQL=" select Name,Title+ '('+DTOName + ')' Title from  Eap_Voucher where DTOName in(SELECT Name FROM EAP_DTO where idPackage in (select ID  from eap_package where ns='Ufida.T.MP.DTO' ))" UseCodeAA="BOMDTO" UseNameAA="InventoryClassDTO,PartnerClassDTO,DistrictDTO,UnitDTO,ProjectDTO,RdStyleDTO,SettleStyleDTO,CostItemDTO,RoutingDTO,BusiTypeDTO,ExpenseItemDTO,CurrencyDTO,InvLocationDTO" UseCodeAndNameAA="DepartmentDTO,InventoryDTO,PersonDTO,WarehouseDTO,ProductProcessDTO,PartnerDTO">
+  <AliasConfigInfo>
+    <item>
+      <key>
+        <string>BankAccountDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="BankAccountDTO" DtoTitle="账号" AliasName="BankAccount" PhysicalTableName="AA_BankAccount" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BOMDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="BOMDTO" DtoTitle="物料清单" AliasName="BOM" PhysicalTableName="AA_BOM" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BOMChildDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="BOMChildDTO" DtoTitle="物料清单子件" AliasName="BOMChild" PhysicalTableName="AA_BOMChild" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BomRelationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="BomRelationDTO" DtoTitle="BOM关系表DTO" AliasName="BomRelation" PhysicalTableName="AA_BomRelation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BusiTypeDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="BusiTypeDTO" DtoTitle="业务类型" AliasName="BusiType" PhysicalTableName="AA_BusiType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>CostItemDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="CostItemDTO" DtoTitle="成本项目DTO" AliasName="CostItem" PhysicalTableName="AA_CostItem" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>CostItemExpensesDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="CostItemExpensesDTO" DtoTitle="成本项目对应费用" AliasName="CostItemExpenses" PhysicalTableName="AA_CostItemExpenses" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>CurrencyDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="CurrencyDTO" DtoTitle="币种" AliasName="Currency" PhysicalTableName="AA_Currency" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DepartmentDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="DepartmentDTO" DtoTitle="部门" AliasName="Department" PhysicalTableName="AA_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DistrictDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="DistrictDTO" DtoTitle="地区" AliasName="District" PhysicalTableName="AA_District" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>DocumentsUsageDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="DocumentsUsageDTO" DtoTitle="票据用途DTO" AliasName="DocumentsUsage" PhysicalTableName="AA_DocumentsUsage" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ExpenseItemDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ExpenseItemDTO" DtoTitle="费用" AliasName="ExpenseItem" PhysicalTableName="AA_ExpenseItem" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>IncomeDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="IncomeDTO" DtoTitle="收入" AliasName="Income" PhysicalTableName="AA_Income" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>InventoryDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="InventoryDTO" DtoTitle="存货" AliasName="Inventory" PhysicalTableName="AA_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>InvBarCodeDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="InvBarCodeDTO" DtoTitle="存货条形码" AliasName="InvBarCode" PhysicalTableName="AA_InventoryBarCode" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>InventoryClassDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="InventoryClassDTO" DtoTitle="存货分类" AliasName="InvClass" PhysicalTableName="AA_InventoryClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>InvLocationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="InvLocationDTO" DtoTitle="货位" AliasName="InvLocation" PhysicalTableName="AA_InventoryLocation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>InvUnitPriceDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="InvUnitPriceDTO" DtoTitle="存货单位价格" AliasName="InvUnitPrice" PhysicalTableName="AA_InventoryUnitPrice" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PartnerDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PartnerDTO" DtoTitle="往来单位" AliasName="Partner" PhysicalTableName="AA_Partner" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PartnerAddressDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PartnerAddressDTO" DtoTitle="往来单位联系方式" AliasName="PartnerAddress" PhysicalTableName="AA_PartnerAddress" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PartnerClassDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PartnerClassDTO" DtoTitle="往来单位分类" AliasName="PartnerClass" PhysicalTableName="AA_PartnerClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PartnerInventoryDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PartnerInventoryDTO" DtoTitle="往来单位存货" AliasName="PartnerInventory" PhysicalTableName="AA_PartnerInventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PersonDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PersonDTO" DtoTitle="员工" AliasName="Person" PhysicalTableName="AA_Person" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProductProcessDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ProductProcessDTO" DtoTitle="产品工序DTO" AliasName="ProductProcess" PhysicalTableName="AA_ProductProcess" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProjectDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ProjectDTO" DtoTitle="项目档案" AliasName="Project" PhysicalTableName="AA_Project" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ProjectClassDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ProjectClassDTO" DtoTitle="项目档案分类" AliasName="ProjectClass" PhysicalTableName="AA_ProjectClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>RdStyleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="RdStyleDTO" DtoTitle="出入库类别" AliasName="RdStyle" PhysicalTableName="AA_RDStyle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>RoutingDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="RoutingDTO" DtoTitle="工艺路线DTO" AliasName="Routing" PhysicalTableName="AA_Routing" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>RoutingDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="RoutingDetailDTO" DtoTitle="工艺路线明细DTO" AliasName="RoutingDetail" PhysicalTableName="AA_Routing_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SettleStyleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="SettleStyleDTO" DtoTitle="结算方式" AliasName="SettleStyle" PhysicalTableName="AA_SettleStyle" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>UnitDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="UnitDTO" DtoTitle="计量单位" AliasName="Unit" PhysicalTableName="AA_Unit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>UnitGroupDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="UnitGroupDTO" DtoTitle="计量单位组" AliasName="UnitGroup" PhysicalTableName="AA_UnitGroup" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>WarehouseDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="WarehouseDTO" DtoTitle="仓库" AliasName="Warehouse" PhysicalTableName="AA_Warehouse" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BackflushMaterialCheckVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="BackflushMaterialCheckVoucherDTO" DtoTitle="倒冲料盘存单DTO" AliasName="BackflushVoucher" PhysicalTableName="MP_BackflushMaterialCheckVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BackflushMaterialCheckVoucherDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="BackflushMaterialCheckVoucherDetailDTO" DtoTitle="倒冲料盘存单明细DTO" AliasName="BackflushDetail" PhysicalTableName="MP_BackflushMaterialCheckVoucher_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureOrderMaterialDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureOrderMaterialDetailDTO" DtoTitle="委外加工单材料信息DTO" AliasName="ConsignOrderMateDetail" PhysicalTableName="MP_ConsignManafactureOrder_Material" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureOrderDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureOrderDTO" DtoTitle="委外加工单DTO" AliasName="ConsignOrder" PhysicalTableName="MP_ConsignManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureOrderDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureOrderDetailDTO" DtoTitle="委外加工单产成品明细DTO" AliasName="ConsignOrderDetail" PhysicalTableName="MP_ConsignManufactureOrder_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureOrderEarnestMoneyDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureOrderEarnestMoneyDTO" DtoTitle="委外加工单订金多结算明细DTO" AliasName="ConsignOrderEarnestMoneyDetail" PhysicalTableName="MP_ConsignManufactureOrder_EarnestMoney" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureOrderSourceRelationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureOrderSourceRelationDTO" DtoTitle="委外加工单上游关系DTO" AliasName="ConsignManufactureOrderSourceRelation" PhysicalTableName="MP_ConsignManufactureOrder_SourceRelation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureOrderTraceDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureOrderTraceDetailDTO" DtoTitle="委外加工单产成品跟踪销售订单或预测单子表明细DTO" AliasName="ConsignManufactureOrderTraceDetail" PhysicalTableName="MP_ConsignManufactureOrder_Trace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureSettleVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureSettleVoucherDTO" DtoTitle="委外结算单DTO" AliasName="ConsignSettle" PhysicalTableName="MP_ConsignManufactureSettleVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureSettleVoucherDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureSettleVoucherDetailDTO" DtoTitle="委外结算单明细DTO" AliasName="ConsignSettleDetail" PhysicalTableName="MP_ConsignManufactureSettleVoucher_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureSettleVoucherPrePaymentDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureSettleVoucherPrePaymentDetailDTO" DtoTitle="委外结算单预付明细DTO" AliasName="ConsignPrePayment" PhysicalTableName="MP_ConsignManufactureSettleVoucher_PrePayment" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureSettleVoucherSettlementDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureSettleVoucherSettlementDetailDTO" DtoTitle="委外结算单现结明细DTO" AliasName="ConsignSettelment" PhysicalTableName="MP_ConsignManufactureSettleVoucher_Settlement" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureSettleVoucherSourceRelationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureSettleVoucherSourceRelationDTO" DtoTitle="委外结算单上游关系DTO" AliasName="ConsignManufactureSettleVoucherSourceRelation" PhysicalTableName="MP_ConsignManufactureSettleVoucher_SourceRelation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ConsignManufactureSettleVoucherTraceDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ConsignManufactureSettleVoucherTraceDetailDTO" DtoTitle="委外结算单跟踪销售订单或预测单子表明细DTO" AliasName="ConsignManufactureSettleVoucherTraceDetail" PhysicalTableName="MP_ConsignManufactureSettleVoucher_Trace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureCostBOMTreeDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureCostBOMTreeDTO" DtoTitle="生产成本BOM树DTO" AliasName="CostBOMTree" PhysicalTableName="MP_CostBOMTree" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureCostDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureCostDetailDTO" DtoTitle="产品材料明细DTO" AliasName="CostDetail" PhysicalTableName="MP_CostDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureCostVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureCostVoucherDTO" DtoTitle="成本核算单DTO" AliasName="CostVoucher" PhysicalTableName="MP_CostVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureCostVoucherDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureCostVoucherDetailDTO" DtoTitle="成本核算单明细DTO" AliasName="CostVoucherDetail" PhysicalTableName="MP_CostVoucher_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureCostVoucherItemDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureCostVoucherItemDetailDTO" DtoTitle="成本核算单项目明细DTO" AliasName="CostVoucherItemDetail" PhysicalTableName="MP_CostVoucher_Item" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureCostVoucherParameterDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureCostVoucherParameterDTO" DtoTitle="成本核算参数DTO" AliasName="CostVoucherParameter" PhysicalTableName="MP_CostVoucherParameter" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureExpenseAllocationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureExpenseAllocationDTO" DtoTitle="生产费用分摊结果DTO" AliasName="ExpenseAllocation" PhysicalTableName="MP_ExpenseAllocation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureExpenseAllocationDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureExpenseAllocationDetailDTO" DtoTitle="生产费用分摊结果明细DTO" AliasName="ExpenseAllocationDetail" PhysicalTableName="MP_ExpenseAllocation_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureExpenseSetDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureExpenseSetDTO" DtoTitle="生产费用录入DTO" AliasName="ExpenseSet" PhysicalTableName="MP_ExpenseSet" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureExpenseSetDepartmentDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureExpenseSetDepartmentDTO" DtoTitle="生产费用录入部门明细DTO" AliasName="ExpenseSetDepartment" PhysicalTableName="MP_ExpenseSet_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>IntendSaleOrderDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="IntendSaleOrderDTO" DtoTitle="预测单DTO" AliasName="IntendSaleOrder" PhysicalTableName="MP_IntendSaleOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>IntendSaleOrderDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="IntendSaleOrderDetailDTO" DtoTitle="预测单明细DTO" AliasName="IntendSaleOrderDetail" PhysicalTableName="MP_IntendSaleOrder_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureDailyReportDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureDailyReportDTO" DtoTitle="生产日报DTO" AliasName="DailyReportVoucher" PhysicalTableName="MP_ManufactureDailyReport" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureDailyReportDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureDailyReportDetailDTO" DtoTitle="生产日报明细DTO" AliasName="DailyReportDetail" PhysicalTableName="MP_ManufactureDailyReport_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureDailyReportTaceDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureDailyReportTaceDetailDTO" DtoTitle="生产日报跟踪销售订单或预测单子表明细DTO" AliasName="DailyReportTrace" PhysicalTableName="MP_ManufactureDailyReport_Trace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureOrderDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureOrderDTO" DtoTitle="生产加工单DTO" AliasName="ManuOrder" PhysicalTableName="MP_ManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureOrderDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureOrderDetailDTO" DtoTitle="生产加工单产成品明细DTO" AliasName="ManuOrderDetail" PhysicalTableName="MP_ManufactureOrder_b" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureOrderMaterialDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureOrderMaterialDetailDTO" DtoTitle="生产加工单材料信息DTO" AliasName="ManuOrderMateDetail" PhysicalTableName="MP_ManufactureOrder_Material" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureOrderSourceRelationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureOrderSourceRelationDTO" DtoTitle="生产加工单上游关系DTO" AliasName="ManuOrderSourceRelation" PhysicalTableName="MP_ManufactureOrder_SourceRelation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureOrderTraceDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureOrderTraceDetailDTO" DtoTitle="生产加工单产成品跟踪销售订单或预测单子表明细DTO" AliasName="ManufactureOrderTrace" PhysicalTableName="MP_ManufactureOrder_Trace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManufactureOrderWorkingProcedureDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="ManufactureOrderWorkingProcedureDetailDTO" DtoTitle="生产加工单工序明细DTO" AliasName="ManuOrderWorkDetail" PhysicalTableName="MP_ManufactureOrder_WorkingProcedure" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpConsignSuggestionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpConsignSuggestionDTO" DtoTitle="MRP委外建议DTO" AliasName="MrpConsignSuggestion" PhysicalTableName="MP_MRP_ConsignSuggestion" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpConsignSuggestionSourceTraceDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpConsignSuggestionSourceTraceDTO" DtoTitle="MRP生产委外建议订单/预测单跟踪明细DTO" AliasName="MrpConsignSuggestionSourceTrace" PhysicalTableName="MP_Mrp_ConsignSuggestionSourceTrace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpConSuggestion2ConOrderDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpConSuggestion2ConOrderDTO" DtoTitle="MRP委外建议生成委外加工单DTO" AliasName="MrpConSuggestion2ConOrder" PhysicalTableName="MP_MRP_ConSuggestion2ConOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpConTransferPurchaseDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpConTransferPurchaseDTO" DtoTitle="MRP委外建议转采购建议DTO" AliasName="MrpConTransferPurchase" PhysicalTableName="MP_MRP_ConTransferPurchase" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpGeneratePurchaseOrderRuleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpGeneratePurchaseOrderRuleDTO" DtoTitle="MRP生成采购订单规则DTO" AliasName="MrpGeneratePurchaseOrderRule" PhysicalTableName="MP_MRP_GeneratePurchaseOrderRule" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpGeneratePurchaseRequisitionRuleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpGeneratePurchaseRequisitionRuleDTO" DtoTitle="MRP生成请购单规则DTO" AliasName="MrpGeneratePurchaseRequisitionRule" PhysicalTableName="MP_MRP_GeneratePurchaseRequisitionRule" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpManufacturerSourceTraceDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpManufacturerSourceTraceDTO" DtoTitle="MRP生产建议订单/预测单跟踪明细DTO" AliasName="MrpManufacturerSourceTrace" PhysicalTableName="MP_Mrp_ManufacturerSourceTrace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpManufactureSuggestionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpManufactureSuggestionDTO" DtoTitle="MRP生产建议DTO" AliasName="MrpManufactureSuggestion" PhysicalTableName="MP_MRP_ManufactureSuggestion" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpManuSugg2ManuOrderDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpManuSugg2ManuOrderDTO" DtoTitle="MRP生产建议生成生产加工单DTO" AliasName="MrpManuSugg2ManuOrder" PhysicalTableName="MP_MRP_ManuSuggestion2ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpManuTransferConsignDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpManuTransferConsignDTO" DtoTitle="MRP生产建议转委外建议DTO" AliasName="MrpManuTransferConsign" PhysicalTableName="MP_MRP_ManuTransferConsign" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpManuTransferPurchaseDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpManuTransferPurchaseDTO" DtoTitle="MRP生产建议转采购建议DTO" AliasName="MrpManuTransferPurchase" PhysicalTableName="MP_MRP_ManuTransferPurchase" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpComputeVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpComputeVoucherDTO" DtoTitle="MRP运算单DTO" AliasName="MrpComputeVoucher" PhysicalTableName="MP_MRP_MrpComputeVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpGenerateConsignOrderRuleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpGenerateConsignOrderRuleDTO" DtoTitle="MRP生成委外加工单规则DTO" AliasName="MrpGenerateConsignOrderRule" PhysicalTableName="MP_MRP_MrpGenerateConsignManufacturerOrderRule" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpGenerateManuOrderRuleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpGenerateManuOrderRuleDTO" DtoTitle="MRP生成生产加工单规则DTO" AliasName="MrpGenerateManuOrderRule" PhysicalTableName="MP_MRP_MrpGenerateManufacturerOrderRule" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpOptionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpOptionDTO" DtoTitle="MRP运算参数选项DTO" AliasName="MrpOption" PhysicalTableName="MP_MRP_MrpOption" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpResultDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpResultDTO" DtoTitle="MRP运算结果DTO" AliasName="MrpResult" PhysicalTableName="MP_MRP_MrpResult" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpWarehouseDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpWarehouseDTO" DtoTitle="MRP参与MRP运算的仓库DTO" AliasName="MrpWarehouse" PhysicalTableName="MP_MRP_MrpWarehouse" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpPurchaseSuggestionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpPurchaseSuggestionDTO" DtoTitle="MRP采购建议DTO" AliasName="MrpPurchaseSuggestion" PhysicalTableName="MP_MRP_PurchaseSuggestion" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpPurchaseSuggestionSourceTraceDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpPurchaseSuggestionSourceTraceDTO" DtoTitle="MRP采购建议订单/预测单跟踪明细DTO" AliasName="MrpPurchaseSuggestionSourceTrace" PhysicalTableName="MP_Mrp_PurchaseSuggestionSourceTrace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpPurSuggestion2PurOrderDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpPurSuggestion2PurOrderDTO" DtoTitle="MRP采购建议生成采购订单DTO" AliasName="MrpPurSuggestion2PurOrder" PhysicalTableName="MP_MRP_PurSuggestion2PurOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpPurSuggestion2PurRequisitionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpPurSuggestion2PurRequisitionDTO" DtoTitle="MRP采购建议生成请购单DTO" AliasName="MrpPurSuggestion2PurRequisition" PhysicalTableName="MP_MRP_PurSuggestion2PurRequisition" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpResultSourceTraceDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpResultSourceTraceDTO" DtoTitle="MRP运算结果订单/预测单跟踪明细DTO" AliasName="MrpResultSourceTrace" PhysicalTableName="MP_Mrp_ResultSourceTrace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpSuggestionSourceRelationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpSuggestionSourceRelationDTO" DtoTitle="MRP建议来源关系DTO" AliasName="MrpSuggestionSourceRelation" PhysicalTableName="MP_MRP_SuggestionSourceRelation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MrpVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="MrpVoucherDTO" DtoTitle="MRP单据DTO" AliasName="MrpVoucher" PhysicalTableName="MP_MRP_Voucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraGeneratePurchaseOrderRuleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraGeneratePurchaseOrderRuleDTO" DtoTitle="采购需求分析生成采购订单规则DTO" AliasName="PraPurchaseOrderRule" PhysicalTableName="MP_PRA_GeneratePurchaseOrderRule" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraGeneratePurchaseRequisitionRuleDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraGeneratePurchaseRequisitionRuleDTO" DtoTitle="采购需求分析生成请购单规则DTO" AliasName="PraPurchaseRequisitionRule " PhysicalTableName="MP_PRA_GeneratePurchaseRequisitionRule" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraComputeVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraComputeVoucherDTO" DtoTitle="Pra运算单据DTO" AliasName="PraComputeVoucher" PhysicalTableName="MP_PRA_PraComputeVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraOptionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraOptionDTO" DtoTitle="Pra运算参数选项DTO" AliasName="PraOption" PhysicalTableName="MP_PRA_PraOption" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraResultDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraResultDTO" DtoTitle="Pra运算结果DTO" AliasName="PraResult" PhysicalTableName="MP_PRA_PraResult" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraWarehouseDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraWarehouseDTO" DtoTitle="参与采购需求分析的仓库DTO" AliasName="PraWarehouse" PhysicalTableName="MP_PRA_PraWarehouse" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraPurchaseSuggestionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraPurchaseSuggestionDTO" DtoTitle="Pra采购建议DTO" AliasName="PraPurchaseSuggestion" PhysicalTableName="MP_PRA_PurchaseSuggestion" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraPurchaseSuggestionSourceTraceDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraPurchaseSuggestionSourceTraceDTO" DtoTitle="订单/预测单跟踪明细DTO" AliasName="PraPurchaseSuggestionSourceTrace" PhysicalTableName="MP_Pra_PurchaseSuggestionSourceTrace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraPurSuggestion2PurOrderDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraPurSuggestion2PurOrderDTO" DtoTitle="采购建议生成采购订单DTO" AliasName="PraPurSuggestion2PurOrder" PhysicalTableName="MP_PRA_PurSuggestion2PurOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraPurSuggestion2PurRequisitionDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraPurSuggestion2PurRequisitionDTO" DtoTitle="Pra采购建议生成请购单DTO" AliasName="PraPurSuggestion2PurRequisition" PhysicalTableName="MP_PRA_PurSuggestion2PurRequisition" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraResultSourceTraceDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraResultSourceTraceDTO" DtoTitle="Pra运算结果订单/预测单跟踪来源关系DTO" AliasName="PraResultSourceTrace" PhysicalTableName="MP_Pra_ResultSourceTrace" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraSourceTypeDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraSourceTypeDTO" DtoTitle="PRA运算来源DTO" AliasName="PraSourceType" PhysicalTableName="MP_PRA_SourceType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraSuggestionSourceRelationDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraSuggestionSourceRelationDTO" DtoTitle="PRA建议来源关系DTO" AliasName="PraSuggestionSourceRelation" PhysicalTableName="MP_PRA_SuggestionSourceRelation" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>PraVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="PraVoucherDTO" DtoTitle="Pra单据DTO" AliasName="PraVoucher" PhysicalTableName="MP_PRA_Voucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>WorkCheckVoucherDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="WorkCheckVoucherDTO" DtoTitle="在产品盘存单DTO" AliasName="WorkCheckVoucher" PhysicalTableName="MP_WorkCheckVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>WorkCheckVoucherDetailDTO</string>
+      </key>
+      <value>
+        <AliasConfig DtoName="WorkCheckVoucherDetailDTO" DtoTitle="在产品盘存单明细DTO" AliasName="WorkCheckVoucherDetail" PhysicalTableName="MP_WorkCheckVoucher_b" />
+      </value>
+    </item>
+  </AliasConfigInfo>
+  <DtoVoucherNameInfo />
+  <ReportList>
+    <item>
+      <key>
+        <string>MP_IntendSaleOrderDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_IntendSaleOrderDetailRpt" ReportTitle="预测单明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3001" MainDTO="IntendSaleOrderDetailDTO" VoucherName="IntendSaleOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureOrderDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureOrderDetailRpt" ReportTitle="生产加工单产成品明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3005" MainDTO="ManufactureOrderDetailDTO" VoucherName="ManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureOrderMaterialDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureOrderMaterialDetailRpt" ReportTitle="生产加工单材料明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3010" MainDTO="ManufactureOrderMaterialDetailDTO" VoucherName="ManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureOrderWorkingProcedureDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureOrderWorkingProcedureDetailRpt" ReportTitle="生产加工单工序明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3015" MainDTO="ManufactureOrderWorkingProcedureDetailDTO" VoucherName="ManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureDailyReportDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureDailyReportDetailRpt" ReportTitle="工序日报明细表" ReportType="0" ReportStyle="0" ReportKind="0" MenuCode="MP3020" MainDTO="ManufactureDailyReportDetailDTO" VoucherName="ManufactureDailyReport" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ConsignManufactureOrderDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ConsignManufactureOrderDetailRpt" ReportTitle="委外加工单产成品明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3025" MainDTO="ConsignManufactureOrderDetailDTO" VoucherName="ConsignManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ConsignManafactureOrderMaterialDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ConsignManafactureOrderMaterialDetailRpt" ReportTitle="委外加工单材料明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3030" MainDTO="ConsignManufactureOrderMaterialDetailDTO" VoucherName="ConsignManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ConsignManufactureSettleVoucherDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ConsignManufactureSettleVoucherDetailRpt" ReportTitle="委外结算单明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3035" MainDTO="ConsignManufactureSettleVoucherDetailDTO" VoucherName="ConsignManufactureSettleVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_WorkCheckVoucherDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_WorkCheckVoucherDetailRpt" ReportTitle="在产品盘存单明细表" ReportType="0" ReportStyle="0" ReportKind="1" MenuCode="MP3045" MainDTO="WorkCheckVoucherDetailDTO" VoucherName="WorkCheckVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_BackflushMaterialCheckVoucherDetailRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_BackflushMaterialCheckVoucherDetailRpt" ReportTitle="倒冲料盘存单明细表" ReportType="0" ReportStyle="0" ReportKind="0" MenuCode="MP3040" MainDTO="BackflushMaterialCheckVoucherDetailDTO" VoucherName="BackflushMaterialCheckVoucher" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureOrderSumRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureOrderSumRpt" ReportTitle="生产加工单产成品统计表" ReportType="1" ReportStyle="1" ReportKind="0" MenuCode="MP4005" MainDTO="ManufactureOrderDetailDTO" VoucherName="ManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureOrderMaterialSumRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureOrderMaterialSumRpt" ReportTitle="生产加工单材料统计表" ReportType="1" ReportStyle="1" ReportKind="0" MenuCode="MP4010" MainDTO="ManufactureOrderMaterialDetailDTO" VoucherName="ManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureOrderWorkingProcedureSumRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureOrderWorkingProcedureSumRpt" ReportTitle="生产加工单工序统计表" ReportType="1" ReportStyle="1" ReportKind="0" MenuCode="MP4015" MainDTO="ManufactureOrderWorkingProcedureDetailDTO" VoucherName="ManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ManufactureDailyReportSumRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ManufactureDailyReportSumRpt" ReportTitle="工序日报统计表" ReportType="1" ReportStyle="1" ReportKind="0" MenuCode="MP4020" MainDTO="ManufactureDailyReportDetailDTO" VoucherName="ManufactureDailyReport" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ConsignManufactureOrderSumRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ConsignManufactureOrderSumRpt" ReportTitle="委外加工单产成品统计表" ReportType="1" ReportStyle="1" ReportKind="0" MenuCode="MP4025" MainDTO="ConsignManufactureOrderDetailDTO" VoucherName="ConsignManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ConsignManufactureOrderMaterialSunRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ConsignManufactureOrderMaterialSunRpt" ReportTitle="委外加工单材料统计表" ReportType="1" ReportStyle="1" ReportKind="0" MenuCode="MP4030" MainDTO="ConsignManufactureOrderMaterialDetailDTO" VoucherName="ConsignManufactureOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>MP_ConsignManufactureSettleVoucherSumRpt</string>
+      </key>
+      <value>
+        <ReportConfig ReportName="MP_ConsignManufactureSettleVoucherSumRpt" ReportTitle="委外结算统计表" ReportType="1" ReportStyle="1" ReportKind="0" MenuCode="MP4035" MainDTO="ConsignManufactureSettleVoucherDetailDTO" VoucherName="ConsignManufactureSettleVoucher" />
+      </value>
+    </item>
+  </ReportList>
+  <LastLevelIdentifyList />
+</Config>

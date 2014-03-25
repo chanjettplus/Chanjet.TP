@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" ?>
+<services  domain="baseService" desc="基础服务">  
+   <load fileName="services_eap.xml" />
+   <load fileName="services_bap.xml" />
+   <load fileName="services_scm.xml" />
+   <load fileName="services_mp.xml" />
+   <load fileName="services_fi.xml" />
+   <load fileName="services_dr.xml" />
+   <load fileName="services_mb.xml" />
+   <load fileName="services_Sync.xml" />
+</services>

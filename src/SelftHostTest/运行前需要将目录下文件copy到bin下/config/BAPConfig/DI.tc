@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SubSystem name="DI" dtoAssembly="Ufida.T.DI.DTO" interfaceAssembly="Ufida.T.DI.Interface" version="11.300.000.000" toolVersion="1.0.00.000">
+  <Modules>
+    <Module dtoName="Ufida.T.DI.DTO.StockSalesReportDTO" interfaceName="Ufida.T.DI.Interface.IStockSalesReportService" name="DI25">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idperson" authObject="PersonDTO" type="1" />
+          <Property name="idcustomer" authObject="PartnerDTO" type="1" />
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idstockSalesReportDTO" belongTo="Ufida.T.DI.DTO.StockSalesReportDetailDTO" />
+        </Scenario>
+          <Scenario name="findList">
+              <Property name="StockSalesReport.idperson" authObject="PersonDTO" type="4" belongTo="Ufida.T.DI.DTO.StockSalesReportDetailDTO" />
+              <Property name="StockSalesReport.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.DI.DTO.StockSalesReportDetailDTO" />
+              <Property name="StockSalesReport.idcustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.DI.DTO.StockSalesReportDetailDTO" />
+              <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.DI.DTO.StockSalesReportDetailDTO"/>
+          </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.DI.DTO.DistributionDTO" interfaceName="Ufida.T.DI.Interface.IDistributionService" name="DI20">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idcustomer" authObject="PartnerDTO" type="1" />
+          <Property name="idStore" authObject="StoreDTO" type="1" />
+          <Property name="idinWarehouse" authObject="WarehouseDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="iddistributionDTO" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO" />
+          <!--<Property name="idproject" authObject="ProjectDTO" type="2" relationNameWithHead="iddistributionDTO" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO" />-->
+        </Scenario>
+        <Scenario name="findList">
+          <Property name="Distribution.idcustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>
+          <Property name="Distribution.idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>
+          <Property name="Distribution.idinWarehouse" authObject="WarehouseDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO" />
+          <Property name="idinventory" authObject="InventoryDTO" type="4"  belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>
+          <!--<Property name="idproject" authObject="ProjectDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>-->
+        </Scenario>
+        <Scenario name="findPageByGenerateVoucher">
+          <Property name="idcustomer" authObject="PartnerDTO" type="1" />
+          <Property name="idStore" authObject="StoreDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="iddistributionDTO" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO" />
+        </Scenario>
+        <Scenario name="selectVoucher">
+          <Property name="Distribution.idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>
+          <Property name="Distribution.idcustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>
+          <!--<Property name="idoutWarehouse" authObject="WarehouseDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>
+          <Property name="idproject" authObject="ProjectDTO" type="4" belongTo="Ufida.T.DI.DTO.DistributionDetailDTO"/>-->
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.DI.DTO.StockRequestDTO" interfaceName="Ufida.T.DI.Interface.IStockRequestService" name="DI15">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idperson" authObject="PersonDTO" type="1" />
+          <Property name="iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="idStore" authObject="StoreDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idstockRequestDTO" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO" />
+        </Scenario>
+          <Scenario name="findList">
+          <Property name="StockRequest.idperson" authObject="PersonDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO" />
+          <Property name="StockRequest.iddepartment" authObject="DepartmentDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+          <Property name="StockRequest.idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+        </Scenario>
+        <Scenario name="selectVoucher">
+          <Property name="StockRequest.iddepartment" authObject="DepartmentDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+          <Property name="StockRequest.idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+        </Scenario>
+         <Scenario name="selectVoucherByRelation">
+           <Property name="StockRequest.idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+        </Scenario>
+            <Scenario name="GerPendingBiz">
+          <Property name="StockRequest.idStore" authObject="StoreDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"  />
+           <Property name="StockRequest.iddepartment" authObject="DepartmentDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO" />
+           <Property name="StockRequest.idwarehouse" authObject="WarehouseDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO" />
+           <Property name="idinventory" authObject="InventoryDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+        </Scenario>
+        <Scenario name="GerForcastWarning">
+          <Property name="StockRequest.idStore" authObject="StoreDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"  />
+           <Property name="StockRequest.iddepartment" authObject="DepartmentDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO" />
+           <Property name="idinventory" authObject="InventoryDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO"/>
+           <Property name="StockRequest.idperson" authObject="PersonDTO" type="5" belongTo="Ufida.T.DI.DTO.StockRequestDetailDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.DI.DTO.RunShopLineDetailDTO" interfaceName="Ufida.T.DI.Interface.IRunShopLineCard" name="DI0515">
+      <DataAuth>
+        <Scenario name="findRecord">
+          <Property name="idperson" authObject="PersonDTO" type="1" />
+          <Property name="idPartner" authObject="PartnerDTO" type="1" />
+          <Property name="idStore" authObject="StoreDTO" type="1" />
+        </Scenario>
+         <Scenario name="findLine">
+          <Property name="idPartner" authObject="PartnerDTO" type="1" />
+          <Property name="idStore" authObject="StoreDTO" type="1" />
+        </Scenario>
+     </DataAuth>
+    </Module>
+  </Modules>
+</SubSystem>

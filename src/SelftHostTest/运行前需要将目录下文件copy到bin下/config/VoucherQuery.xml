@@ -1,0 +1,1063 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--  -->
+<Config>
+
+<!-- 
+id：单据对应于UA_VoucherType表中的ID
+code：菜单CODE，为扩展目前没有用到，可不填写
+
+findPageMethodName：分页查找的方法名称
+findPageParaType：分页查找的参数类型，默认为1
+
+findTableMethodName： 查找Table的方法名称
+findTableParaType：查找Table的参数类型，默认为1
+
+interface： 接口DLL程序集名称
+interfaceName： 接口类名称
+
+departmentAlias：部门的别名。对应于单据表中的具体字段
+partnerAlias：往来的别名。对应于单据表中的具体字段
+personAlias：人员的别名。对应于单据表中的具体字段
+voucherStateAlias：单据状态的别名。对应于单据表中的具体字段
+voucherTypeAlias:单据类型的别名。
+注意：如果单据中没有以上4个字段，则其值为""
+
+dtoName: 单据对应DTO的名称
+tableName: 单据对应的数据库表名称
+-->
+
+
+<!-- *****************采购模块******************* -->
+<!-- 期初进货单、采购订单、进货单、采购发票  -->
+<!-- PurchaseArrivalPeriodStart 采购模块期初进货单 -->
+<VoucherQuery 
+    id="8813103D-65D9-4B58-8888-DBD028D4005F"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.PU.Interface" 
+    interfaceName="Ufida.T.PU.Interface.IPurchaseOrigArrival"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias="" 
+    
+    dtoName="PurchaseArrivalDTO"
+    tableName="PU_PurchaseArrival"
+    >
+</VoucherQuery>
+  
+ <!-- PurchaseOrder VoucherQuery 采购模块采购订单 -->
+<VoucherQuery 
+    id="33D9EACD-AC90-45C4-A63C-2A65A1CEF7A0"  
+    code="PU02"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindAll"
+    findTableParaType="1" 
+
+    interface="Ufida.T.PU.Interface" 
+    interfaceName="Ufida.T.PU.Interface.IPurchaseOrder"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+    
+    dtoName="PurchaseOrderDTO"
+    tableName="PU_PurchaseOrder"
+    >
+
+</VoucherQuery>
+  
+ <!-- PurchaseArrival VoucherQuery  采购模块进货单-->
+<VoucherQuery 
+    id="5399D7A6-8B61-459A-AC53-5C208D1BC871"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="2" 
+
+    interface="Ufida.T.PU.Interface" 
+    interfaceName="Ufida.T.PU.Interface.IPurchaseArrival"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+  
+    dtoName="PurchaseArrivalDTO"
+    tableName="PU_PurchaseArrival"
+    >
+
+</VoucherQuery>
+  
+<!-- PurchaseInvoice 采购模块采购发票 -->
+<VoucherQuery 
+    id="267210C0-CD76-404B-B311-BB89CE8EC7D2"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindAll"
+    findTableParaType="1" 
+
+    interface="Ufida.T.PU.Interface" 
+    interfaceName="Ufida.T.PU.Interface.IPurchaseInvoice"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+
+    dtoName="PurchaseInvoiceDTO"
+    tableName="PU_PurchaseInvoice"
+    >
+
+</VoucherQuery>
+
+<!-- *************** 期初销货单、销售订单、销货单、销售发票、销售费用分摊单*************************************** -->
+
+<!-- OrigSaleDelivery  销售模块期初销货单-->
+<VoucherQuery 
+    id="201720E7-82F9-4C1F-AEA9-0892A121EACD"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.SA.Interface" 
+    interfaceName="Ufida.T.SA.Interface.ISaleDeliveryService"
+
+    departmentAlias="Department"
+    partnerAlias="Customer" 
+    personAlias="Clerk" 
+    voucherStateAlias="State"
+    voucherTypeAlias=""
+    
+    dtoName="SaleDeliveryDTO"
+    tableName="SA_SaleDelivery"
+    >
+    <!-- 特殊处理-->
+
+</VoucherQuery>
+
+<!-- SaleOrder VoucherQuery 销售模块销售订单 -->
+<VoucherQuery 
+    id="DD4F2C12-2BA7-4A04-9E4D-4F5D42A0C193"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.SA.Interface" 
+    interfaceName="Ufida.T.SA.Interface.ISaleOrderService"
+
+    departmentAlias="Department"
+    partnerAlias="Customer" 
+    personAlias="Clerk" 
+    voucherStateAlias="State"
+    voucherTypeAlias=""
+
+    dtoName="SaleOrderDTO"
+    tableName="SA_SaleOrder"
+    >
+
+</VoucherQuery>
+
+<!-- SaleDelivery VoucherQuery  销售模块销货单-->
+<VoucherQuery 
+    id="5794D3DD-7FE4-4B5C-AF53-D21DDC13BF16"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.SA.Interface" 
+    interfaceName="Ufida.T.SA.Interface.ISaleDeliveryService"
+
+    departmentAlias="Department"
+    partnerAlias="Customer" 
+    personAlias="Clerk" 
+    voucherStateAlias="State" 
+    voucherTypeAlias=""
+    
+    dtoName="SaleDeliveryDTO"
+    tableName="SA_SaleDelivery"
+    >
+    <!-- 特殊处理-->
+
+</VoucherQuery>
+
+<!-- SaleInvoice VoucherQuery 销售模块销售发票 -->
+<VoucherQuery 
+    id="314949E5-47D0-494A-B764-1E2751F88788"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.SA.Interface" 
+    interfaceName="Ufida.T.SA.Interface.ISaleInvoiceService"
+
+    departmentAlias="Department"
+    partnerAlias="Customer" 
+    personAlias="Clerk" 
+    voucherStateAlias="State"
+    voucherTypeAlias=""
+    
+    dtoName="SaleInvoiceDTO"
+    tableName="SA_SaleInvoice"
+    >
+
+</VoucherQuery>
+
+<!-- SaleExpenseAllocation VoucherQuery 销售模块销售费用分摊单 -->
+<VoucherQuery 
+    id="3EBC9224-CB17-4982-BFA5-0121525DA61D"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.SA.Interface" 
+    interfaceName="Ufida.T.SA.Interface.ISaleExpenseAllocationService"
+
+    departmentAlias=""
+    partnerAlias="" 
+    personAlias="" 
+    voucherStateAlias=""
+    voucherTypeAlias=""
+    
+    dtoName="SaleExpenseAllocationDTO"
+    tableName="SA_SaleExpenseAllocation"
+    >
+
+</VoucherQuery>
+
+<!--  *****************************************************业务来往模块*************************************************************-->
+<!--  **************收款单、付款单、汇兑损益调整单、往来冲销单（预收冲应收、预付冲应付、应收冲应收、应付冲应付、应收冲应付）********-->
+
+<!-- ReceiveVoucher 业务来往模块收款单  -->
+<VoucherQuery 
+    id="82CB65E8-12AB-4559-9AC6-B660A3D18E15"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapReceivePayment"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Person" 
+    voucherStateAlias=""
+    voucherTypeAlias=""
+
+    dtoName="ArapReceivePaymentDTO"
+    tableName="ARAP_ReceivePayment"
+    >
+
+</VoucherQuery>
+
+<!-- PaymentVoucher  业务来往模块付款单 -->
+<VoucherQuery 
+    id="552ED4F9-A784-4C6B-AFCF-BBE77F9AFDCD"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapReceivePayment"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Person" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+
+    dtoName="ArapReceivePaymentDTO"
+    tableName="ARAP_ReceivePayment"
+    >
+
+</VoucherQuery>
+
+<!-- ExchangeAdjust  业务来往模块汇兑损益调整单 -->
+<VoucherQuery 
+    id="6267A967-A494-4C8C-8A75-DCFAF27E4357"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapExchangeAdjust"
+
+    departmentAlias=""
+    partnerAlias="" 
+    personAlias="" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+
+    dtoName="ArapExchangeAdjustDTO"
+    tableName="ARAP_ExchangeAdjust"
+    >
+
+</VoucherQuery>
+
+<!-- StrikeBalanceAdvReceiveAr  业务来往模块预收冲应收  -->
+<VoucherQuery 
+    id="0A6377A7-B4DD-4894-B134-C2D0A8E37B58"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalance"
+
+    departmentAlias=""
+    partnerAlias="firstPartner" 
+    personAlias="" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+
+    dtoName="ArapStrikeBalanceDTO"
+    tableName="ARAP_StrikeBalance"
+    >
+
+</VoucherQuery>
+
+<!-- StrikeBalanceAdvPaymentAp  业务来往模块预付冲应付  -->
+<VoucherQuery 
+    id="D6E84177-11E2-4187-BE88-C340BAD1FAFA"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalance"
+
+    departmentAlias=""
+    partnerAlias="firstPartner" 
+    personAlias="" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+
+    dtoName="ArapStrikeBalanceDTO"
+    tableName="ARAP_StrikeBalance"
+    >
+
+</VoucherQuery>
+
+<!-- StrikeBalanceArAr   业务来往模块应收冲应收-->
+<VoucherQuery 
+    id="7DFBC113-DAC5-402F-B4C9-CD427C33CC0F"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalance"
+
+    departmentAlias=""
+    partnerAlias="firstPartner" 
+    personAlias="" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+    
+    dtoName="ArapStrikeBalanceDTO"
+    tableName="ARAP_StrikeBalance"
+    >
+
+</VoucherQuery>
+
+<!-- StrikeBalanceApAp    业务来往模块应付冲应付 -->
+<VoucherQuery 
+    id="C044589E-F4DF-4995-912D-D5D252721048"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalance"
+
+    departmentAlias=""
+    partnerAlias="firstPartner" 
+    personAlias="" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+    
+    dtoName="ArapStrikeBalanceDTO"
+    tableName="ARAP_StrikeBalance"
+    >
+
+</VoucherQuery>
+
+<!-- StrikeBalanceArAp   业务来往模块应收冲应付-->
+<VoucherQuery 
+    id="CCD85113-D257-43DA-85E3-DA441FD22A7A"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ARAP.Interface" 
+    interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalance"
+
+    departmentAlias=""
+    partnerAlias="firstPartner" 
+    personAlias="" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+
+    dtoName="ArapStrikeBalanceDTO"
+    tableName="ARAP_StrikeBalance"
+    >
+
+</VoucherQuery>
+
+
+<!-- ***************************** 现金银行模块 **************************** -->
+<!-- ******************** 银行存取款单、费用单、收入单****************** -->
+
+<!-- BankCashAccessVoucher   现金银行模块银行存取款单 -->
+<VoucherQuery 
+    id="AEFAF914-E240-4C89-B11D-E045DB443EA4"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.CS.Interface" 
+    interfaceName="Ufida.T.CS.Interface.IBankCashAccessVoucher.IBankCashAccessVoucherService"
+
+    departmentAlias=""
+    partnerAlias="" 
+    personAlias="Handler" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+    
+    dtoName="BankCashAccessVoucherDTO"
+    tableName="CS_BankCashAccessVoucher"
+    >
+
+</VoucherQuery>
+
+<!-- ExpenseVoucher   现金银行模块费用单 -->
+<VoucherQuery 
+    id="F7E2CB97-A5D2-43A0-8DAE-E2FB90F0FDF2"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.CS.Interface" 
+    interfaceName="Ufida.T.CS.Interface.IExpenseVoucher.IExpenseVoucherService"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+
+    dtoName="ExpenseVoucherDTO"
+    tableName="CS_ExpenseVoucher"
+    >
+
+</VoucherQuery>
+
+<!-- IncomeVoucher   现金银行模块收入单 -->
+<VoucherQuery 
+    id="8DF77A52-3447-44D3-82FE-E4E6B3D4FE66"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.CS.Interface" 
+    interfaceName="Ufida.T.CS.Interface.IIncomeVoucher.IIncomeVoucherService"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+    
+    dtoName="IncomeVoucherDTO"
+    tableName="CS_IncomeVoucher"
+    >
+
+</VoucherQuery>
+
+
+<!-- ***************	期初暂估单、期初销售出库单、采购入库单、产成品入库单、其它入库单、销售出库单、材料出库单、其它出库单、调拨单、盘点单、形态转换单、组装拆卸单、货位调整单、入库调整单、出库调整单、红蓝冲销单、采购核算单、费用分摊单******************** -->
+
+<!--需求变更添加费用分摊单-->
+<!-- ShareExpenseVoucherDTO  费用分摊单 -->
+<VoucherQuery 
+    id="30C33D06-8D16-405B-BF44-60623FB306F1"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.IShareExpenseVoucher"
+
+    departmentAlias="Department"
+    partnerAlias="" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias="VoucherType"
+
+    dtoName="ShareExpenseVoucherDTO"
+    tableName="ST_ShareExpenseVoucher"
+    >
+
+</VoucherQuery>
+
+<!-- PSPurchaseReceiveVoucher   库存核算模块期初暂估入库单 -->
+<VoucherQuery 
+    id="0CD1BD25-C2E3-4015-8044-6891F33A75CD"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.IPurchaseReceive"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias="voucherType"
+
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+<!-- PSSaleDispatchVoucher   库存核算模块期初销售出库单 -->
+<VoucherQuery 
+    id="EB475F0D-3379-4568-BB37-77877E830594"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.ISaleDispatch"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias="voucherType"
+
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+<!-- PurchaseReceiveVoucher   库存核算模块采购入库单 -->
+<VoucherQuery 
+    id="9A2C7C5A-A428-4669-AA40-0AA07758241B"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.IPurchaseReceive"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias="voucherType"
+
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+<!-- productReceiveVoucher   库存核算模块产成品入库单 -->
+<VoucherQuery 
+    id="5BC94E04-28DF-4B00-B809-198E3943BE16"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.IProductReceive"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+    
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+<!-- OtherReceiveVoucher   库存核算模块其它入库单 -->
+<VoucherQuery 
+    id="71778230-49C1-4C8A-8AFB-1C462CDFB3ED"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.IOtherReceive"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+    
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+<!-- SaleDispatchVoucher   库存核算模块销售出库单 -->
+<VoucherQuery 
+    id="BB007F33-C0F0-4A19-8588-1E0E314D1F56"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.ISaleDispatch"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias="voucherType"
+    
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+
+
+<!-- MaterialDispatchVoucher  库存核算模块材料出库单 -->
+<VoucherQuery 
+    id="8D7408AD-00B4-4B5B-A2EB-1E3E19386C0A"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.IMaterialDispatch"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState" 
+    voucherTypeAlias=""
+    
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+<!-- OtherDispatchVoucher   库存核算模块其它出库单 -->
+<VoucherQuery 
+    id="21EA9921-40C1-46EB-BF55-2DF64C7CDDFB"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.IOtherDispatch"
+
+    departmentAlias="Department"
+    partnerAlias="Partner" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias=""
+    
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord"
+    >
+
+</VoucherQuery>
+
+<!-- TransVoucher   库存核算模块调拨单 -->
+<VoucherQuery 
+    id="9CDE6B76-266C-47F3-AAF6-347D3B23F10B"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.ITransVoucher"
+
+    departmentAlias="Department"
+    partnerAlias="" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias="voucherType"
+    
+    dtoName="TransVoucherDTO"
+    tableName="ST_TransVoucher"
+    >
+
+</VoucherQuery>
+
+<!-- CheckVoucher   库存核算模块盘点单 -->
+<VoucherQuery 
+    id="8BA2C1C7-7B7C-4276-8657-44535F2BB419"  
+    code="Code"  
+
+    findPageMethodName="FindPage" 
+    findPageParaType="1" 
+
+    findTableMethodName="FindTable"
+    findTableParaType="1" 
+
+    interface="Ufida.T.ST.Interface" 
+    interfaceName="Ufida.T.ST.Interface.ICheckVoucher"
+
+    departmentAlias="Department"
+    partnerAlias="" 
+    personAlias="Clerk" 
+    voucherStateAlias="VoucherState"
+    voucherTypeAlias="voucherType"
+    
+    dtoName="CheckVoucherDTO"
+    tableName="ST_CheckVoucher"
+    >
+
+</VoucherQuery>
+
+<!-- ShapeVoucher   库存核算模块形态转换单 -->
+<VoucherQuery 
+  id="6D6FB7AD-D9B3-4AFA-81F5-527EF430927E"  
+  code="Code"  
+
+  findPageMethodName="FindPage" 
+  findPageParaType="1" 
+
+  findTableMethodName="FindTable"
+  findTableParaType="1" 
+
+  interface="Ufida.T.ST.Interface" 
+  interfaceName="Ufida.T.ST.Interface.IShapeVoucher"
+
+  departmentAlias="Department"
+  partnerAlias="" 
+  personAlias="Clerk" 
+  voucherStateAlias="VoucherState" 
+  voucherTypeAlias="voucherType"
+  
+  dtoName="ShapeVoucherDTO"
+  tableName="ST_ShapeVoucher"
+  >
+
+</VoucherQuery>
+
+<!-- AssemDetachVoucher   库存核算模块组装拆卸单 -->
+<VoucherQuery 
+  id="30B3E62A-9EB0-4D81-87A6-49EA5F1F5891"  
+  code="Code"  
+
+  findPageMethodName="FindPage" 
+  findPageParaType="1" 
+
+  findTableMethodName="FindTable"
+  findTableParaType="1" 
+
+  interface="Ufida.T.ST.Interface" 
+  interfaceName="Ufida.T.ST.Interface.IAssemDetachVoucher"
+
+  departmentAlias="Department"
+  partnerAlias="" 
+  personAlias="Clerk" 
+  voucherStateAlias="VoucherState" 
+  voucherTypeAlias="voucherType"
+
+  dtoName="AssemDetachVoucherDTO"
+  tableName="ST_AssemDetachVoucher">
+
+</VoucherQuery>
+
+<!-- PositionAdjustVoucher   库存核算模块货位调整单 -->
+<VoucherQuery 
+  id="5FF59F9C-C2BB-4555-9F02-3B8E4889A167"  
+  code="Code"  
+
+  findPageMethodName="FindPage" 
+  findPageParaType="1" 
+
+  findTableMethodName="FindTable"
+  findTableParaType="1" 
+
+  interface="Ufida.T.ST.Interface" 
+  interfaceName="Ufida.T.ST.Interface.IPositionAdjustVoucher"
+
+  departmentAlias="Department"
+  partnerAlias="" 
+  personAlias="Clerk" 
+  voucherStateAlias="VoucherState"
+  voucherTypeAlias="voucherType"
+  
+  dtoName="PositionAdjustVoucherDTO"
+  tableName="ST_PositionAdjustVoucher"
+  >
+
+</VoucherQuery>
+
+<!-- AdjustCostInVoucher   库存核算模块入库调整单 -->
+<VoucherQuery 
+  id="F20C24F5-8559-419F-9C14-1C9FF7F01E28"  
+  code="Code"  
+
+  findPageMethodName="FindPage" 
+  findPageParaType="1" 
+
+  findTableMethodName="FindTable"
+  findTableParaType="1" 
+
+  interface="Ufida.T.ST.Interface" 
+  interfaceName="Ufida.T.ST.Interface.IAdjustCostInVoucher"
+
+  departmentAlias="Department"
+  partnerAlias="Partner" 
+  personAlias="Clerk" 
+  voucherStateAlias="VoucherState"
+  voucherTypeAlias="voucherType"
+  
+  dtoName="AdjustCostVoucherDTO"
+  tableName="ST_AdjustCostVoucher"
+  >
+
+</VoucherQuery>
+
+<!-- AdjustCostOutVoucher   库存核算模块出库调整单 -->
+<VoucherQuery 
+  id="145FE0D6-1939-4EA4-8FCC-31C6C2C1BBA0"  
+  code="Code"  
+
+  findPageMethodName="FindPage" 
+  findPageParaType="1" 
+
+  findTableMethodName="FindTable"
+  findTableParaType="1" 
+
+  interface="Ufida.T.ST.Interface" 
+  interfaceName="Ufida.T.ST.Interface.IAdjustCostOutVoucher"
+
+  departmentAlias="Department"
+  partnerAlias="Partner" 
+  personAlias="Clerk" 
+  voucherStateAlias="VoucherState" 
+  voucherTypeAlias="voucherType"
+  
+  dtoName="AdjustCostVoucherDTO"
+  tableName="ST_AdjustCostVoucher"
+  >
+
+</VoucherQuery>
+
+<!--  RedBackVoucherVoucher   库存核算模块红字回冲单 -->
+<VoucherQuery 
+  id="967E485E-EE93-4940-B5EA-96B7101B81F3"  
+  code="VoucherCode"  
+
+  findPageMethodName="FindRedBackVoucherPage" 
+  findPageParaType="1" 
+
+  findTableMethodName="FindRedBackVoucherTable"
+  findTableParaType="1" 
+
+  interface="Ufida.T.ST.Interface" 
+  interfaceName="Ufida.T.ST.Interface.IInventoryCosting"
+
+  departmentAlias="Department"
+  partnerAlias="Partner" 
+  personAlias="Clerk" 
+  voucherStateAlias="VoucherState"
+  voucherTypeAlias=""
+  
+  dtoName="SubsidiaryBookDTO"
+  tableName="ST_SubsidiaryBook"  
+  >
+  <!-- tableName 为来源的数据库表的名称， 注意不是    ST_RedBlueBackVoucher -->
+
+</VoucherQuery>
+
+<!--  BlueBackVoucherVoucher   库存核算模块蓝字回冲单 -->
+<VoucherQuery 
+      id="9451B78C-5EE9-45E4-BF36-D6F387EA0978"  
+      code="VoucherCode"  
+
+      findPageMethodName="FindBlueBackVoucherPage" 
+      findPageParaType="1" 
+
+      findTableMethodName="FindBlueBackVoucherTable"
+      findTableParaType="1" 
+
+      interface="Ufida.T.ST.Interface" 
+      interfaceName="Ufida.T.ST.Interface.IInventoryCosting"
+
+      departmentAlias="Department"
+      partnerAlias="Partner" 
+      personAlias="Clerk" 
+      voucherStateAlias="VoucherState"
+	    voucherTypeAlias=""
+      
+	    dtoName="SubsidiaryBookDTO"
+      tableName="ST_SubsidiaryBook"
+      >
+  <!-- tableName 为来源的数据库表的名称， 注意不是    ST_RedBlueBackVoucher -->
+</VoucherQuery>
+
+<!-- PurchaseSettleVoucher   库存核算模块采购核算单 -->
+<VoucherQuery 
+      id="58692C6E-4D4F-4839-B762-61E0423D66DA"  
+      code="Code"  
+
+      findPageMethodName="FindPage" 
+      findPageParaType="1" 
+
+      findTableMethodName="FindTable"
+      findTableParaType="1" 
+
+      interface="Ufida.T.ST.Interface" 
+      interfaceName="Ufida.T.ST.Interface.IPurchaseSettleVoucher"
+
+      departmentAlias="Department"
+      partnerAlias="Partner" 
+      personAlias="Clerk" 
+      voucherStateAlias="VoucherState" 
+	    voucherTypeAlias="voucherType"
+      
+	    dtoName="PurchaseSettleVoucherDTO"
+      tableName="ST_PurchaseSettleVoucher"
+      >
+
+</VoucherQuery>
+
+
+</Config>

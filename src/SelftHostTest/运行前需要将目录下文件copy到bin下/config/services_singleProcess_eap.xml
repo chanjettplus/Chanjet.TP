@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" ?>
+<services  domain="baseService" desc="基础服务">
+
+  <!-- EAP内置服务start  -->
+
+  <service name="Ufida.T.EAP.Interface.IDTODictService" className="Ufida.T.EAP.Services.DTODictService"  desc="DTO字典服务"  loadFrom="server\Ufida.T.EAP.DTO.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.IEnumService" className="Ufida.T.EAP.Services.EnumService"  desc="枚举及其字典服务"  loadFrom="server\Ufida.T.EAP.DTO.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.ILanguageService" className="Ufida.T.EAP.Services.LanguageService"  desc="多语服务"  loadFrom="server\Ufida.T.EAP.DTO.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.IGranuleLockService" className="Ufida.T.EAP.Services.GranuleLockService"  desc="锁服务"  loadFrom="server\Ufida.T.EAP.Lock.Service.dll" mode="normal"  />
+<!-- 修改打印接口和服务的命名空间  -->
+ <service name="Ufida.T.EAP.Print.Interface.IPrintService" className="Ufida.T.EAP.Print.Service.PrintService"  desc="打印服务"  loadFrom="server\Ufida.T.EAP.Print.Service.dll" mode="normal"  />
+ 
+  <!-- 业务适配服务 -->
+  <service name="Ufida.T.EAP.Interface.IBusinessAdpterService" className="Ufida.T.EAP.Services.BusinessAdpterService"  desc="业务适配服务"  loadFrom="server\Ufida.T.EAP.BusinessAdpter.Service.dll" mode="normal"  />
+
+  <!-- 单据 服务  -->
+  <service name="Ufida.T.EAP.Interface.IVoucherListService" className="Ufida.T.EAP.Services.VoucherListService"  desc="单据列表服务"  loadFrom="server\Ufida.T.EAP.Voucher.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.IRefListService" className="Ufida.T.EAP.Services.RefListService"  desc="参照列表服务"          loadFrom="server\Ufida.T.EAP.Voucher.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.IDataService" className="Ufida.T.EAP.Services.DataService" desc="自定义Sql数据服务" loadFrom="server\Ufida.T.EAP.Voucher.Service.dll" mode="normal" />
+  <service name="Ufida.T.EAP.Interface.IVoucherService" className="Ufida.T.EAP.Services.VoucherService" desc="单据模板服务" loadFrom="server\Ufida.T.EAP.Voucher.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.ITongGridService" className="Ufida.T.EAP.Services.TongGridService" desc="表格编辑模板服务" loadFrom="server\Ufida.T.EAP.Voucher.Service.dll" mode="normal"  />
+
+  <!--参照 、栏目 -->
+  <service name="Ufida.T.SM.CommonInterface.ITaskService" className="Ufida.T.SM.CommonService.TaskService"  desc="任务管理服务"   loadFrom="server\Ufida.T.SM.Service.dll" mode="normal"  />
+  <service name="Ufida.T.SM.CommonInterface.IOperationLogService" className="Ufida.T.SM.CommonService.OperationLogService"  desc="日志管理服务"   loadFrom="server\Ufida.T.SM.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.EAP.Interface.IGridParamsInterface" className="Ufida.T.EAP.Services.GridParamsService" desc="单据列表控件数服务" loadFrom="server\Ufida.T.EAP.GridDoc.Service.dll" mode="normal" />
+  <service name="Ufida.T.EAP.Interface.IColumnSetService" className="Ufida.T.EAP.Services.ColumnSetService"  desc="栏目组件服务" loadFrom="server\Ufida.T.EAP.ColumnSet.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.IRefSetService" className="Ufida.T.EAP.Services.RefSetService"  desc="参照组件服务"   loadFrom="server\Ufida.T.EAP.RefSet.Service.dll" mode="normal"  />
+  <!--查询 -->
+
+  <service name="Ufida.T.EAP.QueryExt.Interface.ISearchService" className="Ufida.T.EAP.QueryExt.Service.SearchServiceExtImpl"  desc="自定义查询服务"  loadFrom="server\Ufida.T.EAP.QueryExt.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.QueryExt.Interface.ISearchToolService" className="Ufida.T.EAP.QueryExt.Service.SearchToolServiceImpl"  desc="查询查询工具服务"  loadFrom="server\Ufida.T.EAP.QueryExt.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.IVoucherDesignService" className="Ufida.T.EAP.Services.VoucherDesignService" desc="单据自定义项服务"   loadFrom="server\Ufida.T.EAP.VoucherDesign.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.VoucherDesign.Interface.IUserDefineService" className="Ufida.T.EAP.VoucherDesign.Service.UserDefineService" desc="单据自定义项服务"   loadFrom="server\Ufida.T.EAP.VoucherDesign.Service.dll" mode="normal"  />
+
+  <!--权限服务-->
+  <service name="Ufida.T.EAP.Privilege.Interface.IUserService" className="Ufida.T.EAP.Privilege.Service.UserService" desc="用户服务" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Privilege.Interface.IGroupService" className="Ufida.T.EAP.Privilege.Service.GroupService" desc="用户组服务" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Privilege.Interface.IMenuService" className="Ufida.T.EAP.Privilege.Service.MenuService" desc="菜单服务" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Privilege.Interface.IOperationAuthService" className="Ufida.T.EAP.Privilege.Service.HoldOperationAuthService" desc="功能权限服务" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Privilege.Interface.IFieldAuthService" className="Ufida.T.EAP.Privilege.Service.FieldAuthService" desc="字段权限服务" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Privilege.Interface.IHoldRowAuthService" className="Ufida.T.EAP.Privilege.Service.HoldRowAuthService" desc="行权限服务" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Privilege.Interface.IDataAuthControl" className="Ufida.T.EAP.Privilege.Service.DataAuthControlService" desc="数据权限" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Interface.IToolBarService" className="Ufida.T.EAP.Services.ToolBarService"  desc="工具条控件服务"   loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+
+
+  <!--登录服务-->
+  <!-- <service name="Ufida.T.EAP.CommonInterface.SystemManagement.LoginInterface" className="Ufida.T.EAP.CommonService.SystemManagement.LoginService"  desc="登录服务"  loadFrom="server\Ufida.T.EAP.Login.Service.dll" mode="normal"  />-->
+
+  <service name="Ufida.T.EAP.CommonInterface.SystemManagement.IBill" className="Ufida.T.EAP.CommonService.SystemManagement.BillService" desc="单据审核服务" loadFrom="server\Ufida.T.EAP.Account.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.EAP.CommonInterface.SystemManagement.IBack" className="Ufida.T.EAP.CommonService.SystemManagement.BackService" desc="备份" loadFrom="server\Ufida.T.EAP.Account.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.EAP.CommonInterface.SystemManagement.IAccount" className="Ufida.T.EAP.CommonService.SystemManagement.AccountService"  desc="读取账套服务"          loadFrom="server\Ufida.T.EAP.Account.Service.dll" mode="normal"  />
+  <service name="Ufida.T.SM.CommonInterface.ITaskService" className="Ufida.T.SM.CommonService.TaskService"  desc="任务管理服务"   loadFrom="server\Ufida.T.SM.Service.dll" mode="normal"  />
+
+  <!--报表服务-->
+  <!--service name="Ufida.T.EAP.Interface.IReportManagerService" className="Ufida.T.EAP.Services.ReportManagerService"  desc="报表管理服务"  loadFrom="server\Ufida.T.EAP.CommonService.dll" mode="normal"  /-->
+  <service name="Ufida.T.EAP.Report.Interface.IReportService" className="Ufida.T.EAP.Report.Services.ReportService"  desc="报表服务" loadFrom="server\Ufida.T.EAP.Report.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Report.Interface.IReportToolService" className="Ufida.T.EAP.Report.Services.ReportToolService"  desc="报表工具服务"  loadFrom="server\Ufida.T.EAP.Report.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Report.Interface.IReportPrint" className="Ufida.T.EAP.Report.Services.ReportPrintService"  desc="报表打印服务" loadFrom="server\Ufida.T.EAP.Report.Service.dll" mode="normal"  />
+
+  <service name="Ufida.T.EAP.Interface.IImageUploadService" className="Ufida.T.EAP.Services.ImageUploadService" desc="图片上传服务" loadFrom="server\Ufida.T.EAP.FileHandle.Service.dll" mode="normal" />
+  <service name="Ufida.T.EAP.Interface.IUserFileService" className="Ufida.T.EAP.Services.UserFileService" desc="文件上传服务" loadFrom="server\Ufida.T.EAP.FileHandle.Service.dll" mode="normal" />
+
+  <service name="Ufida.T.EAP.Privilege.Interface.IOperationService" className="Ufida.T.EAP.Privilege.Service.OperationService" desc="操作服务" loadFrom="server\Ufida.T.EAP.Privilege.Service.dll" mode="normal"  />
+
+
+
+  <service name="Ufida.T.EAP.Interface.IPeroidCarryForward" className="Ufida.T.EAP.CommonService.PeroidCarryForwardService" desc="期间结转服务" loadFrom="server\Ufida.T.EAP.Account.Service.dll" mode="normal" />
+
+  <!--功能互斥start-->
+  <service name="Ufida.T.EAP.Mutex.Interface.IMutex" className="Ufida.T.EAP.Mutex.Service.MutexService"  desc="功能互斥"  loadFrom="server\Ufida.T.EAP.Mutex.Service.dll" mode="normal"  />
+
+  <!--功能互斥end-->
+  <!--EAP end-->
+  <!--数据导入导出工具start-->
+  <service name="Ufida.T.EAP.DTS.Interface.IDTS" className="Ufida.T.EAP.DTS.Service.DTSService"  desc="数据导入导出"  loadFrom="server\Ufida.T.EAP.DTS.Service.dll" mode="normal"  />
+  <!--数据导入导出工具end-->
+
+  <!-- Portal -->
+  <service name="Ufida.T.EAP.Portal.Interface.IHistory" className="Ufida.T.EAP.Portal.Service.HistroyService"  desc="历史记录"   loadFrom="server\Ufida.T.EAP.Portal.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Portal.Interface.IInitNavigation" className="Ufida.T.EAP.Portal.Service.InitNavigationService"  desc="初始化导航服务"   loadFrom="server\Ufida.T.EAP.Portal.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Portal.Interface.IOftenUsingFunc" className="Ufida.T.EAP.Portal.Service.OftenUsingFuncServices"  desc="常用功能设置服务"   loadFrom="server\Ufida.T.EAP.Portal.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Portal.Interface.IPortalSet" className="Ufida.T.EAP.Portal.Service.PortalSetService"  desc="Portal相关"   loadFrom="server\Ufida.T.EAP.Portal.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Portal.Interface.IQuickSearch" className="Ufida.T.EAP.Portal.Service.QuickSearchService"  desc="快速查询服务"  loadFrom="server\Ufida.T.EAP.Portal.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Portal.Interface.ISkin" className="Ufida.T.EAP.Portal.Service.SkinService"  desc="皮肤服务"   loadFrom="server\Ufida.T.EAP.Portal.Service.dll" mode="normal"  />  
+  <service name="Ufida.T.EAP.Portal.Interface.IWorkPlanForm" className="Ufida.T.EAP.Portal.Service.WorkPlanFormService"  desc="我的工作台服务"   loadFrom="server\Ufida.T.EAP.Portal.Service.dll" mode="normal"  />
+
+ 
+  <service name="Ufida.T.EAP.AccountUpdate.IUpdate" className="Ufida.T.EAP.AccountUpdate.UpdateService"  desc="帐套升级服务"  loadFrom="server\Ufida.T.EAP.Update.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.AccountUpdate.IVersionUpdate" className="Ufida.T.EAP.AccountUpdate.VersionUpdateService"  desc="帐套版本升级服务"  loadFrom="server\Ufida.T.EAP.Update.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.ServerUtility.IServerUtility" className="Ufida.T.EAP.ServerUtility.ServerUtilityService"  desc="服务器磁盘服务"  loadFrom="server\Ufida.T.EAP.ServerUtility.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.CommonInterface.SystemManagement.IServerRefresh" className="Ufida.T.EAP.CommonInterface.SystemManagement.ServerRefreshService"  desc="刷新服务器上的连接缓存" loadFrom="server\Ufida.T.EAP.Account.Service.dll" mode="normal"  />  
+
+<!--行业性质start-->
+<service name="Ufida.T.EAP.IndustryType.Interface.IIndustryType" className="Ufida.T.EAP.IndustryType.Service.IndustryTypeService"  desc="行业性质"  loadFrom="server\Ufida.T.EAP.IndustryType.Service.dll" mode="normal"  />
+<!--行业性质end-->
+  <!--
+  <service name="Ufida.T.EAP.Interface.IDogService" className="Ufida.T.EAP.Services.DogService" desc="加密狗服务" loadFrom="server\Ufida.T.EAP.Login.Service.dll" mode="normal"  />
+-->
+  <service name="Ufida.T.EAP.Dog.Interface.IDogService" className="Ufida.T.EAP.Dog.Service.DogService"  desc="加密服务"  loadFrom="server\Ufida.T.EAP.Dog.Service.dll" mode="normal"  />
+  
+  <!-- 附件管理 -->
+  <service name="Ufida.T.EAP.VoucherExt.Interface.IAttachmentService" className="Ufida.T.EAP.VoucherExt.Service.AttachmentService" desc="附件管理服务" loadFrom="server\Ufida.T.EAP.VoucherExt.Service.dll" mode="normal"  />
+
+  <!-- 消息中心 -->
+  <service name="Ufida.T.EAP.MessageCenter.Interface.IMessageCenterService" className="Ufida.T.EAP.MessageCenter.Service.MessageCenterServiceImpl" desc="消息中心服务" loadFrom="server\Ufida.T.EAP.MessageCenter.Service.dll" mode="normal" />
+  <service name="Ufida.T.EAP.MessageCenter.Interface.IMessageRuleService" className="Ufida.T.EAP.MessageCenter.Service.MessageRuleServiceImpl"  desc="消息规则服务"  loadFrom="server\Ufida.T.EAP.MessageCenter.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.MessageCenter.Interface.IPushMessageService" className="Ufida.T.EAP.MessageCenter.Service.PushMessageServiceImpl"  desc="上行消息服务"  loadFrom="server\Ufida.T.EAP.MessageCenter.Service.dll" mode="normal"  />
+
+
+  <!--FormReport start-->
+  <service name="Ufida.T.EAP.FormReport.Interface.IFormulaExpert" className="Ufida.T.EAP.FormReport.Service.FormulaExpertService" desc="报表公式验证服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal" />
+  <service name="Ufida.T.EAP.FormReport.Interface.IKeyWords" className="Ufida.T.EAP.FormReport.Service.KeyWordsService" desc="关键字服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal" />
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportFormula" className="Ufida.T.EAP.FormReport.Service.ReportFormulaService" desc="报表公式服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal" />
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportFormulaEngine" className="Ufida.T.EAP.FormReport.Service.ReportFormulaEngine" desc="报表公式引擎服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportFormulaType" className="Ufida.T.EAP.FormReport.Service.ReportFormulaTypeService" desc="报表公式分类服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportInterface" className="Ufida.T.EAP.FormReport.Service.ReportService"  desc="报表数据相关服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportParameter" className="Ufida.T.EAP.FormReport.Service.ReportParameterService"  desc="报表参数设置服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportPrivilege" className="Ufida.T.EAP.FormReport.Service.ReportPrivilege" desc="报表权限服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportType" className="Ufida.T.EAP.FormReport.Service.ReportTypeService" desc="报表分类服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportUpload" className="Ufida.T.EAP.FormReport.Service.ReportUpload" desc="报表导入服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.ITemplateInterface" className="Ufida.T.EAP.FormReport.Service.ReportTemplateService" desc="报表模版服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportClientExtendInterface" className="Ufida.T.EAP.FormReport.Service.ReportClientExtendService" desc="报表客户端扩展服务" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportServiceExtend" className="Ufida.T.EAP.FormReport.Service.ReportExtendService" desc="Server端扩展服务对内" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportFormulaExtend" className="Ufida.T.EAP.FormReport.Service.ReportFormulaExtendService" desc="Server报表公式扩展" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <service name="Ufida.T.EAP.FormReport.Interface.IReportServiceOutExtend" className="Ufida.T.EAP.FormReport.Service.ReportExtendOutService" desc="端扩展服务对外服务扩展" loadFrom="server\Ufida.T.EAP.FormReport.Service.dll" mode="normal"/>
+  <!--Report end-->
+
+  <!--报表带入项和二次过滤项服务-->
+  <service name="Ufida.T.EAP.Report.Interface.IReportCarriedItem" className="Ufida.T.EAP.Report.Services.ReportCarriedItemService"  desc="报表带入项服务" loadFrom="server\Ufida.T.EAP.Report.Service.dll" mode="normal"  />
+  <service name="Ufida.T.EAP.Report.Interface.IReportFilterItem" className="Ufida.T.EAP.Report.Services.ReportFilterItemService"  desc="报表二次过滤项服务" loadFrom="server\Ufida.T.EAP.Report.Service.dll" mode="normal"  />
+
+
+ 
+  <!--自定义档案服务-->
+  <service name="Ufida.T.AA.Interface.UserDefineArticle.IUserDefineArticleDictService" className="Ufida.T.AA.BP.UserDefineArticle.UserDefineArticleDictBP"  desc="自定义档案维护"  loadFrom="server\Ufida.T.AA.BP.dll" mode="normal"  />
+  <service name="Ufida.T.AA.Interface.UserDefineArticle.IUserDefineArticleColumnService" className="Ufida.T.AA.BP.UserDefineArticle.UserDefineArticleColumnBP"  desc="自定义档案设置"  loadFrom="server\Ufida.T.AA.BP.dll" mode="normal"  />
+  <service name="Ufida.T.AA.Interface.UserDefineArticle.IUserDefineArticleService" className="Ufida.T.AA.BP.UserDefineArticle.UserDefineArticleBP"  desc="自定义档案数据维护"  loadFrom="server\Ufida.T.AA.BP.dll" mode="normal"  />
+<service name="Ufida.T.AA.Interface.UserDefineArticle.IUserDefineArticleIOService" className="Ufida.T.AA.BP.UserDefineArticle.UserDefineArticleIOBP"  desc="自定义档案数据维护"  loadFrom="server\Ufida.T.AA.BP.dll" mode="normal"  />
+
+<service time="1|-1|1800000||" className="Ufida.T.EAP.CommonService.SystemManagement.SchedulingBackupService" desc="账套备份调度服务" loadFrom="server\Ufida.T.EAP.Account.Service.dll" mode="schedule" />
+
+  <!-- 构造信息服务 -->
+  <service name="Ufida.T.SM.Interface.ICompileInfo" className="Ufida.T.SM.Service.CompileInfoService"  desc="构造信息服务" loadFrom="server\Ufida.T.SM.Service.dll" mode="normal" />
+
+</services>

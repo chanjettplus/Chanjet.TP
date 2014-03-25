@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+  <!-- 调用方式  1： 远程 0：本地 -->
+  <callMethod>0</callMethod>
+
+  <!-- 调用协议  1： 通t21协议 2：http协议 3：.net remoting -->
+  <protocol>1</protocol>
+
+  <!-- 服务器地址IP -->
+  <host>localhost</host>
+
+  <!-- 服务器端口-->
+  <port>81</port>
+
+  <!-- 调用超时时间 ms-->
+  <timeout>54000000</timeout>
+
+  <!-- 除t21协议外，其它调用协议的广播轮询时间 ms-->
+  <broardcastPollTime>1000</broardcastPollTime>
+  
+  <!-- 传输压缩-->
+  <compress>0</compress>
+
+  <!-- 传输加密-->
+  <engypt>0</engypt>
+  
+  <!-- 授权连接用户 -->
+  <connUser>hhf</connUser>
+
+  <!-- 授权连接密码 lkjsdflk1212-->
+  <connPassword>lkjsdflk1212</connPassword>
+  
+  <!-- 传输加密-->
+  <engypt>0</engypt>
+
+  <!--http调用 url -->
+  <httpcallUrl>http://localhost:1056/THttpService/handler.aspx</httpcallUrl>
+
+  <!--http调用 可以切换的url -->
+  <clusterUrls>http://localhost:1056/THttpService/handler.aspx</clusterUrls>
+
+  <!-- 可以切换的服务器-->
+  <clusters>localhost:83,localhost:84,localhost:85,localhost:86</clusters>
+
+  <!--配置独立进程的端口号 -->
+  <YWTPort>83</YWTPort>
+  <CGTPort>84</CGTPort>
+  <GMTPort>85</GMTPort>
+  <YYTPort>86</YYTPort>
+  <CWTProPort>87</CWTProPort>
+  <CWTPopPort>88</CWTPopPort>
+</config>

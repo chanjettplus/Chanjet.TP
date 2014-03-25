@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SubSystem name="MP" dtoAssembly="Ufida.T.MP.DTO" interfaceAssembly="Ufida.T.MP.Interface" version="11.300.000.000" toolVersion="1.0.00.000">
+  <Modules>
+    <Module dtoName="Ufida.T.MP.DTO.IntendSaleOrderDTO" interfaceName="Ufida.T.MP.Interface.IIntendSaleOrderService" name="MP01">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idproject" authObject="ProjectDTO" type="1" />
+          <Property name="iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idproject" authObject="ProjectDTO" type="2" relationNameWithHead="idintendSaleOrderDTO" belongTo="Ufida.T.MP.DTO.IntendSaleOrderDetailDTO" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idintendSaleOrderDTO" belongTo="Ufida.T.MP.DTO.IntendSaleOrderDetailDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.MP.DTO.ManufactureOrderDTO" interfaceName="Ufida.T.MP.Interface.IManufactureOrder" name="MP05">
+        <DataAuth>
+			<Scenario name="findPage">
+			  <Property name="idproject" authObject="ProjectDTO" type="1" />
+			  <Property name="iddepartment" authObject="DepartmentDTO" type="1" />
+			  <Property name="makerId" authObject="UserDTO" type="1" />
+			  <Property name="idproject" authObject="ProjectDTO" type="2" relationNameWithHead="idmanufactureOrderDTO" belongTo="Ufida.T.MP.DTO.ManufactureOrderDetailDTO" />
+			  <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idmanufactureOrderDTO" belongTo="Ufida.T.MP.DTO.ManufactureOrderDetailDTO" />			
+			  <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="voucherID" belongTo="Ufida.T.MP.DTO.ManufactureOrderMaterialDetailDTO" />
+			  <Property name="idwarehouse" authObject="WarehouseDTO" type="2" relationNameWithHead="idmanufactureOrderDTO" belongTo="Ufida.T.MP.DTO.ManufactureOrderDetailDTO" />
+			  <Property name="idwarehouse" authObject="WarehouseDTO" type="2" relationNameWithHead="voucherID" belongTo="Ufida.T.MP.DTO.ManufactureOrderMaterialDetailDTO" />
+			</Scenario>
+		</DataAuth>
+	</Module>
+    <Module dtoName="Ufida.T.MP.DTO.PraVoucherDTO" interfaceName="Ufida.T.MP.Interface.IPraVoucherService" name="MP2810">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1"  />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.MP.DTO.CostAllocationOrderDTO" interfaceName="Ufida.T.MP.Interface.ICostAllocationOrderService" name="MP08">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idCostAllocationOrderDTO" belongTo="Ufida.T.MP.DTO.CostAllocationOrderDetailDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.MP.DTO.CostAllocationDirectMaterialSumOrderDTO" interfaceName="Ufida.T.MP.Interface.ICostAllocationDirectMaterialSumOrderService" name="MP0801">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1"  />
+        </Scenario>
+      </DataAuth>
+    </Module>
+  </Modules>
+</SubSystem>

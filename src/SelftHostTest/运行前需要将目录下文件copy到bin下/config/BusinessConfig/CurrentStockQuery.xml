@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Config>
+<Item key="CheckVoucherDTO" Imp="Ufida.T.UA.CurrentStockQuery.Service.CheckVoucherForCurrentStockService,Ufida.T.UA.CurrentStockQuery.Service.dll" />
+<Item key="PositionAdjustVoucherDTO" Imp="Ufida.T.UA.CurrentStockQuery.Service.PositionAdjustVoucherForCurrentStockService,Ufida.T.UA.CurrentStockQuery.Service.dll" />
+<Item key="TransVoucherDTO" Imp="Ufida.T.UA.CurrentStockQuery.Service.TransVoucherForCurrentStockService,Ufida.T.UA.CurrentStockQuery.Service.dll" />
+
+</Config>
