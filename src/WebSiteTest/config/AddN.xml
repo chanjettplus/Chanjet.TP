@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" ?>
+<config>
+  <!-- 数据库是否进行加N操作 -->
+  <isaddnop>0</isaddnop>
+</config>
+

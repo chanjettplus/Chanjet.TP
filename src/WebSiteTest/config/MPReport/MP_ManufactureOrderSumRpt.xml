@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReportFullPathConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FullPathConfigs>
+    <item>
+      <key>
+        <string>ManuOrder.VoucherDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.VoucherDate" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.Code" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder_Department.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder_Department.ID" FullPathName="ManuOrderDetail_ManuOrder_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder_Department.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder_Department.Code" FullPathName="ManuOrderDetail_ManuOrder_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder_Department.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder_Department.Name" FullPathName="ManuOrderDetail_ManuOrder_Department" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder_Person.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder_Person.ID" FullPathName="ManuOrderDetail_ManuOrder_Person" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder_Person.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder_Person.Code" FullPathName="ManuOrderDetail_ManuOrder_Person" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder_Person.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder_Person.Name" FullPathName="ManuOrderDetail_ManuOrder_Person" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefnvc1" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefnvc2" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefnvc3" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefnvc4" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefnvc5" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefnvc6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefnvc6" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefdecm1" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefdecm2" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefdecm3" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefdecm4" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefdecm5" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.priuserdefdecm6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.priuserdefdecm6" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefnvc1" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefnvc2" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefnvc3" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefnvc4" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefnvc5" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefnvc6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefnvc6" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefdecm1" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefdecm2" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefdecm3" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefdecm4" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefdecm5" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.pubuserdefdecm6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.pubuserdefdecm6" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.FinishState</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.FinishState" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Project.id</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Project.id" FullPathName="ManuOrderDetail_Project" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Project.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Project.Name" FullPathName="ManuOrderDetail_Project" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_InvClass.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_InvClass.ID" FullPathName="ManuOrderDetail_Inventory_InvClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_InvClass.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_InvClass.Name" FullPathName="ManuOrderDetail_Inventory_InvClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.ID" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Code" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Name" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.Specification</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.Specification" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc1" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc2" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc3" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc4" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefnvc5" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm1" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm2" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm3" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm4" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory.priuserdefdecm5" FullPathName="ManuOrderDetail_Inventory" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem0</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem0" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem1" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem2" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem3" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem4" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem5" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem6</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem6" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem7</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem7" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem8</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem8" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.freeItem9</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.freeItem9" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Inventory_ProductInfo.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Inventory_ProductInfo.Name" FullPathName="ManuOrderDetail_Inventory_ProductInfo" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.Batch</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.Batch" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Bom.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Bom.ID" FullPathName="ManuOrderDetail_Bom" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Bom.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Bom.Code" FullPathName="ManuOrderDetail_Bom" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.BomExpandType</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.BomExpandType" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Warehouse.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Warehouse.ID" FullPathName="ManuOrderDetail_Warehouse" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Warehouse.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Warehouse.Code" FullPathName="ManuOrderDetail_Warehouse" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Warehouse.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Warehouse.Name" FullPathName="ManuOrderDetail_Warehouse" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.PreStartDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.PreStartDate" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.PreFinishDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.PreFinishDate" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.StartDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.StartDate" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.FinishDate</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.FinishDate" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SourceVoucherType.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SourceVoucherType.Code" FullPathName="ManuOrderDetail_SourceVoucherType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.SaleOrderCode</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.SaleOrderCode" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_PartnerClass.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_PartnerClass.ID" FullPathName="ManuOrderDetail_Customer_PartnerClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_PartnerClass.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_PartnerClass.Name" FullPathName="ManuOrderDetail_Customer_PartnerClass" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.ID" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.Code" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.Name" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefnvc1" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefnvc2" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefnvc3" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefnvc4" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefnvc5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefnvc5" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefdecm1" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefdecm2" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefdecm3" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefdecm4" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer.priuserdefdecm5</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer.priuserdefdecm5" FullPathName="ManuOrderDetail_Customer" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_SaleDepartment.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_SaleDepartment.ID" FullPathName="ManuOrderDetail_Customer_SaleDepartment" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_SaleDepartment.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_SaleDepartment.Code" FullPathName="ManuOrderDetail_Customer_SaleDepartment" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_SaleDepartment.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_SaleDepartment.Name" FullPathName="ManuOrderDetail_Customer_SaleDepartment" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_SaleMan.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_SaleMan.ID" FullPathName="ManuOrderDetail_Customer_SaleMan" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_SaleMan.Code</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_SaleMan.Code" FullPathName="ManuOrderDetail_Customer_SaleMan" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>Customer_SaleMan.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="Customer_SaleMan.Name" FullPathName="ManuOrderDetail_Customer_SaleMan" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefnvc1" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefnvc2" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefnvc3" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefnvc4" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefdecm1" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefdecm2" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefdecm3" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.priuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.priuserdefdecm4" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefnvc1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefnvc1" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefnvc2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefnvc2" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefnvc3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefnvc3" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefnvc4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefnvc4" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefdecm1</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefdecm1" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefdecm2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefdecm2" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefdecm3</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefdecm3" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.pubuserdefdecm4</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.pubuserdefdecm4" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder.Memo</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder.Memo" FullPathName="ManuOrderDetail_ManuOrder" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrder_VoucherState.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrder_VoucherState.Name" FullPathName="ManuOrderDetail_ManuOrder_VoucherState" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BaseUnit.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="BaseUnit.ID" FullPathName="ManuOrderDetail_BaseUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>BaseUnit.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="BaseUnit.Name" FullPathName="ManuOrderDetail_BaseUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.BaseQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.BaseQuantity" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SubUnit.ID</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SubUnit.ID" FullPathName="ManuOrderDetail_SubUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SubUnit.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SubUnit.Name" FullPathName="ManuOrderDetail_SubUnit" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.SubQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.SubQuantity" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.WholeSuitMaterialQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.WholeSuitMaterialQuantity" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.TotalStockInQuantity</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.TotalStockInQuantity" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.TotalStockInQuantity2</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.TotalStockInQuantity2" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>SourceVoucherType.Name</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="SourceVoucherType.Name" FullPathName="ManuOrderDetail_SourceVoucherType" />
+      </value>
+    </item>
+    <item>
+      <key>
+        <string>ManuOrderDetail.SourceVoucherCode</string>
+      </key>
+      <value>
+        <ReportFieldFullPathConfig ReportSelectField="ManuOrderDetail.SourceVoucherCode" FullPathName="ManuOrderDetail" />
+      </value>
+    </item>
+  </FullPathConfigs>
+</ReportFullPathConfig>

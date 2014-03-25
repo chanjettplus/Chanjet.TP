@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+  <!-- dsname=default  -->
+  <db dsname="default">
+    <type>MsSqlserver</type>
+    <server>127.0.0.1</server>
+    <instance>Tuap</instance>
+    <user>sa</user>
+    <password>
+    </password>
+    <maxconnection>100</maxconnection>
+    <startKey>true</startKey>
+  </db>
+  <db dsname="UFTSystem">
+    <type>MsSqlserver</type>
+    <server>.</server>
+    <instance>UFTSystem</instance>
+    <user>sa</user>
+    <password>dWYqMTIzNDU2</password>
+    <maxconnection>200</maxconnection>
+  </db>
+</config>

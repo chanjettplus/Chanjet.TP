@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<config> 
+
+  <!-- 是否打开服务性能日志 -->
+  <stat>0</stat>
+
+  <!-- 日志输出的级别 succese=0  info=1 debug=2  warn=3  error=4  fatal=5   取大于等于设置值进行输出-->
+  <logType>3</logType>
+
+</config>
+

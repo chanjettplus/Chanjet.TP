@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <Contact Name="" PhoneNo="" CallBackTime="2011-01-07">
+  </Contact>
+  <ServerEmailLocations>
+    <ServerEmailLocation Name="南昌中心相关负责人处" EmailLocation="cjtxg@chanjet.com" />
+  </ServerEmailLocations>
+</config>

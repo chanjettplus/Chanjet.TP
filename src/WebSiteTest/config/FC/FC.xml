@@ -1,0 +1,155 @@
+﻿<?xml version="1.0"?>
+<!--文件说明 ： 凭证接口相关配置信息                  -->
+<!--    作者 ： 徐芳波                               -->
+<!--    日期 ： 2010-6-5                             -->
+<!--    说明 ： 更多信息请参考凭证接口设计文档和代码   -->
+<DocSourceVoucher Cached="False">
+  <DocSourceVoucherSchema>
+    <DocSimpleSourceVoucher>
+      <Property Name="ID" Title="主键"/>
+      <Property Name="UserId" Title="用户ID"/>
+      <Property Name="Code" Title="Code"/>
+      <Property Name="VoucherId" Title="单据Id"/>
+      <Property Name="VoucherDate" Title="单据日期"/>
+      <Property Name="VoucherCode" Title="单据编号"/>
+      <Property Name="VoucherTs" Title="单据时间戳"/>
+
+      <Property Name="Idproject" Title="Idproject"/>
+      <Property Name="IdvoucherType" Title="IdvoucherType"/>
+      <Property Name="IdinRdStyle" Title="IdinRdStyle"/>
+      <Property Name="Idcustomer" Title="Idcustomer"/>
+      <Property Name="Iddepartment" Title="Iddepartment"/>
+      <Property Name="IdoutRdStyle" Title="IdoutRdStyle"/>
+      <Property Name="Idsupplier" Title="Idsupplier"/>
+      <Property Name="Idclerck" Title="Idclerck"/>
+      <Property Name="IdbusiType" Title="IdbusiType"/>
+      <Property Name="Idcurrency" Title="Idcurrency"/>
+      <Property Name="IdbankAccount" Title="IdbankAccount"/>
+      <Property Name="IdsecondCustomer" Title="IdsecondCustomer"/>
+      <Property Name="IdsecondSupplier" Title="IdsecondSupplier"/>
+      <Property Name="BillDate" Title="票据日期"/>
+		<Property Name="OrigAmount" Title="金额"/>
+		<Property Name="Amount" Title="本币金额"/>
+      
+      <!--查询体特有字段[期末成本结转]-->
+      <Property Name="Idinventory" Title="Idinventory"/>
+      <Property Name="IdbaesUnit" Title="IdbaesUnit"/>
+      <Property Name="SaleDispatchCode" Title="出库单号"/>
+      <Property Name="SaleDispatchDate" Title="出库单日期"/>
+      <Property Name="ExecutedQuantity" Title="本期销货数量"/>
+      <Property Name="ExecutedQuantity2" Title="本期销货数量2"/>
+      <Property Name="CostPrice" Title="成本价"/>
+      <Property Name="CostAmount" Title="成本金额"/>
+      <Property Name="VoucherDetailId" Title="voucherDetailId"/>
+      <Property Name="VoucherDetailTs" Title="voucherDetailTs"/>
+      
+      <!--select'<Property Name="'+name+'" Title="'+title+'"/>' from eap_dtoproperty where iddto in
+      (
+      select id from eap_dto where name='DocSimpleSourceVoucherDTO'
+      )
+      and type <> 'dto' and name not in('Selected','Ts','CreatedTime','SequenceNumber','Updated','UpdatedBy','code','Name')
+      order by sortno-->
+      
+    </DocSimpleSourceVoucher>
+  </DocSourceVoucherSchema>
+  <PropertyFilterSchema>
+    <BetweenProperty>
+      <Property Name="VoucherDate" Type="DateTime" Title="单据日期"/>
+      <Property Name="VoucherCode" Type="String" Title="单据编号"/>
+      <Property Name="SupplierCode" Title="供应商"/>
+      <Property Name="CustomerCode" Title="客户"/>
+      <Property Name="InventoryCode" Title="存货"/>
+      <Property Name="Period" Title="期间"/>
+	  <Property Name="OrigAmount" Title="金额"/>
+	  <Property Name="Amount" Title="本币金额"/>
+	  <Property Name="CostPrice" Title="成本单价"/>
+	  <Property Name="CostAmount" Title="成本金额"/>
+    </BetweenProperty>
+    <SingleSelectProperty>
+      <Property Name="RdPurchaseVoucherAccountState" Type="Enum" Title="采购入库单核算状态"/>
+    </SingleSelectProperty>
+    <MultiSelectProperty>
+      <Property Name="OutRdStyles" Title="出库类别"/>
+      <Property Name="InRdStyles" Title="入库类别"/>
+      <Property Name="InventoryClasss" Title="存货分类"/>
+      <Property Name="Departments" Title="部门"/>
+      <Property Name="Persons" Title="员工"/>
+      <Property Name="Warehouses" Title="仓库"/>
+      <Property Name="Projects" Title="项目"/>
+      <Property Name="Bankaccounts" Title="银行账号"/>
+      <Property Name="Currencys" Title="币种"/>
+      <Property Name="SettleStyles" Title="结算方式"/>
+	  <Property Name="PartnerClass" Title="往来单位分类"/>
+	  <Property Name="ProjectClass" Title="项目分类"/>
+		<Property Name="IncomeItem" Title="收入"/>
+		<Property Name="ExpenseItem" Title="费用"/>
+      <Property Name="maker" Title="制单人"/>
+      <Property Name="auditor" Title="审核人"/> 
+    </MultiSelectProperty>
+  </PropertyFilterSchema>
+  <TransactionDocSchema>
+    <TransactionEntry>
+      <Property Name="Summary" Title="摘要"/>
+      <Property Name="ExchangeRate" Title="汇率"/>
+      <Property Name="OrigAmountDr" Title="借方原币"/>
+      <Property Name="OrigAmountCr" Title="贷方原币"/>
+      <Property Name="AmountDr" Title="借方本币"/>
+      <Property Name="AmountCr" Title="贷方本币"/>
+      <Property Name="QuantityDr" Title="借方数量"/>
+      <Property Name="QuantityCr" Title="贷方数量"/>
+      <Property Name="Price" Title="单价"/>
+      <Property Name="MergeCode" Title="合并号"/>
+      <Property Name="OrigAmount" Title="原币金额"/>
+      <Property Name="BillNo" Title="票据号"/>
+      <Property Name="BillDate" Title="票据日期"/>
+      <Property Name="Memoto" Title="备注"/>
+      <Property Name="Idcurrency" Title="币种"/>
+      <Property Name="Idaccount" Title="科目"/>
+    </TransactionEntry>
+    <TransactionAuxiliaryInfo>
+      <Property Name="DCdirection" Title="借贷方向"/>
+      <Property Name="VoucherDate" Title="单据日期"/>
+      <Property Name="VoucherCode" Title="单据单号"/>
+      <Property Name="InvoiceCode" Title="票据号"/>
+      <Property Name="DueDate" Title="到期日"/>
+      <Property Name="OrigAmount" Title="原币金额"/>
+      <Property Name="Amount" Title="本币金额"/>
+      <Property Name="Quantity" Title="数量"/>
+      <Property Name="Price" Title="单价"/>
+      <Property Name="Idcurrency" Title="币种"/>
+      <Property Name="IdsettleStyle" Title="结算方式"/>
+      <Property Name="Idperson" Title="员工"/>
+      <Property Name="Iddepartment" Title="部门"/>
+      <Property Name="Idinventory" Title="存货"/>
+      <Property Name="Idproject" Title="项目"/>
+      <Property Name="IdexAuxAcc1" Title="辅助核算项1 11.2不做"/>
+      <Property Name="IdexAuxAcc2" Title="辅助核算项2 11.2不做"/>
+      <Property Name="IdexAuxAcc3" Title="辅助核算项3 11.2不做"/>
+      <Property Name="IdexAuxAcc4" Title="辅助核算项4 11.2不做"/>
+      <Property Name="IdexAuxAcc5" Title="辅助核算项5 11.2不做"/>
+      <Property Name="IdexAuxAcc6" Title="辅助核算项6 11.2不做"/>
+      <Property Name="IdexAuxAcc7" Title="辅助核算项6 11.2不做"/>
+      <Property Name="IdexAuxAcc8" Title="辅助核算项8 11.2不做"/>
+      <Property Name="IdexAuxAcc9" Title="辅助核算项9 11.2不做"/>
+      <Property Name="IdexAuxAcc10" Title="辅助核算项10 11.2不做"/>
+      <Property Name="Idcustomer" Title="客户"/>
+      <Property Name="Idsupplier" Title="供应商"/>
+      <Property Name="IdbusiType" Title="业务类型"/>
+      <Property Name="IdbankAccount" Title="账号"/>
+      <Property Name="Idwarehouse" Title="仓库"/>
+      <Property Name="IdcostItem" Title="成本项目"/>
+      <Property Name="IdcustomerClass" Title="客户分类"/>
+      <Property Name="Iddistrict" Title="地区"/>
+      <Property Name="IdinvLocation" Title="或为"/>
+      <Property Name="IdproductProcess" Title="产品工序"/>
+      <Property Name="IdinventoryClass" Title="存货分类"/>
+      <Property Name="Idincome" Title="收入"/>
+      <Property Name="IdexpenseItem" Title="费用项目"/>
+      <Property Name="IdsupplierClass" Title="供应商分类"/>
+      <Property Name="IddocumentsUsage" Title="IddocumentsUsage"/>
+      <Property Name="IdinRdStyle" Title="出入库类别"/>
+      <Property Name="IdUnit" Title="主计量单位"/>
+    </TransactionAuxiliaryInfo>
+  </TransactionDocSchema>  
+</DocSourceVoucher>
+

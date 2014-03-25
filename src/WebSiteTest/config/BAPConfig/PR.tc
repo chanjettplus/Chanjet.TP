@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SubSystem name="PR" dtoAssembly="Ufida.T.PR.DTO" interfaceAssembly="Ufida.T.PR.Interface" version="11.500.000.000" toolVersion="1.0.00.000">
+  <Modules>
+    <!--单品返现-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0501">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />	
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--单品打折-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0502">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />	
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--整单返现-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0503">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />	
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--组合满返-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0504">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionSubsDetailDTO" />		  		  		  
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--整单满单品优惠-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0505">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionMultDetailDTO" />		  
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--单品满赠-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0506">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+		  <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />		  		  
+		  <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionMultDetailDTO" />		  
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--整单满赠-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0507">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+		  <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />		  		  
+		  <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionMultDetailDTO" />			  
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--组合满赠-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0508">
+      <DataAuth>
+			<Scenario name="findPage">
+				<Property name="makerId" authObject="UserDTO" type="1" />
+				<Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />	
+				<Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionSubsDetailDTO" />		  		  
+			</Scenario>
+		</DataAuth>
+    <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+    </DataAuth>
+	 </Module>
+    <!--销售单品返现-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0509">
+      <DataAuth>
+			<Scenario name="findPage">
+				<Property name="makerId" authObject="UserDTO" type="1" />
+				<Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />		  		  
+			</Scenario>
+		</DataAuth>
+    <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+    </DataAuth>
+	 </Module>
+    <!--销售单品满赠-->
+    <Module dtoName="Ufida.T.PR.DTO.SalesPromotionDTO" interfaceName="Ufida.T.PR.Interface.ISalesPromotion" name="PR0510">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="makerId" authObject="UserDTO" type="1" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idSalesPromotionDTO" belongTo="Ufida.T.PR.DTO.SalesPromotionMultDetailDTO" />
+        </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="SalesPromotion.makerId" authObject="UserDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.PR.DTO.SalesPromotionDetailDTO"/>
+        </Scenario>
+      </DataAuth>
+    </Module>
+  </Modules>
+</SubSystem>

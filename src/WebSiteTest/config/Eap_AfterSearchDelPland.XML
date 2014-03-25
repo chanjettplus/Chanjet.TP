@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+//======================================================================
+//
+//        Copyright (C) UFIDA    
+//        All rights reserved
+//
+//        
+//        description :在删除查询方案后要执行的操作 
+//
+//
+//
+//======================================================================
+-->
+      <operators>
+
+        <!-- 
+							  
+		parameterMode   参数模式 可选值及意义 如下
+						plandid 删除的查询方案id
+		method方法      支持 静态和非静态方法 会自动根据 参数类型去调用相应方法
+		例如：
+		 <concreteOperator
+							  className="Ufida.T.EAP.MessageCenter.Service.MessageCenterServiceImpl"
+                              loadFrom="server\Ufida.T.EAP.MessageCenter.Service.dll"
+                              methodName="DeleteSearchpland"
+                              parameterMode="plandid"/>
+		-->
+		  <concreteOperator  interfaceName="Ufida.T.EAP.IDeskTop.Interface.IiDesktopService"
+							 loadFrom="Ufida.T.EAP.IDeskTop.Interface"
+							 methodName="DeleteAppItemBySearchPlanId"
+							 parameterMode="plandid"/>
+		 
+	  </operators>

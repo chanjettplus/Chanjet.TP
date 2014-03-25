@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--  -->
+<Config>
+  
+  <!-- 说明：
+    
+    由于各模块的单据有多个单据使用同一个DTO的情况，导致自定义项的启用/反启用出现问题，此为解决方案的配置文件
+  
+  	    type  // 类型，为Head , Detail 分别 表示 单据表头，表体 
+        head //如果为表头，不需要修改；如果为表体，则需要填入对应的单据头 格式： DTOName_VoucherName
+        voucherTypeID // 单据对应UA_VoucherType 中的类型ID
+        voucherName // 单据名称 
+	      dtoName //单据对应DTO名称
+        tableName // 单据对应的数据库表名称
+        
+        conditionSql //用来判断在相同表中的不同类型单据的SQL语句。
+        
+        //注意： 
+        // 1. conditionSql填入条件，则以conditionSql的条件查找相应的是否启用。
+        // 2. conditionSql为空字符串，则程序使用如下的判断：
+              A. 对于表头： idVoucherType='[voucherTypeID]' 
+              B. 对于表体： id[headDTOName]  in (select id from [headTableName] where [headConditionSql]) 
+              
+  -->
+
+  <!-- 入库调整单 表头-->
+  <UserDefineHelper 
+	      type="Head"
+        head=""
+        voucherTypeID="F20C24F5-8559-419F-9C14-1C9FF7F01E28"  
+        voucherName="AdjustCostInVoucher"  
+	      dtoName="AdjustCostVoucherDTO"
+        tableName="ST_AdjustCostVoucher" 
+        conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 入库调整单 表体-->
+  <UserDefineHelper 
+      type="Detail"
+      head="AdjustCostVoucherDTO_AdjustCostInVoucher"
+      voucherTypeID="F20C24F5-8559-419F-9C14-1C9FF7F01E28"  
+      voucherName="AdjustCostInVoucher"  
+      dtoName="AdjustCostDetailDTO"
+      tableName="ST_AdjustCostVoucher_b" 
+      conditionSql=" 1=1 "
+      >
+  </UserDefineHelper>
+
+  <!-- 出库调整单 表头-->
+  <UserDefineHelper 
+    type="Head"
+    head=""
+    voucherTypeID="145FE0D6-1939-4EA4-8FCC-31C6C2C1BBA0"  
+    voucherName="AdjustCostOutVoucher"  
+    dtoName="AdjustCostVoucherDTO"
+    tableName="ST_AdjustCostVoucher" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 出库调整单 表体-->
+  <UserDefineHelper 
+  type="Detail"
+  head="AdjustCostVoucherDTO_AdjustCostOutVoucher"
+  voucherTypeID="145FE0D6-1939-4EA4-8FCC-31C6C2C1BBA0"  
+  voucherName="AdjustCostOutVoucher"  
+  dtoName="AdjustCostDetailDTO"
+  tableName="ST_AdjustCostVoucher_b" 
+  conditionSql=" 1=1 "
+      >
+  </UserDefineHelper>
+
+
+  <!-- 采购入库单 表头-->
+  <UserDefineHelper 
+	      type="Head"
+        head=""
+        voucherTypeID="9A2C7C5A-A428-4669-AA40-0AA07758241B"  
+        voucherName="PurchaseReceiveVoucher"  
+	      dtoName="RDRecordDTO"
+        tableName="ST_RDRecord" 
+        conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 采购入库单 表体-->
+  <UserDefineHelper 
+	      type="Detail"
+        head="RDRecordDTO_PurchaseReceiveVoucher"
+        voucherTypeID="9A2C7C5A-A428-4669-AA40-0AA07758241B"  
+        voucherName="PurchaseReceiveVoucher"  
+	      dtoName="RDRecordDetailDTO"
+        tableName="ST_RDRecord_b" 
+        conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 产成品入库单 表头-->
+  <UserDefineHelper 
+      type="Head"
+      head=""
+      voucherTypeID="5BC94E04-28DF-4B00-B809-198E3943BE16"  
+      voucherName="ProductReceiveVoucher"  
+      dtoName="RDRecordDTO"
+      tableName="ST_RDRecord" 
+      conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 产成品入库单 表体-->
+  <UserDefineHelper 
+      type="Detail"
+      head="RDRecordDTO_ProductReceiveVoucher"
+      voucherTypeID="5BC94E04-28DF-4B00-B809-198E3943BE16"  
+      voucherName="ProductReceiveVoucher"  
+      dtoName="RDRecordDetailDTO"
+      tableName="ST_RDRecord_b"
+      conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 其它入库单 表头-->
+  <UserDefineHelper 
+    type="Head"
+    head=""
+    voucherTypeID="71778230-49C1-4C8A-8AFB-1C462CDFB3ED"  
+    voucherName="OtherReceiveVoucher"  
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 其它入库单 表体-->
+  <UserDefineHelper 
+    type="Detail"
+    head="RDRecordDTO_OtherReceiveVoucher"
+    voucherTypeID="71778230-49C1-4C8A-8AFB-1C462CDFB3ED"  
+    voucherName="OtherReceiveVoucher"  
+    dtoName="RDRecordDetailDTO"
+    tableName="ST_RDRecord_b" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+
+  <!-- 期初暂估入库单 表头-->
+  <UserDefineHelper 
+    type="Head"
+    head=""
+    voucherTypeID="0CD1BD25-C2E3-4015-8044-6891F33A75CD"  
+    voucherName="PSPurchaseReceiveVoucher"  
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+
+  <!-- 期初暂估入库单 表体-->
+  <UserDefineHelper 
+    type="Detail"
+    head="RDRecordDTO_PSPurchaseReceiveVoucher"
+    voucherTypeID="0CD1BD25-C2E3-4015-8044-6891F33A75CD"  
+    voucherName="PSPurchaseReceiveVoucher"  
+    dtoName="RDRecordDetailDTO"
+    tableName="ST_RDRecord_b" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+
+  <!-- 销售出库单 表头-->
+  <UserDefineHelper 
+	      type="Head"
+        head=""
+        voucherTypeID="BB007F33-C0F0-4A19-8588-1E0E314D1F56"  
+        voucherName="SaleDispatchVoucher"  
+	      dtoName="RDRecordDTO"
+        tableName="ST_RDRecord" 
+        conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 销售出库单 表体-->
+  <UserDefineHelper 
+	      type="Detail"
+        head="RDRecordDTO_SaleDispatchVoucher"
+        voucherTypeID="BB007F33-C0F0-4A19-8588-1E0E314D1F56"  
+        voucherName="SaleDispatchVoucher"  
+	      dtoName="RDRecordDetailDTO"
+        tableName="ST_RDRecord_b" 
+        conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 材料出库单 表头-->
+  <UserDefineHelper 
+      type="Head"
+      head=""
+      voucherTypeID="8D7408AD-00B4-4B5B-A2EB-1E3E19386C0A"  
+      voucherName="MaterialDispatchVoucher"  
+      dtoName="RDRecordDTO"
+      tableName="ST_RDRecord" 
+      conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 材料出库单 表体-->
+  <UserDefineHelper 
+      type="Detail"
+      head="RDRecordDTO_MaterialDispatchVoucher"
+      voucherTypeID="8D7408AD-00B4-4B5B-A2EB-1E3E19386C0A"  
+      voucherName="MaterialDispatchVoucher"  
+      dtoName="RDRecordDetailDTO"
+      tableName="ST_RDRecord_b" 
+      conditionSql="  "
+      >
+  </UserDefineHelper>
+
+
+  <!-- 其他出库单 表头-->
+  <UserDefineHelper 
+    type="Head"
+    head=""
+    voucherTypeID="21EA9921-40C1-46EB-BF55-2DF64C7CDDFB"  
+    voucherName="OtherDispatchVoucher"  
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 其他出库单 表体-->
+  <UserDefineHelper 
+    type="Detail"
+    head="RDRecordDTO_OtherDispatchVoucher"
+    voucherTypeID="21EA9921-40C1-46EB-BF55-2DF64C7CDDFB"  
+    voucherName="OtherDispatchVoucher"  
+    dtoName="RDRecordDetailDTO"
+    tableName="ST_RDRecord_b" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+
+  <!-- 期初销售出库单 表头-->
+  <UserDefineHelper 
+    type="Head"
+    head=""
+    voucherTypeID="EB475F0D-3379-4568-BB37-77877E830594"  
+    voucherName="PSSaleDispatchVoucher"  
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 期初销售出库单 表体-->
+  <UserDefineHelper 
+    type="Detail"
+    head="RDRecordDTO_PSSaleDispatchVoucher"
+    voucherTypeID="EB475F0D-3379-4568-BB37-77877E830594" 
+    voucherName="PSSaleDispatchVoucher"  
+    dtoName="RDRecordDetailDTO"
+    tableName="ST_RDRecord_b" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+  <!-- 库存期初 表头-->
+  <UserDefineHelper 
+    type="Head"
+    head=""
+    voucherTypeID="AC3E4CA8-18ED-4E48-8464-F64379BCB10D"  
+    voucherName="PeriodStartOfStock"  
+    dtoName="RDRecordDTO"
+    tableName="ST_RDRecord" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+
+  <!-- 库存期初 表体-->
+  <UserDefineHelper 
+    type="Detail"
+    head="RDRecordDTO_PeriodStartOfStock"
+    voucherTypeID="AC3E4CA8-18ED-4E48-8464-F64379BCB10D"  
+    voucherName="PeriodStartOfStock"  
+    dtoName="RDRecordDetailDTO"
+    tableName="ST_RDRecord_b" 
+    conditionSql="  "
+      >
+  </UserDefineHelper>
+
+
+
+
+  <!--收款单 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="82CB65E8-12AB-4559-9AC6-B660A3D18E15"  
+  voucherName="ArapReceiveVoucher"  
+  dtoName="ArapReceivePaymentDTO"
+  tableName="ARAP_ReceivePayment" 
+  conditionSql=" isReceiveFlag='1' "
+      >
+  </UserDefineHelper>
+
+
+  <!--付款单 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="552ED4F9-A784-4C6B-AFCF-BBE77F9AFDCD"  
+  voucherName="ArapPaymentVoucher"  
+  dtoName="ArapReceivePaymentDTO"
+  tableName="ARAP_ReceivePayment" 
+  conditionSql=" isReceiveFlag='0' "
+      >
+  </UserDefineHelper>
+
+
+  <!--预收冲应收 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="0A6377A7-B4DD-4894-B134-C2D0A8E37B58"  
+  voucherName="ArapStrikeBalanceAdvReceiveAr"  
+  dtoName="ArapStrikeBalanceDTO"
+  tableName="ARAP_StrikeBalance" 
+  conditionSql=" idbusiType='750084EA-499B-4BBD-8CBE-D2E4D52B17AD' "
+      >
+  </UserDefineHelper>
+
+
+  <!--预付冲应付 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="D6E84177-11E2-4187-BE88-C340BAD1FAFA"  
+  voucherName="ArapStrikeBalanceAdvPaymentAp"  
+  dtoName="ArapStrikeBalanceDTO"
+  tableName="ARAP_StrikeBalance" 
+  conditionSql=" idbusiType='C7FE03E9-A335-448B-B58B-76C284B01197' "
+      >
+  </UserDefineHelper>
+
+
+  <!--应收冲应收 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="7DFBC113-DAC5-402F-B4C9-CD427C33CC0F"  
+  voucherName="ArapStrikeBalanceArAr"  
+  dtoName="ArapStrikeBalanceDTO"
+  tableName="ARAP_StrikeBalance" 
+  conditionSql=" idbusiType='2CF3FBDE-DD73-41B8-A0F9-58E144200476' "
+      >
+  </UserDefineHelper>
+
+
+  <!--应付冲应付 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="C044589E-F4DF-4995-912D-D5D252721048"  
+  voucherName="ArapStrikeBalanceApAp"  
+  dtoName="ArapStrikeBalanceDTO"
+  tableName="ARAP_StrikeBalance" 
+  conditionSql=" idbusiType='AC5C5D9E-FA21-4FFE-8DAB-4718E40E1E9B' "
+      >
+  </UserDefineHelper>
+
+
+  <!--应收冲应付 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="CCD85113-D257-43DA-85E3-DA441FD22A7A"  
+  voucherName="ArapStrikeBalanceArAp"  
+  dtoName="ArapStrikeBalanceDTO"
+  tableName="ARAP_StrikeBalance" 
+  conditionSql=" idbusiType='656A055C-74B0-4338-A89A-581397673410' "
+      >
+  </UserDefineHelper>
+
+
+
+  <!--进货单 表头-->
+  <UserDefineHelper 
+  type="Head"
+  head=""
+  voucherTypeID="5399D7A6-8B61-459A-AC53-5C208D1BC871"  
+  voucherName="PuArrival"  
+  dtoName="PurchaseArrivalDTO"
+  tableName="PU_PurchaseArrival" 
+  conditionSql=" 1=1 "
+      >
+  </UserDefineHelper>
+
+
+  <!--进货单 表体-->
+  <UserDefineHelper 
+    type="Detail"
+    head="PurchaseArrivalDTO_PuArrival"
+    voucherTypeID="5399D7A6-8B61-459A-AC53-5C208D1BC871"  
+    voucherName="PuArrival"  
+    dtoName="PurchaseArrivalDetailDTO"
+    tableName="PU_PurchaseArrival_b" 
+    conditionSql=" 1=1 "
+      >
+  </UserDefineHelper>
+
+
+
+  <!--期初进货单 表头-->
+  <UserDefineHelper 
+    type="Head"
+    head=""
+    voucherTypeID="8813103D-65D9-4B58-8888-DBD028D4005F"  
+    voucherName="PurchaseArrivalPeriodStart"  
+    dtoName="PurchaseArrivalDTO"
+    tableName="PU_PurchaseArrival" 
+    conditionSql=" 1=1 "
+      >
+  </UserDefineHelper>
+  
+
+  <!--期初进货单 表体-->
+  <UserDefineHelper 
+    type="Detail"
+    head="PurchaseArrivalDTO_PurchaseArrivalPeriodStart"
+    voucherTypeID="8813103D-65D9-4B58-8888-DBD028D4005F"  
+    voucherName="PurchaseArrivalPeriodStart"  
+    dtoName="PurchaseArrivalDetailDTO"
+    tableName="PU_PurchaseArrival_b" 
+    conditionSql=" 1=1 "
+      >
+  </UserDefineHelper>
+
+</Config>

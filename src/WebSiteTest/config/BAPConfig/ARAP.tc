@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SubSystem name="ARAP" dtoAssembly="Ufida.T.ARAP.DTO" interfaceAssembly="Ufida.T.ARAP.Interface" version="11.300.000.000" toolVersion="1.0.00.000">
+  <Modules>
+    
+    <!--往来账-->
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapDetailDTO" interfaceName="Ufida.T.ARAP.Interface.IArapDetailService" name="ARAP_SelectVoucher">
+      <DataAuth>
+        <Scenario name="GetAuthFind_VoucherCancel">
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="IdProject" authObject="ProjectDTO" type="1" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthFind_NoVoucherCancel">
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="IdDetailProject" authObject="ProjectDTO" type="1" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="1" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--往来账-->
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapDetailDTO" interfaceName="Ufida.T.ARAP.Interface.IArapDetailService" name="ARAP_ArapDetail">
+      <DataAuth>
+        <Scenario name="GetAuthWarning">
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjust">
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--往来期初余额-->
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapOriginalAmountDTO" interfaceName="Ufida.T.ARAP.Interface.IArapOriginalAmountService" name="ARAP_OriginalAmount">
+      <DataAuth>
+        <Scenario name="GetAuthArapOriginalAmount">
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="1" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--收付款单公共-->
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapReceivePaymentDTO" interfaceName="Ufida.T.ARAP.Interface.IArapReceivePaymentService" name="ARAP01_02">
+      <DataAuth>
+        <Scenario name="GetAuthReceivePaymentForVoucherSearch">
+          <Property name="IdStore" authObject="StoreDTO" type="1" />
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetListAuthOfReceivePayment">
+          <Property name="IdStore" authObject="StoreDTO" type="1" />
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthReceivePayment">
+          <Property name="IdStore" authObject="StoreDTO" type="1" />
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="IdbankAccount" authObject="BankAccountDTO" type="2" relationNameWithHead="idarapReceivePaymentDTO" belongTo="Ufida.T.ARAP.DTO.ArapMultiSettleDetailDTO" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="2" relationNameWithHead="idarapReceivePaymentDTO" belongTo="Ufida.T.ARAP.DTO.ArapReceivePaymentDetailDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapReceivePaymentDetailDTO" relationNameWithHead="idarapReceivePaymentDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--收款单-->
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapReceivePaymentDTO" interfaceName="Ufida.T.ARAP.Interface.IArapReceivePaymentService" name="ARAP01">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="IdStore" authObject="StoreDTO" type="1" />
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="IdbankAccount" authObject="BankAccountDTO" type="2" relationNameWithHead="idarapReceivePaymentDTO" belongTo="Ufida.T.ARAP.DTO.ArapMultiSettleDetailDTO" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="2" relationNameWithHead="idarapReceivePaymentDTO" belongTo="Ufida.T.ARAP.DTO.ArapReceivePaymentDetailDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapReceivePaymentDetailDTO" relationNameWithHead="idarapReceivePaymentDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <!--付款单-->
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapReceivePaymentDTO" interfaceName="Ufida.T.ARAP.Interface.IArapReceivePaymentService" name="ARAP02">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="IdbankAccount" authObject="BankAccountDTO" type="2" relationNameWithHead="idarapReceivePaymentDTO" belongTo="Ufida.T.ARAP.DTO.ArapMultiSettleDetailDTO" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="2" relationNameWithHead="idarapReceivePaymentDTO" belongTo="Ufida.T.ARAP.DTO.ArapReceivePaymentDetailDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapReceivePaymentDetailDTO" relationNameWithHead="idarapReceivePaymentDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapStrikeBalanceDTO" interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalanceService" name="ARAP_StrikeBalance">
+      <DataAuth>
+        <Scenario name="GetAuthStrikeBalance">
+          <Property name="IdfirstPartner" authObject="PartnerDTO" type="1" />
+          <Property name="IdsecondPartner" authObject="PartnerDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapStrikeBalanceDTO" interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalanceService" name="ARAP0301">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="IdfirstPartner" authObject="PartnerDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" relationNameWithHead="idarapStrikeBalanceDTO" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceFirstDetailDTO" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="2" relationNameWithHead="idarapStrikeBalanceDTO" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceSecondDetailDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceSecondDetailDTO" relationNameWithHead="idarapStrikeBalanceDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapStrikeBalanceDTO" interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalanceService" name="ARAP0302">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="IdfirstPartner" authObject="PartnerDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" relationNameWithHead="idarapStrikeBalanceDTO" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceFirstDetailDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceSecondDetailDTO" relationNameWithHead="idarapStrikeBalanceDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapStrikeBalanceDTO" interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalanceService" name="ARAP0303">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="IdsecondPartner" authObject="PartnerDTO" type="1" />
+          <Property name="IdfirstPartner" authObject="PartnerDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="2" relationNameWithHead="idarapStrikeBalanceDTO" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceFirstDetailDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceFirstDetailDTO" relationNameWithHead="idarapStrikeBalanceDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapStrikeBalanceDTO" interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalanceService" name="ARAP0304">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="IdsecondPartner" authObject="PartnerDTO" type="1" />
+          <Property name="IdfirstPartner" authObject="PartnerDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceFirstDetailDTO" relationNameWithHead="idarapStrikeBalanceDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapStrikeBalanceDTO" interfaceName="Ufida.T.ARAP.Interface.IArapStrikeBalanceService" name="ARAP0305">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="IdsecondPartner" authObject="PartnerDTO" type="1" />
+          <Property name="IdfirstPartner" authObject="PartnerDTO" type="1" />
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+          <Property name="IdnoSettlePartner" authObject="PartnerDTO" type="2" relationNameWithHead="idarapStrikeBalanceDTO" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceFirstDetailDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceFirstDetailDTO" relationNameWithHead="idarapStrikeBalanceDTO" />
+          <Property name="Idproject" authObject="ProjectDTO" type="2" belongTo="Ufida.T.ARAP.DTO.ArapStrikeBalanceSecondDetailDTO" relationNameWithHead="idarapStrikeBalanceDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.ARAP.DTO.ArapExchangeAdjustDTO" interfaceName="Ufida.T.ARAP.Interface.IArapExchangeAdjustService" name="ARAP05">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="MakerId" authObject="UserDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjustForOutAudit">
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="idclerk" authObject="PersonDTO" type="1" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjustForInAudit_ARAP03">
+          <Property name="Idpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="1" />
+          <Property name="Idperson" authObject="PersonDTO" type="1" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjustForInAudit_ARAP0301">
+          <Property name="idfirstpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ApExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ApExchangeAdjustDetailDTO" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjustForInAudit_ARAP0302">
+          <Property name="idfirstpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ApExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ApExchangeAdjustDetailDTO" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjustForInAudit_ARAP0303">
+          <Property name="idfirstpartner" authObject="PartnerDTO" type="1" />
+          <Property name="idsecondpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjustForInAudit_ARAP0304">
+          <Property name="idfirstpartner" authObject="PartnerDTO" type="1" />
+          <Property name="idsecondpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+        <Scenario name="GetAuthExchangeAdjustForInAudit_ARAP0305">
+          <Property name="idfirstpartner" authObject="PartnerDTO" type="1" />
+          <Property name="idsecondpartner" authObject="PartnerDTO" type="1" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Iddepartment" authObject="DepartmentDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ApExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ArExchangeAdjustDetailDTO" />
+          <Property name="Idperson" authObject="PersonDTO" type="2"  relationNameWithHead="idarapExchangeAdjustDTO" belongTo="Ufida.T.ARAP.DTO.ApExchangeAdjustDetailDTO" />
+          <Property name="IdMarketingOrgan" authObject="MarketingOrganDTO" type="1" />
+        </Scenario>
+      </DataAuth>
+    </Module>
+  </Modules>
+</SubSystem>

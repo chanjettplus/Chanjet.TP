@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutofacContrib.DynamicProxy2;
+using Autofac.Extras.DynamicProxy2;
 using Castle.DynamicProxy;
 using Chanjet.TP.Core;
 using Autofac.Core;
@@ -25,8 +25,8 @@ namespace Chanjet.TP.ServiceHosting
         protected override void ConfigureApplicationContainer(ILifetimeScope existingContainer)
         {
             base.ConfigureApplicationContainer(existingContainer);
-            
-            var fileNames = (from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Data.dll")
+        
+            var fileNames = (from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Data.dll", SearchOption.AllDirectories)
                             select Path.GetFileName(file)).ToArray();
 
             AppDomainAssemblyTypeScanner.AddAssembliesToScan(fileNames);
@@ -38,14 +38,17 @@ namespace Chanjet.TP.ServiceHosting
 
             builder.RegisterType<ServicesFactory>()
                 .AsImplementedInterfaces()
+                
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(DynamicProxyInterceptor))
                 .SingleInstance();
 
             builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepository<>));
 
-            var repositorys = AppDomain.CurrentDomain.GetAssemblies().SelectMany(ass => ass.GetTypes())
-                 .Where(t => !t.IsInterface && !t.IsGenericType && t.GetInterface("IRepository`1") != null);
+            var repositorys = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(ass => ass.Location.IndexOf(".Data.dll", StringComparison.OrdinalIgnoreCase) > 0)
+                .SelectMany(ass =>  ass.GetTypes())
+                .Where(t => !t.IsInterface && !t.IsGenericType && t.GetInterface("IRepository`1") != null);
 
             foreach (var o in repositorys)
             {

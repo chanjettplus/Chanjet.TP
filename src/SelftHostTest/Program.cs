@@ -14,10 +14,10 @@ namespace SelftHostTest
     {
         static void Main(string[] args)
         {
-           ///
-           /// var host = new SelfHosting(new Uri("http://localhost:8888/TP/"), new Uri("http://127.0.0.1:8888/TP/"));
-           /// 
-            var host = new SelfHosting(new Uri("http://localhost:55581/restApi/"), new Uri("http://localhost:55581/restApi/"));
+           
+            var host = new SelfHosting(new Uri("http://localhost:8888/TP/"), new Uri("http://127.0.0.1:8888/TP/"));
+     
+            //var host = new SelfHosting(new Uri("http://localhost:55581/restApi/"), new Uri("http://localhost:55581/restApi/"));
             
 
             host.Start();

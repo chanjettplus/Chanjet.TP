@@ -13,12 +13,13 @@ namespace Chanjet.TP.ServiceHosting.Modules
     {
         public RepositoryServiceModule()
         {
+            
             Get["/Api/{Domain}/{Model}"] = parameters =>
             {
                 return Invoke(parameters.Domain,parameters.Model, "GetAll", null);
             };
         }
-
+        
 
         private object Invoke(string domain, string model, string methodName, object[] parameters )
         {

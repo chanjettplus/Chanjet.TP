@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" ?>
+<services  domain="DRService" desc="零售服务配置文件">
+	<!--零售基础档案服务-->
+	<service name="Ufida.T.AA.DR.Interface.IMember" className="Ufida.T.AA.DR.Service.MemberService"  desc="会员管理服务"  loadFrom="server\Ufida.T.AA.DR.Service.dll" mode="normal"  />
+	<service name="Ufida.T.AA.DR.Interface.ICommon" className="Ufida.T.AA.DR.Service.CommonService"  desc="基础档案公共方法服务"  loadFrom="server\Ufida.T.AA.DR.Service.dll" mode="normal"  />
+	<service name="Ufida.T.AA.DR.Interface.IMemberChangeCard" className="Ufida.T.AA.DR.Service.MemberChangeCardService"  desc="会员换卡服务"  loadFrom="server\Ufida.T.AA.DR.Service.dll" mode="normal"  />
+	<service name="Ufida.T.AA.DR.Interface.IMemberType" className="Ufida.T.AA.DR.Service.MemberTypeService" desc="会员类型服务" loadFrom="server\Ufida.T.AA.DR.Service.dll" mode="normal"  />
+	<service name="Ufida.T.AA.DR.Interface.IStore" className="Ufida.T.AA.DR.Service.StoreService" desc="门店档案服务" loadFrom="server\Ufida.T.AA.DR.Service.dll" mode="normal"  />
+	<service name="Ufida.T.AA.DR.Interface.IStoreType" className="Ufida.T.AA.DR.Service.StoreTypeService" desc="门店类型服务" loadFrom="server\Ufida.T.AA.DR.Service.dll" mode="normal"  />
+	<!--零售基础档案服务end-->
+
+	<!--会员管理服务-->
+	<service name="Ufida.T.ME.Interface.IMemberIntegral" className="Ufida.T.ME.Service.MemberIntegralService"  desc="积分管理服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IIntegralAdjust" className="Ufida.T.ME.Service.IntegralAdjustService"  desc="积分调整服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IIntegralClear" className="Ufida.T.ME.Service.IntegralClearService"  desc="积分清除服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IMemberUpgradeSetting" className="Ufida.T.ME.Service.MemberUpgradeSettingService"  desc="会员升级设置服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IMemberUpgrade" className="Ufida.T.ME.Service.MemberUpgradeService"  desc="会员升级设置服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IIntegralForGiftSetting" className="Ufida.T.ME.Service.IntegralForGiftSettingService"  desc="积分换礼品设置服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IIntegralSteadCashSetting" className="Ufida.T.ME.Service.IntegralSteadCashSettingService"  desc="积分抵现规则设置服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IIntegralForGift" className="Ufida.T.ME.Service.IntegralForGiftService"  desc="积分换礼品服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+  <service name="Ufida.T.ME.Interface.IIntegralForStorage" className="Ufida.T.ME.Service.IntegralForStorageService"  desc="积分转储值单服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+        <service name="Ufida.T.ME.Interface.IMemberUpgradeRecord" className="Ufida.T.ME.Service.MemberUpgradeRecordService"  desc="会员升级记录服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+  	<service name="Ufida.T.PRT.Interface.IForcastWarning" className="Ufida.T.ME.Service.MemberUpgradeService"  desc="会员升级预警"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.ME.Interface.IMemberStorage" className="Ufida.T.ME.Service.MemberStorageService"  desc="会员储值单服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+  <!--会员报表服务-->
+  <service name="Ufida.T.BAP.Base.Report.IReportQuery" className="Ufida.T.ME.Service.Report.MEReportFactory" desc="会员报表" loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"/>
+	<service name="Ufida.T.ME.Interface.IMemberUpgradeRecord" className="Ufida.T.ME.Service.MemberUpgradeRecordService"  desc="会员升级记录服务"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<service name="Ufida.T.PRT.Interface.IForcastWarning" className="Ufida.T.ME.Service.MemberUpgradeService"  desc="会员升级预警"  loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"  />
+	<!--会员报表服务-->
+	<service name="Ufida.T.BAP.Base.Report.IReportQuery" className="Ufida.T.ME.Service.Report.MEReportFactory" desc="会员报表" loadFrom="server\Ufida.T.ME.Service.dll" mode="normal"/>
+	<!--会员管理服务end-->
+
+	<!--零售服务start-->
+	<service name="Ufida.T.RE.Interface.IRetailSettle" className="Ufida.T.RE.Service.RetailSettleService" desc="零售结算单服务" loadFrom="server\Ufida.T.RE.Service.dll" mode="normal"  />
+  	<service name="Ufida.T.PRT.Interface.IPendingBiz" className="Ufida.T.RE.Service.RetailSettleService"  desc="零售结算单待结款业务"  loadFrom="server\Ufida.T.RE.Service.dll" mode="normal"  />
+	<service name="Ufida.T.RE.Interface.IRetail" className="Ufida.T.RE.Service.RetailService" desc="零售单服务" loadFrom="server\Ufida.T.RE.Service.dll" mode="normal"  />
+	<service name="Ufida.T.RE.Interface.IReceiveDetail" className="Ufida.T.RE.Service.ReceiveDetailService" desc="对账收款服务" loadFrom="server\Ufida.T.RE.Service.dll" mode="normal"  />
+	<service name="Ufida.T.RE.Interface.IPOSSyncServices" className="Ufida.T.RE.Service.PosSyncServices" desc="POS同步服务" loadFrom="server\Ufida.T.RE.Service.dll" mode="normal"  />
+	<service time="14|-1|300000||" className="Ufida.T.RE.Service.AfterSyncHandleServices" desc="同步后数据处理服务" loadFrom="server\Ufida.T.RE.Service.dll" mode="schedule" />
+	<service time="14|-1|60000||" className="Ufida.T.RE.Service.TempTableHandleService" desc="同步后数据临时表数据处理服务" loadFrom="server\Ufida.T.RE.Service.dll" mode="schedule" />
+	<service time=" 2|12:00:00|| " className="Ufida.T.RE.Service.DataClearServices" desc="数据清除服务" loadFrom="server\Ufida.T.RE.Service.dll" mode="schedule" />
+	<!--零售服务end-->	
+
+	<!--加盟店储值卡冲销Begin -->
+	<service name="Ufida.T.RE.Interface.IBranchStrikeBalance" className="Ufida.T.RE.Service.BranchStrikeBalance"  desc="加盟店储值卡冲销"  loadFrom="server\Ufida.T.RE.Service.dll" mode="normal"  />
+	<!--加盟店储值卡冲销End -->
+
+	<!--零售报表服务-->
+	<service name="Ufida.T.BAP.Base.Report.IReportQuery" className="Ufida.T.RE.Service.REReportFactory" desc="零售报表" loadFrom="server\Ufida.T.RE.Service.dll" mode="normal"/>
+	<!--零售服务end-->
+
+	<!--促销服务start-->
+	<service name="Ufida.T.PR.Interface.ISalesPromotion" className="Ufida.T.PR.Service.SalesPromotionService" desc="促销服务" loadFrom="server\Ufida.T.PR.Service.dll" mode="normal"  />
+	<service name="Ufida.T.PR.Interface.IPRComm" className="Ufida.T.PR.Service.PRCommService"  desc="促销公共"  loadFrom="server\Ufida.T.PR.Service.dll" mode="normal"  />
+	<service name="Ufida.T.BAP.Base.Report.IReportQuery" className="Ufida.T.PR.Report.Service.PRReportFactory" desc="促销报表服务" loadFrom="server\Ufida.T.PR.Service.dll" mode="normal"  />
+	
+	<!--分销服务start-->
+	<service name="Ufida.T.DI.Interface.IDistributionVoucherService" className="Ufida.T.DI.Service.DistributionVoucherService"  desc="配送单服务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IStockSalesReportService" className="Ufida.T.DI.Service.StockSalesReportService"  desc="库存销量上报单服务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IStockRequestService" className="Ufida.T.DI.Service.StockRequestService"  desc="要货单服务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IDistributionService" className="Ufida.T.DI.Service.DistributionService" desc="分销公共服务" loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IRRAService" className="Ufida.T.DI.Service.RRAService" desc="补货需求分析服务" loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+  <service name="Ufida.T.DI.Interface.IRRABulidPOBaseService" className="Ufida.T.DI.Service.RRABulidPOBaseService" desc="补货需求分析生成采购订单服务" loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+  <service name="Ufida.T.DI.Interface.IReplenishmentPriorityLevelService" className="Ufida.T.DI.Service.ReplenishmentPriorityLevelService" desc="补货优先级服务" loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IReplenishmentRuleSetting" className="Ufida.T.DI.Service.ReplenishmentRuleSetting" desc="补货规则设置服务" loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.BAP.Base.Report.IReportQuery" className="Ufida.T.DI.Service.Report.DIReportFactory"  desc="分销报表服务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.PRT.Interface.IForcastWarning" className="Ufida.T.DI.Service.StockRequestExpireWarning"  desc="要货单到期预警服务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.PRT.Interface.IPendingBiz" className="Ufida.T.DI.Service.DistributionWairingOutBiz"  desc="配送单待出库业务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.PRT.Interface.IPendingBiz" className="Ufida.T.DI.Service.StockRequestWaitingSendBiz"  desc="要货单待发货业务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+
+	<service name="Ufida.T.DI.Interface.IRunShopLinePlanning" className="Ufida.T.DI.Service.RunShopLinePlanningService"  desc="跑店路线规划服务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IRunShopLineCard" className="Ufida.T.DI.Service.RunShopLineCardService"  desc="跑店路线规划服务"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IRunShopRecordSearch" className="Ufida.T.DI.Service.RunShopRecordSearchService"  desc="跑店路线查询"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IRunShopLineNodeCard" className="Ufida.T.DI.Service.RunShopLineNodeCardService"  desc="跑店地图标记卡片"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IRunShopTargetAssign" className="Ufida.T.DI.Service.RunShopTargetAssignService"  desc="跑店对象设置"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<service name="Ufida.T.DI.Interface.IRunShopRecord" className="Ufida.T.DI.Service.RunShopRecordService"  desc="跑店跟踪卡片"  loadFrom="server\Ufida.T.DI.Service.dll" mode="normal"  />
+	<!--分销服务end-->
+</services>

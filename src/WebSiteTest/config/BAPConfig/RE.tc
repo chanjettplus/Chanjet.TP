@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SubSystem name="RE" dtoAssembly="Ufida.T.RE.DTO" interfaceAssembly="Ufida.T.RE.Interface" version="11.500.000.000" toolVersion="1.0.00.000">  
+<Modules>
+    <Module dtoName="Ufida.T.RE.DTO.RetailSettleDTO" interfaceName="Ufida.T.RE.Interface.IRetailSettleService" name="RE20">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idsettlecustomer" authObject="PartnerDTO" type="1" />
+          <Property name="idstore" authObject="StoreDTO" type="1" />
+          <Property name="idcustomer" authObject="PartnerDTO" type="1" />
+          </Scenario>
+      </DataAuth>
+      <DataAuth>
+        <Scenario name="detailPage">
+          <Property name="RetailSettle.idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+	  <Property name="RetailSettle.idsettlecustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+          <Property name="RetailSettle.idcustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+        </Scenario>
+     </DataAuth>
+     <DataAuth>
+        <Scenario name="pendingbiz">
+          <Property name="RetailSettle.idStore" authObject="StoreDTO" type="5" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+	  <Property name="RetailSettle.idsettlecustomer" authObject="PartnerDTO" type="5" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+          <Property name="RetailSettle.idcustomer" authObject="PartnerDTO" type="5" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+        </Scenario>
+     </DataAuth>
+     <DataAuth>
+        <Scenario name="selectVoucher">
+          <Property name="RetailSettle.idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+	  <Property name="RetailSettle.idsettlecustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+          <Property name="RetailSettle.idcustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+	  <Property name="RetailSettle.Store.iddepartment" authObject="DepartmentDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+          <Property name="idinventory" authObject="InventoryDTO" type="4" belongTo="Ufida.T.RE.DTO.RetailSettleDetailDTO"/>
+        </Scenario>
+     </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.RE.DTO.RetailDTO" interfaceName="Ufida.T.RE.Interface.IRetail" name="RE10">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idstore" authObject="StoreDTO" type="1" />
+ 	  <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idRetailDTO" belongTo="Ufida.T.RE.DTO.RetailDetailDTO" />
+         </Scenario>
+	<Scenario name="batchSaleOut">
+          <Property name="idstore" authObject="StoreDTO" type="1" />
+	  </Scenario>
+	<Scenario name="batchSaleOutDetail">
+          <Property name="idinventory" authObject="InventoryDTO" type="4" relationNameWithHead="idRetailDTO" belongTo="Ufida.T.RE.DTO.RetailDetailDTO" />
+	  </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.RE.DTO.ReceiveDetailDTO" interfaceName="Ufida.T.RE.Interface.IReceiveDetail" name="RE25">
+      <DataAuth>
+        <Scenario name="findListForReceiveDetail">
+          <Property name="idStore" authObject="StoreDTO" type="4" belongTo="Ufida.T.RE.DTO.ReceiveDetailDTO"/>
+	  </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.RE.DTO.RetailSettleDTO" interfaceName="Ufida.T.RE.Interface.IBranchStrikeBalance" name="arap0308">
+      <DataAuth>
+        <Scenario name="findpage">
+	  <Property name="idstore" authObject="StoreDTO" type="1" />
+	</Scenario>
+      </DataAuth>
+    </Module>
+  </Modules>
+</SubSystem>

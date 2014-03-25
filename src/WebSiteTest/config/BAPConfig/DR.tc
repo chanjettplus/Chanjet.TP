@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SubSystem name="DR" dtoAssembly="Ufida.T.AA.DR.DTO" interfaceAssembly="Ufida.T.AA.DR.Interface" version="11.500.000.000" toolVersion="1.0.00.000">
+  <Modules>
+    <!--<Module dtoName="Ufida.T.AA.DR.DTO.MemberTypeDTO" interfaceName="Ufida.T.AA.DR.Interface.IMemberType" name="AA1070">
+      <DataAuth>
+        <Scenario name="findPage">
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idMemberTypeDTO" belongTo="Ufida.T.AA.DR.DTO.IntegralDTO" />
+          <Property name="idinventory" authObject="InventoryDTO" type="2" relationNameWithHead="idMemberTypeDTO" belongTo="Ufida.T.AA.DR.DTO.MemberTypeDiscountDTO" />
+        </Scenario>
+      </DataAuth>
+    </Module>-->
+    <!--<Module dtoName="Ufida.T.AA.DR.DTO.StoreDTO" interfaceName="Ufida.T.AA.DR.Interface.IStore" name="AA1065">
+      <DataAuth>
+        <Scenario name="findPageForStore">
+          <Property name="id" authObject="StoreDTO" type="4" belongTo="Ufida.T.AA.DR.DTO.StoreDTO"  />
+          <Property name="idwarehouse" authObject="WarehouseDTO" type="4" belongTo="Ufida.T.AA.DR.DTO.StoreDTO" />
+          <Property name="idcustomer" authObject="PartnerDTO" type="4"  belongTo="Ufida.T.AA.DR.DTO.StoreDTO" />
+          <Property name="idsettlementCustomer" authObject="PartnerDTO" type="4" belongTo="Ufida.T.AA.DR.DTO.StoreDTO"  />
+          <Property name="iddepartment" authObject="DepartmentDTO" type="4"  belongTo="Ufida.T.AA.DR.DTO.StoreDTO" />
+          <Property name="idperson" authObject="PersonDTO" type="4" belongTo="Ufida.T.AA.DR.DTO.StoreDTO"  />
+        </Scenario>
+      </DataAuth>
+    </Module>
+    <Module dtoName="Ufida.T.AA.DR.DTO.MemberDTO" interfaceName="Ufida.T.AA.DR.Interface.IMember" name="AA1060">
+      <DataAuth>
+        <Scenario name="findPageForMember">
+          <Property name="idpartner" authObject="PartnerDTO" type="4"  belongTo="Ufida.T.AA.DR.DTO.MemberDTO"  />
+          <Property name="idperson" authObject="PersonDTO" type="4"  belongTo="Ufida.T.AA.DR.DTO.MemberDTO"  />
+        </Scenario>
+      </DataAuth>
+    </Module>-->
+  </Modules>
+</SubSystem>

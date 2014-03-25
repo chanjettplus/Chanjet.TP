@@ -122,6 +122,12 @@ namespace Chanjet.TP.Core.Cache
         }
 
 
+
+
+        public void Add(string key, object value)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
