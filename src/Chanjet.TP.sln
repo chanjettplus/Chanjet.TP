@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Hosting.Aspnet",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteTest", "WebSiteTest\WebSiteTest.csproj", "{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ufida.T.EAP.AopBase", "..\..\..\..\..\Views\11.51\UAP_VOB\UAP_Comp\src\Common\Ufida.T.EAP.AopBase\Ufida.T.EAP.AopBase.csproj", "{F938BF55-6914-44EB-AA86-8973A8DA9F4B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -265,26 +263,6 @@ Global
 		{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}.Release|x86.ActiveCfg = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoDebug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoDebug|x86.ActiveCfg = Debug|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoRelease|Any CPU.ActiveCfg = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoRelease|Any CPU.Build.0 = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoRelease|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoRelease|Mixed Platforms.Build.0 = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.MonoRelease|x86.ActiveCfg = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F938BF55-6914-44EB-AA86-8973A8DA9F4B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
