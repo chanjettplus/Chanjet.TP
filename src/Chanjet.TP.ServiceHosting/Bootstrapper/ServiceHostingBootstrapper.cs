@@ -22,6 +22,10 @@ namespace Chanjet.TP.ServiceHosting
 {
     public class ServiceHostBootstrapper : Nancy.Bootstrappers.Autofac.AutofacNancyBootstrapper , IDIContainer
     {
+        /// <summary>
+        /// 配置IOC容器
+        /// </summary>
+        /// <param name="existingContainer"></param>
         protected override void ConfigureApplicationContainer(ILifetimeScope existingContainer)
         {
             base.ConfigureApplicationContainer(existingContainer);
@@ -38,7 +42,6 @@ namespace Chanjet.TP.ServiceHosting
 
             builder.RegisterType<ServicesFactory>()
                 .AsImplementedInterfaces()
-                
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(DynamicProxyInterceptor))
                 .SingleInstance();
@@ -57,12 +60,25 @@ namespace Chanjet.TP.ServiceHosting
 
             builder.Update(existingContainer.ComponentRegistry);
 
-           // ModelLoader.LoadModels(existingContainer);
-
             DIContainerManager.SetContainer(this);
-
         }
 
+        /// <summary>
+        /// 应用程序启动
+        /// </summary>
+        /// <param name="container">IOC容器</param>
+        /// <param name="pipelines">管道</param>
+        protected override void ApplicationStartup(ILifetimeScope container, IPipelines pipelines)
+        {
+            base.ApplicationStartup(container, pipelines);
+        }
+
+        /// <summary>
+        /// 请求开始
+        /// </summary>
+        /// <param name="container">IOC容器</param>
+        /// <param name="pipelines">管道</param>
+        /// <param name="context">上下文</param>
         protected override void RequestStartup(ILifetimeScope container, Nancy.Bootstrapper.IPipelines pipelines, Nancy.NancyContext context)
         {
             base.RequestStartup(container, pipelines, context);
@@ -89,17 +105,6 @@ namespace Chanjet.TP.ServiceHosting
         {
             return this.ApplicationContainer.Resolve(type);
         }
-
-
-        private Type GetTypeForName(string key)
-        {
-            return (
-                from reg in this.ApplicationContainer.ComponentRegistry.Registrations
-                from service in reg.Target.Services.OfType<KeyedService>()
-                .Where(service => service.ServiceKey.ToString() == key)
-                select service.ServiceType).FirstOrDefault();
-        }
-
 
         public object Resolve(string typeName)
         {

@@ -4,5 +4,18 @@
         <name>Chanjet.TP.ServiceHosting</name>
     </assembly>
     <members>
+        <member name="M:Chanjet.TP.ServiceHosting.ServiceHostBootstrapper.ConfigureApplicationContainer(Autofac.ILifetimeScope)">
+            <summary>
+            配置IOC容器
+            </summary>
+            <param name="existingContainer"></param>
+        </member>
+        <member name="M:Chanjet.TP.ServiceHosting.ServiceHostBootstrapper.ApplicationStartup(Autofac.ILifetimeScope,Nancy.Bootstrapper.IPipelines)">
+            <summary>
+            应用程序启动
+            </summary>
+            <param name="container">IOC容器</param>
+            <param name="pipelines">管道</param>
+        </member>
     </members>
 </doc>
