@@ -10,8 +10,11 @@ namespace Chanjet.TP.Data
     public class RepositoryBase<T> : IRepository<T>
         where T:class
     {
-        public RepositoryBase()
+        private IUnitOfWork _uow;
+
+        public RepositoryBase(IUnitOfWork uow)
         {
+            _uow = uow;
         }
 
         public virtual void Add(T entity)
