@@ -15,6 +15,7 @@ using System.Reflection;
 
 using Nancy.Bootstrapper;
 using Nancy.Authentication.Stateless;
+using Nancy.Conventions;
 
 
 
@@ -71,6 +72,8 @@ namespace Chanjet.TP.ServiceHosting
         protected override void ApplicationStartup(ILifetimeScope container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
+
+            //this.Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("moo", "Content"));
         }
 
         /// <summary>
