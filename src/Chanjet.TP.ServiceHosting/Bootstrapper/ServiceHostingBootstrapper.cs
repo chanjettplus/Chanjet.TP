@@ -16,6 +16,8 @@ using System.Reflection;
 using Nancy.Bootstrapper;
 using Nancy.Authentication.Stateless;
 using Nancy.Conventions;
+using Chanjet.TP.Authentication.Stateless;
+using Chanjet.TP.Core.Cache;
 
 
 
@@ -40,6 +42,9 @@ namespace Chanjet.TP.ServiceHosting
 
             builder.RegisterType<ExceptionInterceptor>();
             builder.RegisterType<DynamicProxyInterceptor>();
+
+            builder.RegisterType<DefaultCache>().As<ICache>();
+            builder.RegisterType<UserMapper>().As<IUserMapper>();
 
             builder.RegisterType<ServicesFactory>()
                 .AsImplementedInterfaces()
@@ -89,8 +94,9 @@ namespace Chanjet.TP.ServiceHosting
             var configuration =
             new StatelessAuthenticationConfiguration(nancyContext =>
             {
-                var apiKey = (string)nancyContext.Request.Query.ApiKey.Value;
-                return Chanjet.TP.Authentication.Stateless.UserMapper.GetUserFromApiKey(apiKey);
+                var ticket = (string)nancyContext.Request.Query.Ticket.Value;
+
+                return this.ApplicationContainer.Resolve<IUserMapper>().GetUserFromTicket(ticket);
             });
 
             AllowAccessToConsumingSite(pipelines);

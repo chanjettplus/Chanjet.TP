@@ -17,5 +17,13 @@
             <param name="container">IOC容器</param>
             <param name="pipelines">管道</param>
         </member>
+        <member name="M:Chanjet.TP.ServiceHosting.ServiceHostBootstrapper.RequestStartup(Autofac.ILifetimeScope,Nancy.Bootstrapper.IPipelines,Nancy.NancyContext)">
+            <summary>
+            请求开始
+            </summary>
+            <param name="container">IOC容器</param>
+            <param name="pipelines">管道</param>
+            <param name="context">上下文</param>
+        </member>
     </members>
 </doc>

@@ -1,4 +1,5 @@
-﻿using Nancy.Security;
+﻿using Chanjet.TP.Core;
+using Nancy.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,51 +8,46 @@ using System.Threading.Tasks;
 
 namespace Chanjet.TP.Authentication.Stateless
 {
-    public class UserMapper 
+    public class UserMapper : IUserMapper
     {
-        private static List<Tuple<string, string, Guid>> Users = new List<Tuple<string, string, Guid>>();
-        static readonly List<Tuple<string, string>> ActiveApiKeys = new List<Tuple<string, string>>();
+        private ICache _cache;
 
-        static UserMapper()
+        public UserMapper(ICache cache)
         {
-            Users.Add(new Tuple<string, string, Guid>("admin", "admin", new Guid("55E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
-            Users.Add(new Tuple<string, string, Guid>("user", "user", new Guid("56E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
+            _cache = cache;
         }
 
-
-
-        public static IUserIdentity GetUserFromApiKey(string apiKey)
+        public String ValidateUser(string username, string password, string account, DateTime loginDate, int clientType)
         {
-            var activeKey = ActiveApiKeys.FirstOrDefault(x => x.Item2 == apiKey);
+            //登录认证
+            //todo:
 
-            if (activeKey == null)
-            {
-                return null;
-            }
+            var userInfo = new UserIdentity() { UserName = username };
 
-            var userRecord = Users.First(u => u.Item1 == activeKey.Item1);
-            return new UserIdentity { UserName = userRecord.Item1 };
+            //生成票并存入Cache
+            var ticket = Guid.NewGuid().ToString();
+
+            if (_cache.Contains(ticket))
+                _cache[ticket] = userInfo;
+            else
+                _cache.Add(ticket, userInfo);
+
+            return ticket;
         }
 
-        public static String ValidateUser(string username, string password, string account)
+        public IUserIdentity GetUserFromTicket(string ticket)
         {
-            var userRecord = Users.Where(u => u.Item1 == username && u.Item2 == password).FirstOrDefault();
+            if (_cache.Contains(ticket))
+                return _cache[ticket] as IUserIdentity;
 
-            if (userRecord == null)
-            {
-                return null;
-            }
-
-            var apiKey = Guid.NewGuid().ToString();
-            ActiveApiKeys.Add(new Tuple<string, string>(username, apiKey));
-            return apiKey;            
-       
+            return null;
         }
 
-        public static void RemoveApiKey(string apiKey)
+        public void RemoveTicket(string ticket)
         {
-            var apiKeyToRemove = ActiveApiKeys.First(x => x.Item2 == apiKey);
-            ActiveApiKeys.Remove(apiKeyToRemove);
+            if (_cache.Contains(ticket))
+                _cache.Remove(ticket);
         }
+
     }
 }
