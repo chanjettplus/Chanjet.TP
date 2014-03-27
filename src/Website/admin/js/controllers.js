@@ -4,8 +4,12 @@
  
 angular.module('admin.controllers', ['admin.views']).
 
-  controller('viewlistCtrl', ['$scope', 'views', function ($scope, views) {
+  controller('navCtrl', ['$scope', 'views', function ($scope, views) {
       $scope.views = views;
+      $scope.logout = function () {
+          alert('logout');
+      };
+      $scope.helpurl = "/";
   }])
 
   .controller('defaultCtrl', [function () {
