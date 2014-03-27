@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html >
+<html >
+<head>
+    <title>畅捷通T+   登录</title>
+    <link href="../css/loginCSS3.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <base target="_blank" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body  ng-app="loginApp" >
+    <header>
+        <nav>
+            <ul>
+                <li><a href="components/checkenvclient.exe">浏览器配置工具</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <form id="login" onsubmit="javascript:return false;" ng-controller="loginCtrl">
+        <h1>畅捷通<i>T<span>+</span></i></h1>
+        <section class="inputs">
+            <input id="username" ng-model="username" type="text" placeholder="用户名" title="请录入用户名" autofocus required>
+            <input id="password" ng-model="password" type="password" placeholder="密码" title="请录入密码">
+        </section> 
+        <section id="actions">
+            <input type="submit" id="submit" ng-click="doLogin()" value="登录"> 
+            <a href="#" id="advance" ng-click="openRegist()" target="_self"  >注册</a>
+            <br />
+        </section>
+    </form>
+    <footer> 
+    </footer> 
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../JS/controllers.js"></script>
+</body>
+</html>

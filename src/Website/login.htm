@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html >
+<html>
+<head>
+    <title>畅捷通T+   登录</title>
+    <link href="css/loginCSS3.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <base target="_blank" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <form id="login" onsubmit="javascript:return false;" >
+        <h1>畅捷通<i>T<span>+</span></i></h1>
+        <section class="inputs">
+            <input id="username" type="text" placeholder="用户名" title="请录入用户名" autofocus required>
+            <input id="password" type="password" placeholder="密码" title="请录入密码">
+        </section>
+        <section id="actions">
+            <input type="submit" id="submit" value="登录">
+            <a href="#" id="advance" target="_self">注册</a>
+            <br />
+        </section>
+    </form> 
+    <script src="lib/jquery/jquery-1.11.0.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            controller('loginCtrl', ['$scope', '$window', '$http', function ($scope, $window, $http) {
+
+                $scope.username = $window.localStorage.getItem("login_username");
+                $scope.password = "";
+
+
+                $scope.submit = function () {
+
+                    $window.localStorage.setItem("login_username", $scope.username);
+
+                    var url = 'Api/DC/User/Query';
+                    var data = { Name: $scope.username, Password: $scope.password }; 
+
+                    $http.post(url, data, $scope.redirect);//jquery
+                }
+
+                $scope.redirect = function (result) {
+                    //For example: host='/s0101/checkcode.aspx?ticket='
+                    var host = result[0].host;
+                    if (host == 'err:noName') {
+                        $window.alert('用户不存在！');
+                    } else if (host == 'err:badPassword') {
+                        $window.alert('密码不正确！');
+                    } else {
+                        //$window.open(host);  
+
+                        $http.get(host, function (result) {
+                            //$window.alert(result);
+                            var arr = host.split('/');
+                            arr[arr.length - 1] = 'Default.aspx';
+                            $window.location = (arr.join('/'));
+                        });
+                    }
+                }
+
+            }]);
+        });
+
+        function controller(ctlName, args) {
+            var fun = args[args.length - 1];
+            var $scope = {}, $window = window, $http = $;
+
+            fun($scope, $window, $http);
+
+            for (var i in $scope) {
+                if ($('#' + i)) {
+                    if (typeof ($scope[i]) == "function") {
+                        $('#' + i).on("click", $scope[i]);
+                    } else {
+                        $('#' + i).val($scope[i]);
+                        $('#' + i).on("change", function () {
+                            $scope[this.id] = this.value;
+                        });
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
