@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Core", "Chanjet.TP.Core\Chanjet.TP.Core.csproj", "{75548254-F975-4B11-8E18-FCB85F6092C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Core.Tests", "Chanjet.TP.Core.Tests\Chanjet.TP.Core.Tests.csproj", "{D4E02357-415E-4DF4-BAAC-8C68786AFC62}"
@@ -25,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Hosting.Aspnet",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteTest", "WebSiteTest\WebSiteTest.csproj", "{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website(3)", "Website\", "{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Website"
@@ -45,7 +47,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{2EB
 		VWDPort = "35832"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "app", "..\..\..\..\..\..\nodejs\angular-seed\app\", "{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "app", "..\..\..\..\..\nodejs\angular-seed\app\", "{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/app"
@@ -65,26 +67,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "app", "..\..\..\..\..\..\no
 		VWDPort = "37555"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "m", "E:\开源项目\dev.chanjeter.com_nm\m\", "{1F80F5C1-7724-4135-B68F-AB557A7399B7}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/m"
-		Debug.AspNetCompiler.PhysicalPath = "E:\开源项目\dev.chanjeter.com_nm\m\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\m\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/m"
-		Release.AspNetCompiler.PhysicalPath = "E:\开源项目\dev.chanjeter.com_nm\m\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\m\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "9285"
-	EndProjectSection
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Data.DatabaseProvider", "Chanjet.TP.Data.DatabaseProvider\Chanjet.TP.Data.DatabaseProvider.csproj", "{7D308D73-5878-41CD-BA98-BAFAA1F7C083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Service", "Chanjet.TP.Service\Chanjet.TP.Service.csproj", "{442958C2-D262-47FA-922F-D50A36C89D49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -362,26 +347,6 @@ Global
 		{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
 		{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}.Release|x86.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoDebug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoDebug|x86.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoRelease|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoRelease|Any CPU.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoRelease|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoRelease|Mixed Platforms.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.MonoRelease|x86.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
-		{1F80F5C1-7724-4135-B68F-AB557A7399B7}.Release|x86.ActiveCfg = Debug|Any CPU
 		{7D308D73-5878-41CD-BA98-BAFAA1F7C083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D308D73-5878-41CD-BA98-BAFAA1F7C083}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D308D73-5878-41CD-BA98-BAFAA1F7C083}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -402,6 +367,26 @@ Global
 		{7D308D73-5878-41CD-BA98-BAFAA1F7C083}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{7D308D73-5878-41CD-BA98-BAFAA1F7C083}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7D308D73-5878-41CD-BA98-BAFAA1F7C083}.Release|x86.ActiveCfg = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoDebug|x86.ActiveCfg = Debug|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoRelease|Any CPU.Build.0 = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoRelease|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoRelease|Mixed Platforms.Build.0 = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.MonoRelease|x86.ActiveCfg = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{442958C2-D262-47FA-922F-D50A36C89D49}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
