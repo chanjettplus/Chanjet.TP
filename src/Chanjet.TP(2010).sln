@@ -1,0 +1,98 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Authentication.Stateless", "Chanjet.TP.Authentication.Stateless\Chanjet.TP.Authentication.Stateless.csproj", "{28D9ED5D-601F-4EBE-BA38-80A654661FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Core", "Chanjet.TP.Core\Chanjet.TP.Core.csproj", "{75548254-F975-4B11-8E18-FCB85F6092C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Core.Tests", "Chanjet.TP.Core.Tests\Chanjet.TP.Core.Tests.csproj", "{D4E02357-415E-4DF4-BAAC-8C68786AFC62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Data", "Chanjet.TP.Data\Chanjet.TP.Data.csproj", "{7AF70258-B585-4AD2-B70B-A879AC023CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.SystemManager.Data", "Chanjet.TP.Data.SystemManager\Chanjet.TP.SystemManager.Data.csproj", "{15A0F982-A52F-45D3-83AC-76A8202FF5DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Hosting.Aspnet", "Chanjet.TP.Hosting.Aspnet\Chanjet.TP.Hosting.Aspnet.csproj", "{FF0D6BED-5FA9-4176-986F-5678DBDC8C5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Hosting.Self", "Chanjet.TP.Hosting.Self\Chanjet.TP.Hosting.Self.csproj", "{E859393F-BFFF-48E3-A0F0-FE3387171CE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Logger", "Chanjet.TP.LogAdapter\Chanjet.TP.Logger.csproj", "{7D45BE9D-6195-456A-84E1-A6C4AC8B9874}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelftHostTest", "SelftHostTest\SelftHostTest.csproj", "{B8727B38-15ED-4BF3-B809-004D444ADEEC}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{700DBA51-D014-4BFD-9A09-41103D02E683}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Website"
+		Debug.AspNetCompiler.PhysicalPath = "Website\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Website"
+		Release.AspNetCompiler.PhysicalPath = "Website\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3819"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.ServiceHosting", "Chanjet.TP.ServiceHosting\Chanjet.TP.ServiceHosting.csproj", "{1E4A7EFF-7CF8-44BB-B8F3-00276017CE2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28D9ED5D-601F-4EBE-BA38-80A654661FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D9ED5D-601F-4EBE-BA38-80A654661FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D9ED5D-601F-4EBE-BA38-80A654661FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D9ED5D-601F-4EBE-BA38-80A654661FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75548254-F975-4B11-8E18-FCB85F6092C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75548254-F975-4B11-8E18-FCB85F6092C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75548254-F975-4B11-8E18-FCB85F6092C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75548254-F975-4B11-8E18-FCB85F6092C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E02357-415E-4DF4-BAAC-8C68786AFC62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E02357-415E-4DF4-BAAC-8C68786AFC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E02357-415E-4DF4-BAAC-8C68786AFC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E02357-415E-4DF4-BAAC-8C68786AFC62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AF70258-B585-4AD2-B70B-A879AC023CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AF70258-B585-4AD2-B70B-A879AC023CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AF70258-B585-4AD2-B70B-A879AC023CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AF70258-B585-4AD2-B70B-A879AC023CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A0F982-A52F-45D3-83AC-76A8202FF5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A0F982-A52F-45D3-83AC-76A8202FF5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A0F982-A52F-45D3-83AC-76A8202FF5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A0F982-A52F-45D3-83AC-76A8202FF5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF0D6BED-5FA9-4176-986F-5678DBDC8C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0D6BED-5FA9-4176-986F-5678DBDC8C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF0D6BED-5FA9-4176-986F-5678DBDC8C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF0D6BED-5FA9-4176-986F-5678DBDC8C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E859393F-BFFF-48E3-A0F0-FE3387171CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D45BE9D-6195-456A-84E1-A6C4AC8B9874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D45BE9D-6195-456A-84E1-A6C4AC8B9874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D45BE9D-6195-456A-84E1-A6C4AC8B9874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D45BE9D-6195-456A-84E1-A6C4AC8B9874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8727B38-15ED-4BF3-B809-004D444ADEEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8727B38-15ED-4BF3-B809-004D444ADEEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8727B38-15ED-4BF3-B809-004D444ADEEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8727B38-15ED-4BF3-B809-004D444ADEEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{700DBA51-D014-4BFD-9A09-41103D02E683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700DBA51-D014-4BFD-9A09-41103D02E683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700DBA51-D014-4BFD-9A09-41103D02E683}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{700DBA51-D014-4BFD-9A09-41103D02E683}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1E4A7EFF-7CF8-44BB-B8F3-00276017CE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E4A7EFF-7CF8-44BB-B8F3-00276017CE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E4A7EFF-7CF8-44BB-B8F3-00276017CE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E4A7EFF-7CF8-44BB-B8F3-00276017CE2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
