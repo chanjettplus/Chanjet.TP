@@ -7,8 +7,8 @@
 <body>
     <header>
     </header>
-    <div id="tabs" ng-controller="viewlistCtrl">
-        {{name}}
+    <div id="tabs" ng-controller="viewlistCtrl"> 
+       <a  ng-repeat="v in views" ng-href="{{'#/' + v.routeUrl}}">{{v.title}} | </a> 
     </div>
 
     <div id="ngView" class="ngview" ng-view></div>

@@ -12,35 +12,35 @@ angular.module('admin.controllers', ['admin.views']).
 
   }])
 
-  .controller('site-listCtrl', [function () {
+  .controller('site_listCtrl', [function () {
 
   }])
 
-  .controller('account-createCtrl', [function () {
+  .controller('account_createCtrl', [function () {
 
   }])
 
-  .controller('account-hiddensetCtrl', [function () {
+  .controller('account_hiddensetCtrl', [function () {
 
   }])
 
-  .controller('account-listCtrl', [function () {
+  .controller('account_listCtrl', [function () {
 
   }])
 
-  .controller('backup-createCtrl', [function () {
+  .controller('backup_createCtrl', [function () {
 
   }])
 
-  .controller('backup-listCtrl', [function () {
+  .controller('backup_listCtrl', [function () {
 
   }])
 
-  .controller('job-listCtrl', [function () {
+  .controller('job_listCtrl', [function () {
 
   }])
 
-  .controller('server-settingCtrl', [function () {
+  .controller('server_settingCtrl', [function () {
 
   }])
 
