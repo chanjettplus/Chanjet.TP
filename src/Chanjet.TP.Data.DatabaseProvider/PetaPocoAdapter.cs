@@ -36,5 +36,17 @@ namespace Chanjet.TP.Data.DatabaseProvider
         {
             return this.Insert(tableName, "", poco);
         }
+
+        public int Update(string tableName, object poco)
+        {
+            return this.Update(tableName, "", poco, "");
+        }
+
+        public int Delete(string tableName, object poco)
+        {
+            return this.Delete(tableName, "", poco);
+        }
+
+       
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using Chanjet.TP.Data;
+using Chanjet.TP.SystemManager.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,8 +12,15 @@ namespace Chanjet.TP.SystemManager.Data
 {
     public class AccountRepository : RepositoryBase<Account>, IAccountRepository
     {
+        public AccountRepository( IDatabase db)
+            :base( db)
+        {
+
+        } 
+        /*
         public override IEnumerable<Account> GetAll()
         {
+           
             List<Account> result = new List<Account>();
             DBSession dbsession = DBSessionFactory.getUserCtrlTranSession("UFTSystem");
 
@@ -25,6 +33,7 @@ namespace Chanjet.TP.SystemManager.Data
             }
 
             return result;
-        }
+            return null;
+        }*/
     }
 }

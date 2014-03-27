@@ -10,12 +10,10 @@ namespace Chanjet.TP.Data
     public class RepositoryBase<T> : IRepository<T>
         where T:class
     {
-        private IUnitOfWork _uow;
         private IDatabase _db;
 
-        public RepositoryBase(IUnitOfWork uow, IDatabase db)
+        public RepositoryBase( IDatabase db)
         {
-            _uow = uow;
             _db = db;
         }
 
@@ -25,14 +23,29 @@ namespace Chanjet.TP.Data
             _db.Insert(entity);
         }
 
+        public virtual void Insert(string tableName, T entity)
+        {
+            _db.Insert(tableName, tableName);
+        }
+
         public virtual void Update(T entity)
         {
             _db.Update(entity);
         }
 
+        public virtual void Update(string tableName, T entity)
+        {
+            _db.Update(tableName, entity);
+        }
+
         public virtual void Delete(T entity)
         {
             _db.Delete(entity);
+        }
+
+        public virtual void Delete(string tableName, T entity)
+        {
+            _db.Delete(tableName, entity);
         }
 
         public virtual T GetById(long id)

@@ -23,6 +23,8 @@ namespace Chanjet.TP.Data
 
         int Update(object o);
 
+        int Update(string tableName, object o);
+
         int Update(object poco, IEnumerable<string> columns);
 
         int Update(object poco, object primaryKeyValue);
@@ -32,6 +34,8 @@ namespace Chanjet.TP.Data
         int Update<T>(string sql, params object[] args);
         
         int Delete(object o);
+
+        int Delete(string tableName, object o);
 
         int Delete<T>(object pocoOrPrimaryKey);
 
