@@ -1,5 +1,4 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
+﻿Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Authentication.Stateless", "Chanjet.TP.Authentication.Stateless\Chanjet.TP.Authentication.Stateless.csproj", "{28D9ED5D-601F-4EBE-BA38-80A654661FE2}"
 EndProject
