@@ -11,45 +11,46 @@ namespace Chanjet.TP.Data
         where T:class
     {
         private IUnitOfWork _uow;
+        private IDatabase _db;
 
-        public RepositoryBase(IUnitOfWork uow)
+        public RepositoryBase(IUnitOfWork uow, IDatabase db)
         {
             _uow = uow;
+            _db = db;
         }
 
-        public virtual void Add(T entity)
+
+        public virtual void Insert(T entity)
         {
-            throw new NotImplementedException();
+            _db.Insert(entity);
         }
 
         public virtual void Update(T entity)
         {
-            throw new NotImplementedException();
+            _db.Update(entity);
         }
 
         public virtual void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _db.Delete(entity);
         }
 
         public virtual T GetById(long id)
         {
-            throw new NotImplementedException();
+            return _db.Query<T>("WHERE ID=@ID", id).FirstOrDefault();
         }
 
         public virtual T GetById(string id)
         {
-            throw new NotImplementedException();
+            return _db.Query<T>("WHERE ID=@ID", id).FirstOrDefault();
         }
 
         public virtual IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _db.Query<T>("");
         }
 
-        public T DynamicMap<T>(object source)
-        {
-            return AutoMapper.Mapper.DynamicMap<T>(source);
-        }
+
+
     }
 }
