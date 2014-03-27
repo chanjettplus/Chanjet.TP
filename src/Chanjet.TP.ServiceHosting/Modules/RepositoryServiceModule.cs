@@ -25,7 +25,7 @@ namespace Chanjet.TP.ServiceHosting.Modules
         {
             var modelType =
                 (from type in AppDomainAssemblyTypeScanner.Types
-                where type.FullName.Contains(String.Format("Chanjet.TP.{0}.Data.{1}", domain, model))
+                where type.FullName.Contains(String.Format("Chanjet.TP.{0}.Model.{1}", domain, model))
                 select type).First();
 
 

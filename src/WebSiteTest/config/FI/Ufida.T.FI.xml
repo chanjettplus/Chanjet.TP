@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
-<Ufida.T.FI.Aspects Enabled="False" LogFolder="C:\">
-	<Aspect type="Ufida.T.FI.Base.PerformanceAspect,Ufida.T.FI.Base" deploy-model="Singleton" 
-			 pointcut-type="Method" action-position="Both" match="*,*" />
-	<!--<Aspect type="AspectClient.SecondAspect,AspectClient" deploy-model="Singleton" 
-			 pointcut-type="Method|Construction|Property" action-position="After" match="*,*" />-->
-</Ufida.T.FI.Aspects>

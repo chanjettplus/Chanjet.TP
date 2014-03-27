@@ -18,6 +18,7 @@ using Nancy.Authentication.Stateless;
 using Nancy.Conventions;
 using Chanjet.TP.Authentication.Stateless;
 using Chanjet.TP.Core.Cache;
+using Chanjet.TP.Data.DatabaseProvider;
 
 
 
@@ -38,6 +39,11 @@ namespace Chanjet.TP.ServiceHosting
 
             AppDomainAssemblyTypeScanner.AddAssembliesToScan(fileNames);
 
+            var fileNames1 = (from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Model.dll", SearchOption.AllDirectories)
+                             select Path.GetFileName(file)).ToArray();
+
+            AppDomainAssemblyTypeScanner.AddAssembliesToScan(fileNames1);
+
             var builder = new ContainerBuilder();
 
             builder.RegisterType<ExceptionInterceptor>();
@@ -45,6 +51,10 @@ namespace Chanjet.TP.ServiceHosting
 
             builder.RegisterType<DefaultCache>().As<ICache>();
             builder.RegisterType<UserMapper>().As<IUserMapper>();
+            
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.Register( c=> new PetaPocoAdapter("Data Source=.;Initial Catalog=UFTSystem;User ID=sa;Password=uf*123456;", "System.Data.SqlClient"))
+                .As<IDatabase>().InstancePerLifetimeScope();
 
             builder.RegisterType<ServicesFactory>()
                 .AsImplementedInterfaces()
@@ -52,7 +62,7 @@ namespace Chanjet.TP.ServiceHosting
                 .InterceptedBy(typeof(DynamicProxyInterceptor))
                 .SingleInstance();
 
-            builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepository<>));
+
 
             var repositorys = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(ass => ass.Location.IndexOf(".Data.dll", StringComparison.OrdinalIgnoreCase) > 0)
@@ -63,6 +73,8 @@ namespace Chanjet.TP.ServiceHosting
             {
                 builder.RegisterType(o).AsImplementedInterfaces();
             }
+
+            builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepository<>));
 
             builder.Update(existingContainer.ComponentRegistry);
 

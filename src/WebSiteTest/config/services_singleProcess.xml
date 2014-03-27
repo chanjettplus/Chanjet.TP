@@ -1,8 +1,0 @@
-<?xml version="1.0" ?>
-<services  domain="singleService" desc="总体分析独立进程服务">
-<load fileName="services_singleProcess_eap.xml" />
-<load fileName="services_singleProcess_bap.xml" />
-<load fileName="services_singleProcess_scm.xml" />
-<load fileName="services_singleProcess_mp.xml" />
-<load fileName="services_singleProcess_fi.xml" />
-</services>

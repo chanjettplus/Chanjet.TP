@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="gb2312"?>
-<CurrencyList>
- <Currency id='1dd31102-5fe1-49ba-9aee-44f3ecf7eb74' code='EUR' name='欧元' currencySign='' isNative='0' />
- <Currency id='e49488d5-1102-4230-9695-9f28c8a095d1' code='HKD' name='港币' currencySign='' isNative='0' />
- <Currency id='f2ccae9d-39cf-4ffd-820b-59224a04b6e4' code='JPY' name='日元' currencySign='' isNative='0' />
- <Currency id='f407692f-d14e-4a7f-84a4-87df16406b5b' code='RMB' name='人民币' currencySign='￥' isNative='1' />
- <Currency id='91b59287-7c22-408a-a56f-7f7be1ab5929' code='USD' name='美元' currencySign='＄' isNative='0' />
-</CurrencyList>

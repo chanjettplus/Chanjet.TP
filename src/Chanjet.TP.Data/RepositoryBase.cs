@@ -63,7 +63,5 @@ namespace Chanjet.TP.Data
             return _db.Query<T>("");
         }
 
-
-
     }
 }

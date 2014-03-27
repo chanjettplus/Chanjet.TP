@@ -47,6 +47,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Chanjet.TP.Authentication.Stateless.dll</HintPath>
     </Reference>
+    <Reference Include="Chanjet.TP.Data.DatabaseProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Chanjet.TP.Data.DatabaseProvider.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy, Version=0.22.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Nancy.dll</HintPath>

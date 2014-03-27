@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" ?>
-<services  domain="scmService" desc="供应链服务">
-  <!-- 调度服务     mode = schedule 启动时加载至调度池,不需要服务接口,需要进行调度时间设置 -->
-  <!-- 持久服务     mode = persist  启动时加载,支持钝化 -->
-  <!-- 普通服务     mode = normal   由对象池管理其生存周期 -->
- <service name="Ufida.T.MB.Interface.ISynDataService" className="Ufida.T.MB.Service.SynDataService"  desc="移动同步"  loadFrom="server\Ufida.T.MB.Service.dll" mode="normal"  />
- <service name="Ufida.T.MB.Interface.ITxBusService" className="Ufida.T.MB.Service.TxBusService"  desc="业务接口"  loadFrom="server\Ufida.T.MB.Service.dll" mode="normal"  />
- <service time="2|23:10:00||" className="Ufida.T.MB.Service.SynDataSchedule" desc="轮询数据同步" loadFrom="server\Ufida.T.MB.Service.dll" mode="schedule" />
-</services>

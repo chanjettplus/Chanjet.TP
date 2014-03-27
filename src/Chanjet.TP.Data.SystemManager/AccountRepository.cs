@@ -12,28 +12,18 @@ namespace Chanjet.TP.SystemManager.Data
 {
     public class AccountRepository : RepositoryBase<Account>, IAccountRepository
     {
+        private IDatabase _db;
         public AccountRepository( IDatabase db)
             :base( db)
         {
-
+            _db = db;
         } 
-        /*
+   
         public override IEnumerable<Account> GetAll()
         {
-           
-            List<Account> result = new List<Account>();
-            DBSession dbsession = DBSessionFactory.getUserCtrlTranSession("UFTSystem");
-
-            using (IDataReader reader = dbsession.getReader("select cAcc_Num as Number,cAcc_Name as Name from eap_account"))
-            {
-                while (reader.Read())
-                {
-                    result.Add(this.DynamicMap<Account>(reader));
-                }
-            }
-
-            return result;
-            return null;
-        }*/
+            //return base.GetAll();
+            return _db.Query<Account>("select cAcc_Num as Number,cAcc_Name as Name from eap_account");
+  
+        }
     }
 }
