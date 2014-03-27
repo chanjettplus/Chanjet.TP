@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using Ufida.T.EAP.Dal;
+
 
 namespace Chanjet.TP.SystemManager.Data
 {

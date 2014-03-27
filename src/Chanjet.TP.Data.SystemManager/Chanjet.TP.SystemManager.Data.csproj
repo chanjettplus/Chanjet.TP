@@ -41,9 +41,6 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Ufida.T.EAP.DBLayer">
-      <HintPath>..\..\lib\Ufida.T.EAP.DBLayer.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
