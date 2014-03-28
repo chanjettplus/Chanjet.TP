@@ -52,9 +52,9 @@ namespace Chanjet.TP.ServiceHosting
             builder.RegisterType<DefaultCache>().As<ICache>();
             builder.RegisterType<UserMapper>().As<IUserMapper>();
             
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
             builder.Register( c=> new PetaPocoAdapter("Data Source=.;Initial Catalog=UFTSystem;User ID=sa;Password=uf*123456;", "System.Data.SqlClient"))
-                .As<IDatabase>().InstancePerLifetimeScope();
+                .As<IDatabase>();
 
             builder.RegisterType<ServicesFactory>()
                 .AsImplementedInterfaces()

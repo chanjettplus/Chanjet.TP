@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SelftHostTest.Views
+namespace Chanjet.TP.Core.Identity
 {
-    class secure
+    public interface IUser
     {
+        string UserName { get; set; }
     }
 }

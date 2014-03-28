@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Login</title>
+        <script src="Scripts/jquery-1.7.2.min.js"> </script>
+        <script src="Scripts/apiToken.js"> </script>
+        <script src="Scripts/api.js"> </script>
+    </head>
+    <body>
+        <div>
+            用户名 <input type="text" id="Username" />
+            <br />
+            密码 <input id="Password" type="password" />
+            <br />
+            账套<select id="Account" />
+            <br />
+            登录日期<input type="text" id="LoginDate" />
+            <br />
+            记住 <input id="RememberMe" type="checkbox" value="True" />
+            <br />
+            <button id="submitButton">登录</button>    
+        </div>
+        <div id="errorBox" style="display: none;">用户名或密码无效!</div>
+    
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#Username,#Password").change(function () {
+
+                    var success = function (response) {
+
+                        $("#Account").empty();
+                        $.each(response, function (key, value) {
+                            $("<option value=" + value.number + ">" + value.name + "</option>").appendTo("#Account");
+                        });
+                    };
+
+                    var error = function () {
+                        var a = 1;
+                    }
+
+
+                    jQuery.support.cors = true;
+                    $.ajax({
+                        type: 'Get',
+                        url: "/api/SystemManager/Account",
+                        data: {},
+                        success: success,
+                        error: error,
+                        dataType: "json"
+                    });
+                });
+
+                $("#submitButton").click(function () {
+
+                    $("#errorBox").hide();
+
+                    var authRequest = {
+                        username: $("#Username").val(),
+                        password: $("#Password").val(),
+                        rememberMe: $("#RememberMe").val()
+                    };
+
+                    var success = function (response) {
+                        ApiToken.Set(authRequest.username, response.ticket, authRequest.rememberMe);
+                        window.location = "index.html";
+                    };
+
+                    var error = function () {
+                        $("#errorBox").show();
+                    };
+                    jQuery.support.cors = true;
+                    $.ajax({
+                        type: 'POST',
+                        url: "/api/auth",
+                        data: authRequest,
+                        success: success,
+                        error: error,
+                        dataType: "json"
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

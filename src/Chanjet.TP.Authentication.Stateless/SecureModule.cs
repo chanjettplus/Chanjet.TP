@@ -11,7 +11,7 @@ namespace Chanjet.TP.Authentication.Stateless
     public class SecureModule : NancyModule
     {
         public SecureModule( IUserMapper userMapper, ICache cache )
-            :base("/auth")
+            :base("/api/auth")
         {
             Post["/"] = x =>
             {
@@ -21,9 +21,10 @@ namespace Chanjet.TP.Authentication.Stateless
                                                       (DateTime)this.Request.Form.LoginDate,
                                                       (int)this.Request.Form.ClientType);
 
+                var userIdentity = userMapper.GetUserFromTicket(ticket);
                 return string.IsNullOrEmpty(ticket)
                            ? new Response { StatusCode = HttpStatusCode.Unauthorized }
-                           : this.Response.AsJson(new { Ticket = ticket });
+                           : this.Response.AsJson(new { Ticket = ticket, UserName = userIdentity.UserName, RememberMe=false });
             };
 
             Delete["/"] = x =>

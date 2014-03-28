@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Stateless Authentication Demo</title>
+    <script src="Scripts/jquery-1.7.2.min.js"> </script>
+    <script src="Scripts/apiToken.js"> </script>
+    <script src="Scripts/api.js"> </script>                
+</head>
+    <body>
+        <div id='loggedIn' style='display: none;'><p>欢迎 <span id='username'></span>. <a href='#' id='logout'>注销</a></p></div>
+        
+        <h1>不需要认证区域</h1>
+        <p><a href="secure.html">进入认证区域!</a></p>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var apiToken = ApiToken.Get();
+                if (apiToken.IsValid) {
+
+                    $("#loggedIn").show();
+
+                    $("#username").html(apiToken.Username);
+
+                    $("#logout").click(function () {
+
+                        var request = { apiKey: apiToken.Key };
+
+                        var success = function () {
+                            ApiToken.Delete();
+                            window.location = "index.html";
+                        };
+
+                        $.ajax({
+                            type: 'DELETE',
+                            url: api.auth,
+                            data: request,
+                            success: success,
+                            dataType: "json"
+                        });
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

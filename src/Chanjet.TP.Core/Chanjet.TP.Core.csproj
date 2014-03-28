@@ -39,7 +39,9 @@
   <ItemGroup>
     <Compile Include="Cache\DefaultCache.cs" />
     <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Context\IContext.cs" />
     <Compile Include="DI\DIContainerManager.cs" />
+    <Compile Include="Identity\IUser.cs" />
     <Compile Include="Log\ILogger.cs" />
     <Compile Include="Log\ILoggerManager.cs">
       <SubType>Code</SubType>
@@ -50,7 +52,6 @@
   <ItemGroup>
     <Folder Include="BootStrapper\" />
     <Folder Include="Configuration\" />
-    <Folder Include="Context\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Globalization\" />
     <Folder Include="Resource\" />
