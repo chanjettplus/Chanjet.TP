@@ -17,7 +17,7 @@ namespace Chanjet.TP.Data.DatabaseProvider
         public PetaPocoAdapter(System.Data.IDbConnection connection)
             : base(connection)
         {
-
+            
         }
 
         public PetaPocoAdapter(string connectionString, string providerName)

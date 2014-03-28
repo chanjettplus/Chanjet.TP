@@ -8,15 +8,11 @@
     </head>
     <body>
         <div>
+            账套 <select id="Account"></select>
+            <br />
             用户名 <input type="text" id="Username" />
             <br />
             密码 <input id="Password" type="password" />
-            <br />
-            账套<select id="Account" />
-            <br />
-            登录日期<input type="text" id="LoginDate" />
-            <br />
-            记住 <input id="RememberMe" type="checkbox" value="True" />
             <br />
             <button id="submitButton">登录</button>    
         </div>
@@ -25,20 +21,17 @@
         <script type="text/javascript">
             $(document).ready(function () {
 
-                $("#Username,#Password").change(function () {
-
+                (function FillAccounts(){
                     var success = function (response) {
-
                         $("#Account").empty();
                         $.each(response, function (key, value) {
-                            $("<option value=" + value.number + ">" + value.name + "</option>").appendTo("#Account");
+                            $("<option value=" + value.number + ">" + "[" + value.number + "]" + value.name + "</option>").appendTo("#Account");
                         });
                     };
 
                     var error = function () {
                         var a = 1;
                     }
-
 
                     jQuery.support.cors = true;
                     $.ajax({
@@ -49,7 +42,7 @@
                         error: error,
                         dataType: "json"
                     });
-                });
+                })();
 
                 $("#submitButton").click(function () {
 
@@ -58,6 +51,7 @@
                     var authRequest = {
                         username: $("#Username").val(),
                         password: $("#Password").val(),
+                        account: $("#Account").val(),
                         rememberMe: $("#RememberMe").val()
                     };
 

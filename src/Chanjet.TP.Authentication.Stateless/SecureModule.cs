@@ -15,16 +15,22 @@ namespace Chanjet.TP.Authentication.Stateless
         {
             Post["/"] = x =>
             {
-                string ticket = userMapper.ValidateUser((string)this.Request.Form.Username,
-                                                      (string)this.Request.Form.Password,
-                                                      (string) this.Request.Form.Account,
-                                                      (DateTime)this.Request.Form.LoginDate,
-                                                      (int)this.Request.Form.ClientType);
+                string ticket = userMapper.ValidateUser((string)this.Request.Form.username,
+                                                      (string)this.Request.Form.password,
+                                                      (string)this.Request.Form.account,
+                                                      DateTime.Now,
+                                                     0, 
+                                                      "");
 
-                var userIdentity = userMapper.GetUserFromTicket(ticket);
-                return string.IsNullOrEmpty(ticket)
-                           ? new Response { StatusCode = HttpStatusCode.Unauthorized }
-                           : this.Response.AsJson(new { Ticket = ticket, UserName = userIdentity.UserName, RememberMe=false });
+                if (String.IsNullOrEmpty(ticket))
+                    return new Response { StatusCode = HttpStatusCode.Unauthorized };
+                else
+                {
+                    var userIdentity = userMapper.GetUserFromTicket(ticket);
+                    return this.Response.AsJson(new { Ticket = ticket, UserName = userIdentity.UserName, RememberMe = false });
+                }
+                    
+           
             };
 
             Delete["/"] = x =>

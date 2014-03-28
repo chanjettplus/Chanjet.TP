@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Chanjet.TP.Core.Context
 {
-    public interface IContext
+    public interface IThreadContext
     {
         IUser CurrentUser { get; }
     }

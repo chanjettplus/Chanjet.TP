@@ -1,8 +1,11 @@
 ﻿using Chanjet.TP.Core;
+using Chanjet.TP.Core.Cryptography;
+using Chanjet.TP.Data;
 using Nancy.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,26 +14,37 @@ namespace Chanjet.TP.Authentication.Stateless
     public class UserMapper : IUserMapper
     {
         private ICache _cache;
+        private IDatabase _db;
 
-        public UserMapper(ICache cache)
+        public UserMapper(ICache cache, IDatabase db)
         {
             _cache = cache;
+            _db = db;
         }
 
-        public String ValidateUser(string username, string password, string account, DateTime loginDate, int clientType)
+
+
+        public String ValidateUser(string username, string password, string account, DateTime loginDate, int clientType, string version)
         {
             //登录认证
-            //todo:
+            var dsName = _db.Query<string>("SELECT dsname FROM eap_account where cAcc_num='" + account +"'").FirstOrDefault();
 
-            var userInfo = new UserIdentity() { UserName = username };
+            var userIdentity = _db.Query<UserIdentity>(String.Format("select code as UserName, name as UserShowName from [{0}]..eap_user where name = '{1}' and password = '{2}'",
+                dsName, username, MD5Util.Encrypt(password)))
+                .FirstOrDefault();
+
+            if (userIdentity == null) return null;
+
+            userIdentity.DatabaseName = dsName;
+            userIdentity.AccountNumber = account;
 
             //生成票并存入Cache
             var ticket = Guid.NewGuid().ToString();
 
             if (_cache.Contains(ticket))
-                _cache[ticket] = userInfo;
+                _cache[ticket] = userIdentity;
             else
-                _cache.Add(ticket, userInfo);
+                _cache.Add(ticket, userIdentity);
 
             return ticket;
         }

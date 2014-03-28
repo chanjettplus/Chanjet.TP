@@ -108,6 +108,9 @@ namespace Chanjet.TP.ServiceHosting
             {
                 var ticket = (string)nancyContext.Request.Query.Ticket.Value;
 
+                if (String.IsNullOrWhiteSpace(ticket))
+                    return null;
+
                 return this.ApplicationContainer.Resolve<IUserMapper>().GetUserFromTicket(ticket);
             });
 

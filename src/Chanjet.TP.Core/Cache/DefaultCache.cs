@@ -126,7 +126,17 @@ namespace Chanjet.TP.Core.Cache
 
         public void Add(string key, object value)
         {
-            throw new NotImplementedException();
+            if (key != null && value != null)
+            {
+                lock (lockObject)
+                {
+                    if (!cacheDic.ContainsKey(key))
+                    {
+                        cacheDic.Add(key, value);
+                    }
+
+                }
+            }
         }
     }
 
