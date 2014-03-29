@@ -83,6 +83,397 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="T:Chanjet.TP.Core.DataStruct.DynamicDictionary">
+            <summary>
+            A dictionary that supports dynamic access.
+            </summary>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Create(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates a dynamic dictionary from an <see cref="T:System.Collections.Generic.IDictionary`2"/> instance.
+            </summary>
+            <param name="values">An <see cref="T:System.Collections.Generic.IDictionary`2"/> instance, that the dynamic dictionary should be created from.</param>
+            <returns>An <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> instance.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Provides the implementation for operations that set member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as setting a value for a property.
+            </summary>
+            <returns>true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)</returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member to which the value is being assigned. For example, for the statement sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="value">The value to set to the member. For example, for sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, the <paramref name="value"/> is "Test".</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Provides the implementation for operations that get member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as getting a value for a property.
+            </summary>
+            <returns>true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)</returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member on which the dynamic operation is performed. For example, for the Console.WriteLine(sampleObject.SampleProperty) statement, where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="result">The result of the get operation. For example, if the method is called for a property, you can assign the property value to <paramref name="result"/>.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.GetDynamicMemberNames">
+            <summary>
+            Returns the enumeration of all dynamic member names.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains dynamic member names.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.GetEnumerator">
+            <summary>
+            Returns the enumeration of all dynamic member names.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains dynamic member names.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns the enumeration of all dynamic member names.
+            </summary>
+            <returns>A <see cref="T:System.Collections.IEnumerator"/> that contains dynamic member names.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Equals(Chanjet.TP.Core.DataStruct.DynamicDictionary)">
+            <summary>
+            Indicates whether the current <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> is equal to another object of the same type.
+            </summary>
+            <returns><see langword="true"/> if the current instance is equal to the <paramref name="other"/> parameter; otherwise, <see langword="false"/>.</returns>
+            <param name="other">An <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> instance to compare with this instance.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns><see langword="true"/> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String@System#Object}}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.GetHashCode">
+            <summary>
+            Returns a hash code for this <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <returns> A hash code for this <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Add(System.String,System.Object)">
+            <summary>
+            Adds an element with the provided key and value to the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <param name="key">The object to use as the key of the element to add.</param>
+            <param name="value">The object to use as the value of the element to add.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Add(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            Adds an item to the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <param name="item">The object to add to the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.ContainsKey(System.String)">
+            <summary>
+            Determines whether the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> contains an element with the specified key.
+            </summary>
+            <returns><see langword="true"/> if the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> contains an element with the key; otherwise, <see langword="false"/>.
+            </returns>
+            <param name="key">The key to locate in the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.TryGetValue(System.String,System.Object@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <returns><see langword="true"/> if the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> contains an element with the specified key; otherwise, <see langword="false"/>.</returns>
+            <param name="key">The key whose value to get.</param>
+            <param name="value">When this method returns, the value associated with the specified key, if the key is found; otherwise, the default value for the type of the <paramref name="value"/> parameter. This parameter is passed uninitialized.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Clear">
+            <summary>
+            Removes all items from the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Contains(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            Determines whether the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> contains a specific value.
+            </summary>
+            <returns><see langword="true"/> if <paramref name="item"/> is found in the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>; otherwise, <see langword="false"/>.
+            </returns>
+            <param name="item">The object to locate in the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.String,System.Object}[],System.Int32)">
+            <summary>
+            Copies the elements of the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> to an <see cref="T:System.Array"/>, starting at a particular <see cref="T:System.Array"/> index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array"/> that is the destination of the elements copied from the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>. The <see cref="T:System.Array"/> must have zero-based indexing.</param>
+            <param name="arrayIndex">The zero-based index in <paramref name="array"/> at which copying begins.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Remove(System.String)">
+            <summary>
+            Removes the element with the specified key from the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <returns><see langword="true"/> if the element is successfully removed; otherwise, <see langword="false"/>.</returns>
+            <param name="key">The key of the element to remove.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionary.Remove(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <returns><see langword="true"/> if <paramref name="item"/> was successfully removed from the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>; otherwise, <see langword="false"/>.</returns>
+            <param name="item">The object to remove from the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.</param>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionary.Empty">
+            <summary>
+            Returns an empty dynamic dictionary.
+            </summary>
+            <value>A <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> instance.</value>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionary.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue"/> with the specified name.
+            </summary>
+            <value>A <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue"/> instance containing a value.</value>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionary.Keys">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.</returns>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionary.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <returns>The number of elements contained in the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.</returns>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionary.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/> is read-only.
+            </summary>
+            <returns>Always returns <see langword="false"/>.</returns>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionary.Values">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionary"/>.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue"/> class.
+            </summary>
+            <param name="value">The value to store in the instance</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.Default``1(``0)">
+            <summary>
+            Returns a default value if Value is null
+            </summary>
+            <typeparam name="T">When no default value is supplied, required to supply the default type</typeparam>
+            <param name="defaultValue">Optional parameter for default value, if not given it returns default of type T</param>
+            <returns>If value is not null, value is returned, else default value is returned</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.TryParse``1(``0)">
+            <summary>
+            Attempts to convert the value to type of T, failing to do so will return the defaultValue. 
+            </summary>
+            <typeparam name="T">When no default value is supplied, required to supply the default type</typeparam>
+            <param name="defaultValue">Optional parameter for default value, if not given it returns default of type T</param>
+            <returns>If value is not null, value is returned, else default value is returned</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.Equals(Chanjet.TP.Core.DataStruct.DynamicDictionaryValue)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns><c>true</c> if the current object is equal to the <paramref name="compareValue"/> parameter; otherwise, <c>false</c>.
+            </returns>
+            <param name="compareValue">An <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns><c>true</c> if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue"/>; otherwise, <c>false</c>.</returns>
+            <param name="compareValue">The <see cref="T:System.Object"/> to compare with the current <see cref="T:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue"/>.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>A hash code for the current instance.</returns>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.TryBinaryOperation(System.Dynamic.BinaryOperationBinder,System.Object,System.Object@)">
+            <summary>
+            Provides implementation for binary operations. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as addition and multiplication.
+            </summary>
+            <returns><c>true</c> if the operation is successful; otherwise, <c>false</c>. If this method returns <c>false</c>, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)</returns>
+            <param name="binder">Provides information about the binary operation. The binder.Operation property returns an <see cref="T:System.Linq.Expressions.ExpressionType"/> object. For example, for the sum = first + second statement, where first and second are derived from the DynamicObject class, binder.Operation returns ExpressionType.Add.</param><param name="arg">The right operand for the binary operation. For example, for the sum = first + second statement, where first and second are derived from the DynamicObject class, <paramref name="arg"/> is equal to second.</param><param name="result">The result of the binary operation.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.TryConvert(System.Dynamic.ConvertBinder,System.Object@)">
+            <summary>
+            Provides implementation for type conversion operations. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations that convert an object from one type to another.
+            </summary>
+            <returns><c>true</c> if the operation is successful; otherwise, <c>false</c>. If this method returns <c>false</c>, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)</returns>
+            <param name="binder">Provides information about the conversion operation. The binder.Type property provides the type to which the object must be converted. For example, for the statement (String)sampleObject in C# (CType(sampleObject, Type) in Visual Basic), where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Type returns the <see cref="T:System.String"/> type. The binder.Explicit property provides information about the kind of conversion that occurs. It returns true for explicit conversion and false for implicit conversion.</param><param name="result">The result of the type conversion operation.</param>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.GetTypeCode">
+            <summary>
+            Returns the <see cref="T:System.TypeCode"/> for this instance.
+            </summary>
+            <returns>
+            The enumerated constant that is the <see cref="T:System.TypeCode"/> of the class or value type that implements this interface.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToBoolean(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent Boolean value using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            A Boolean value equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToChar(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent Unicode character using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            A Unicode character equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToSByte(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 8-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 8-bit signed integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToByte(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 8-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 8-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToInt16(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 16-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 16-bit signed integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToUInt16(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 16-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 16-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToInt32(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 32-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 32-bit signed integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToUInt32(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 32-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 32-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToInt64(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 64-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 64-bit signed integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToUInt64(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 64-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An 64-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToSingle(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent single-precision floating-point number using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            A single-precision floating-point number equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToDouble(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent double-precision floating-point number using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            A double-precision floating-point number equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToDecimal(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent <see cref="T:System.Decimal"/> number using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            A <see cref="T:System.Decimal"/> number equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToDateTime(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent <see cref="T:System.DateTime"/> using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            A <see cref="T:System.DateTime"/> instance equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToString(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent <see cref="T:System.String"/> using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> instance equivalent to the value of this instance.
+            </returns>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.ToType(System.Type,System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an <see cref="T:System.Object"/> of the specified <see cref="T:System.Type"/> that has an equivalent value, using the specified culture-specific formatting information.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"/> instance of type <paramref name="conversionType"/> whose value is equivalent to the value of this instance.
+            </returns>
+            <param name="conversionType">The <see cref="T:System.Type"/> to which the value of this instance is converted. </param><param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.HasValue">
+            <summary>
+            Gets a value indicating whether this instance has value.
+            </summary>
+            <value><c>true</c> if this instance has value; otherwise, <c>false</c>.</value>
+            <remarks><see langword="null"/> is considered as not being a value.</remarks>
+        </member>
+        <member name="P:Chanjet.TP.Core.DataStruct.DynamicDictionaryValue.Value">
+            <summary>
+            Gets the inner value
+            </summary>
+        </member>
         <member name="T:Chanjet.TP.Core.ILogger">
             <summary>
             ILogger 日志接口

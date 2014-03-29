@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -41,6 +42,8 @@
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Context\IThreadContext.cs" />
     <Compile Include="Cryptography\MD5Util.cs" />
+    <Compile Include="DataStruct\DynamicDictionary.cs" />
+    <Compile Include="DataStruct\DynamicDictionaryValue.cs" />
     <Compile Include="Identity\IUser.cs" />
     <Compile Include="Log\ILogger.cs" />
     <Compile Include="Log\ILoggerManager.cs">

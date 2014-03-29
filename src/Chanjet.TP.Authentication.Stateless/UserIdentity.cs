@@ -16,10 +16,11 @@ namespace Chanjet.TP.Authentication.Stateless
         
         public string UserName { get; internal set; }
 
-        public string UserShowName { get; internal set; }
 
-        public string AccountNumber { get; internal set; }
-
-        public string DatabaseName { get; internal set; }
+        public dynamic Additional
+        {
+            get;
+            internal set;
+        }
     }
 }

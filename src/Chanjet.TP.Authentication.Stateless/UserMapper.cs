@@ -1,5 +1,6 @@
 ﻿using Chanjet.TP.Core;
 using Chanjet.TP.Core.Cryptography;
+using Chanjet.TP.Core.DataStruct;
 using Chanjet.TP.Data;
 using Nancy.Security;
 using System;
@@ -35,8 +36,9 @@ namespace Chanjet.TP.Authentication.Stateless
 
             if (userIdentity == null) return null;
 
-            userIdentity.DatabaseName = dsName;
-            userIdentity.AccountNumber = account;
+            userIdentity.Additional = DynamicDictionary.Create(new Dictionary<string, object>());
+            userIdentity.Additional.Add("DatabaseName", dsName);
+            userIdentity.Additional.Add("AccountNumber", account);
 
             //生成票并存入Cache
             var ticket = Guid.NewGuid().ToString();

@@ -112,7 +112,7 @@ namespace Chanjet.TP.ServiceHosting
                     return null;
                 }
 
-                var userIdentity = container.Resolve<IUserMapper>().GetUserFromTicket(ticket) as UserIdentity;
+                var userIdentity = container.Resolve<IUserMapper>().GetUserFromTicket(ticket) as IUser;
 
                 RegisterIThreadContext(container, userIdentity);
                 RegisterIDatabase(container, userIdentity);
@@ -155,7 +155,7 @@ namespace Chanjet.TP.ServiceHosting
 
         }
 
-        private void RegisterIThreadContext(ILifetimeScope container, UserIdentity userIdentity)
+        private void RegisterIThreadContext(ILifetimeScope container, IUser userIdentity)
         {
             if (userIdentity == null)
                 return;
@@ -168,7 +168,7 @@ namespace Chanjet.TP.ServiceHosting
 
         }
 
-        private void RegisterIDatabase(ILifetimeScope container, UserIdentity userIdentity)
+        private void RegisterIDatabase(ILifetimeScope container, IUser userIdentity)
         {
             if (userIdentity == null)
             {
@@ -185,7 +185,7 @@ namespace Chanjet.TP.ServiceHosting
                 var builder = new ContainerBuilder();
 
                 builder
-                    .Register(c => new PetaPocoAdapter("Data Source=.;Initial Catalog=" + userIdentity.DatabaseName + ";User ID=sa;Password=uf*123456;", "System.Data.SqlClient"))
+                    .Register(c => new PetaPocoAdapter("Data Source=.;Initial Catalog=" + userIdentity.Additional.DatabaseName + ";User ID=sa;Password=uf*123456;", "System.Data.SqlClient"))
                     .As<IDatabase>();
 
                 builder.Update(container.ComponentRegistry);
