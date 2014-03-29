@@ -27,6 +27,9 @@ namespace Chanjet.TP.Authentication.Stateless
                 else
                 {
                     var userIdentity = userMapper.GetUserFromTicket(ticket);
+
+
+
                     return this.Response.AsJson(new { Ticket = ticket, UserName = userIdentity.UserName, RememberMe = false });
                 }
                     
@@ -35,7 +38,7 @@ namespace Chanjet.TP.Authentication.Stateless
 
             Delete["/"] = x =>
             {
-                var ticket = (string)this.Request.Form.Ticket;
+                var ticket = (string)this.Request.Form.ticket;
                 userMapper.RemoveTicket(ticket);
                 return new Response { StatusCode = HttpStatusCode.OK };
             };

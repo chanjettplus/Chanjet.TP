@@ -19,12 +19,16 @@ using Nancy.Conventions;
 using Chanjet.TP.Authentication.Stateless;
 using Chanjet.TP.Core.Cache;
 using Chanjet.TP.Data.DatabaseProvider;
+using Nancy;
+using Chanjet.TP.Core.Identity;
+using Chanjet.TP.Core.Context;
+using Nancy.Security;
 
 
 
 namespace Chanjet.TP.ServiceHosting
 {
-    public class ServiceHostBootstrapper : Nancy.Bootstrappers.Autofac.AutofacNancyBootstrapper , IDIContainer
+    public class ServiceHostBootstrapper : Nancy.Bootstrappers.Autofac.AutofacNancyBootstrapper 
     {
         /// <summary>
         /// 配置IOC容器
@@ -47,22 +51,11 @@ namespace Chanjet.TP.ServiceHosting
             var builder = new ContainerBuilder();
 
             builder.RegisterType<ExceptionInterceptor>();
-            builder.RegisterType<DynamicProxyInterceptor>();
+            //builder.RegisterType<DynamicProxyInterceptor>();
 
-            builder.RegisterType<DefaultCache>().As<ICache>();
             builder.RegisterType<UserMapper>().As<IUserMapper>();
-            
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
-            builder.Register( c=> new PetaPocoAdapter("Data Source=.;Initial Catalog=UFTSystem;User ID=sa;Password=uf*123456;", "System.Data.SqlClient"))
-                .As<IDatabase>();
-
-            builder.RegisterType<ServicesFactory>()
-                .AsImplementedInterfaces()
-                .EnableInterfaceInterceptors()
-                .InterceptedBy(typeof(DynamicProxyInterceptor))
-                .SingleInstance();
-
-
+            builder.RegisterType<DefaultCache>().As<ICache>().SingleInstance();
 
             var repositorys = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(ass => ass.Location.IndexOf(".Data.dll", StringComparison.OrdinalIgnoreCase) > 0)
@@ -78,9 +71,16 @@ namespace Chanjet.TP.ServiceHosting
 
             builder.Update(existingContainer.ComponentRegistry);
 
-            DIContainerManager.SetContainer(this);
+            //DIContainerManager.SetContainer(this);
         }
 
+        protected override IEnumerable<INancyModule> GetAllModules(ILifetimeScope container)
+        {
+            RegisterIDatabase(container, null);
+            return base.GetAllModules(container);
+        }
+
+      
         /// <summary>
         /// 应用程序启动
         /// </summary>
@@ -89,8 +89,6 @@ namespace Chanjet.TP.ServiceHosting
         protected override void ApplicationStartup(ILifetimeScope container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
-
-            //this.Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("moo", "Content"));
         }
 
         /// <summary>
@@ -106,12 +104,24 @@ namespace Chanjet.TP.ServiceHosting
             var configuration =
             new StatelessAuthenticationConfiguration(nancyContext =>
             {
-                var ticket = (string)nancyContext.Request.Query.Ticket.Value;
+                var builder = new ContainerBuilder();
+
+                RegisterIThreadContext(container, null);
+                RegisterIDatabase(container, null);
+
+                var ticket = GetTicket(nancyContext);
 
                 if (String.IsNullOrWhiteSpace(ticket))
+                {
                     return null;
+                }
 
-                return this.ApplicationContainer.Resolve<IUserMapper>().GetUserFromTicket(ticket);
+                var userIdentity = container.Resolve<IUserMapper>().GetUserFromTicket(ticket) as UserIdentity;
+
+                RegisterIThreadContext(container, userIdentity);
+                RegisterIDatabase(container, userIdentity);
+
+                return userIdentity as IUserIdentity;
             });
 
             AllowAccessToConsumingSite(pipelines);
@@ -119,22 +129,6 @@ namespace Chanjet.TP.ServiceHosting
             StatelessAuthentication.Enable(pipelines, configuration);
         }
 
-
-        public T Resolve<T>()
-        {
-            return this.ApplicationContainer.Resolve<T>();
-        }
-
-        public object Resolve(Type type)
-        {
-            return this.ApplicationContainer.Resolve(type);
-        }
-
-        public object Resolve(string typeName)
-        {
-            return null;
-
-        }
 
         static void AllowAccessToConsumingSite(IPipelines pipelines)
         {
@@ -144,5 +138,64 @@ namespace Chanjet.TP.ServiceHosting
                 x.Response.Headers.Add("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT,OPTIONS");
             });
         }
+
+        private string GetTicket(Nancy.NancyContext context)
+        {
+            string ticket = string.Empty;
+
+            ticket = (string)context.Request.Query.ticket.Value;
+
+            if (String.IsNullOrEmpty(ticket) 
+                && context.Request.Cookies != null 
+                && context.Request.Cookies.Count > 0
+                && context.Request.Cookies.ContainsKey("ticket"))
+                ticket = context.Request.Cookies["ticket"];
+
+            if (String.IsNullOrEmpty(ticket))
+                ticket = (string)context.Request.Form.ticket.Value;
+
+            return ticket;
+
+
+        }
+
+        private void RegisterIThreadContext(ILifetimeScope container, UserIdentity userIdentity)
+        {
+            if (userIdentity == null)
+                return;
+
+            var builder = new ContainerBuilder();
+
+            builder.Register(c => new ThreadContext(userIdentity)).As<IThreadContext>().InstancePerLifetimeScope();
+
+            builder.Update(container.ComponentRegistry);
+
+        }
+
+        private void RegisterIDatabase(ILifetimeScope container, UserIdentity userIdentity)
+        {
+            if (userIdentity == null)
+            {
+                var builder = new ContainerBuilder();
+
+                builder
+                    .Register(c => new PetaPocoAdapter("Data Source=.;Initial Catalog=UFTSystem;User ID=sa;Password=uf*123456;", "System.Data.SqlClient"))
+                    .As<IDatabase>();
+
+                builder.Update(container.ComponentRegistry);
+            }
+            else
+            {
+                var builder = new ContainerBuilder();
+
+                builder
+                    .Register(c => new PetaPocoAdapter("Data Source=.;Initial Catalog=" + userIdentity.DatabaseName + ";User ID=sa;Password=uf*123456;", "System.Data.SqlClient"))
+                    .As<IDatabase>();
+
+                builder.Update(container.ComponentRegistry);
+            }
+        }
+
+
     }
 }

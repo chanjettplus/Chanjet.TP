@@ -72,7 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interceptors\DynamicProxyInterceptor.cs" />
     <Compile Include="Interceptors\ExceptionInterceptor.cs" />
     <Compile Include="Modules\RepositoryServiceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

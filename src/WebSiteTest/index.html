@@ -9,8 +9,6 @@
     <body>
         <div id='loggedIn' style='display: none;'><p>欢迎 <span id='username'></span>. <a href='#' id='logout'>注销</a></p></div>
         
-        <h1>不需要认证区域</h1>
-        <p><a href="secure.html">进入认证区域!</a></p>
         
         
         <script type="text/javascript">
@@ -24,16 +22,16 @@
 
                     $("#logout").click(function () {
 
-                        var request = { apiKey: apiToken.Key };
+                        var request = { ticket: apiToken.Key };
 
                         var success = function () {
                             ApiToken.Delete();
-                            window.location = "index.html";
+                            window.location = "login.html";
                         };
 
                         $.ajax({
                             type: 'DELETE',
-                            url: api.auth,
+                            url: "/api/auth",
                             data: request,
                             success: success,
                             dataType: "json"

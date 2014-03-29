@@ -1,5 +1,5 @@
-﻿var apiKeyKey = "sample_apiKey";
-var usernameKey = "sample_username";
+﻿var apiKeyKey = "ticket";
+var usernameKey = "username";
 
 var ApiToken = {
 

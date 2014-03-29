@@ -11,6 +11,7 @@ namespace Chanjet.TP.Data.DatabaseProvider
         public PetaPocoAdapter(string connectionStringName)
             : base(connectionStringName)
         {
+            var a = "ff";
         }
 
 
