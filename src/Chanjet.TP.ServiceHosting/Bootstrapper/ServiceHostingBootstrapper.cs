@@ -38,15 +38,11 @@ namespace Chanjet.TP.ServiceHosting
         {
             base.ConfigureApplicationContainer(existingContainer);
         
-            var fileNames = (from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Data.dll", SearchOption.AllDirectories)
-                            select Path.GetFileName(file)).ToArray();
+            var fileNames = (from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Data.dll", SearchOption.AllDirectories) select Path.GetFileName(file))
+                            .Concat(from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Model.dll", SearchOption.AllDirectories) select Path.GetFileName(file))
+                            .ToArray();
 
             AppDomainAssemblyTypeScanner.AddAssembliesToScan(fileNames);
-
-            var fileNames1 = (from file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.Model.dll", SearchOption.AllDirectories)
-                             select Path.GetFileName(file)).ToArray();
-
-            AppDomainAssemblyTypeScanner.AddAssembliesToScan(fileNames1);
 
             var builder = new ContainerBuilder();
 
