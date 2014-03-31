@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Chanjet.TP.Authentication.Stateless;
+
 
 namespace Chanjet.TP.Authentication.Stateless
 {
@@ -28,9 +30,9 @@ namespace Chanjet.TP.Authentication.Stateless
                 {
                     var userIdentity = userMapper.GetUserFromTicket(ticket);
 
+                    return this.Login(ticket);
 
-
-                    return this.Response.AsJson(new { Ticket = ticket, UserName = userIdentity.UserName, RememberMe = false });
+                    //return this.Response.AsJson(new { Ticket = ticket, UserName = userIdentity.UserName, RememberMe = false });
                 }
                     
            

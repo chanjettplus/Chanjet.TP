@@ -27,27 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chanjet.TP.Hosting.Aspnet",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteTest", "WebSiteTest\WebSiteTest.csproj", "{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website(3)", "Website\", "{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/Website"
-		Debug.AspNetCompiler.PhysicalPath = "Website\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/Website"
-		Release.AspNetCompiler.PhysicalPath = "Website\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "35832"
-		SlnRelativePath = "Website\"
-	EndProjectSection
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "app", "..\..\..\..\..\nodejs\angular-seed\app\", "{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -316,26 +295,6 @@ Global
 		{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F34F5B40-2B38-41D7-A7B2-935D7D0E9D7B}.Release|x86.ActiveCfg = Release|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoDebug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoDebug|x86.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoRelease|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoRelease|Any CPU.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoRelease|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoRelease|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.MonoRelease|x86.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2EBDFB0C-0A6E-4EF9-9D3F-6F23FC597BB0}.Release|x86.ActiveCfg = Debug|Any CPU
 		{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DED66C6-7B3F-4F72-9C8B-E07FC61871F7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

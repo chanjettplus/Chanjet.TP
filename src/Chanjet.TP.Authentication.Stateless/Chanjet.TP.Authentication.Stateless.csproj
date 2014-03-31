@@ -61,6 +61,7 @@
     <Compile Include="ModuleExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureModule.cs" />
+    <Compile Include="StatelessAuthenticationExtensions.cs" />
     <Compile Include="UserIdentity.cs" />
     <Compile Include="UserMapper.cs" />
   </ItemGroup>

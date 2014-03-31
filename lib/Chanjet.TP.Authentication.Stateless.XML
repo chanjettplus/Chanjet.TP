@@ -4,5 +4,54 @@
         <name>Chanjet.TP.Authentication.Stateless</name>
     </assembly>
     <members>
+        <member name="M:Chanjet.TP.Authentication.Stateless.StatelessAuthenticationExtensions.UserLoggedInResponse(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            用户登录信息加入cookie
+            </summary>
+            <param name="userIdentifier"></param>
+            <param name="cookieExpiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chanjet.TP.Authentication.Stateless.StatelessAuthenticationExtensions.LogOutResponse">
+            <summary>
+            注销
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chanjet.TP.Authentication.Stateless.StatelessAuthenticationExtensions.BuildCookie(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            生成Cookie
+            </summary>
+            <param name="userIdentifier"></param>
+            <param name="cookieExpiry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chanjet.TP.Authentication.Stateless.StatelessAuthenticationExtensions.BuildLogoutCookie">
+            <summary>
+            生产注销cookie
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chanjet.TP.Authentication.Stateless.StatelessAuthenticationExtensions.EncryptAndSignCookie(System.String)">
+            <summary>
+            加密并签名cookie
+            </summary>
+            <param name="cookieValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chanjet.TP.Authentication.Stateless.StatelessAuthenticationExtensions.DecryptAndValidateAuthenticationCookie(System.String)">
+            <summary>
+            解密并校验cookievalue
+            </summary>
+            <param name="cookieValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chanjet.TP.Authentication.Stateless.StatelessAuthenticationExtensions.GenerateHmac(System.String)">
+            <summary>
+            签名cookie
+            </summary>
+            <param name="encryptedCookie"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

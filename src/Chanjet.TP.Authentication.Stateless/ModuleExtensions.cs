@@ -10,53 +10,15 @@ namespace Chanjet.TP.Authentication.Stateless
 {
     public static class ModuleExtensions
     {
-        /*
-        public static Response UserLoggedInResponse(Guid userIdentifier, DateTime? cookieExpiry = null)
+        public static Response Login(this INancyModule module, String userIdentifier, DateTime? cookieExpiry = null)
         {
-            var response = (Response)HttpStatusCode.OK;
-
-            var authenticationCookie =
-                BuildCookie(userIdentifier, cookieExpiry, currentConfiguration);
-
-            response.AddCookie(authenticationCookie);
-
-            return response;
-        }
-
-        private static INancyCookie BuildCookie(Guid userIdentifier, DateTime? cookieExpiry, FormsAuthenticationConfiguration configuration)
-        {
-            var cookieContents = EncryptAndSignCookie(userIdentifier.ToString(), configuration);
-
-            var cookie = new NancyCookie(formsAuthenticationCookieName, cookieContents, true, configuration.RequiresSSL) { Expires = cookieExpiry };
-
-            if (!string.IsNullOrEmpty(configuration.Domain))
-            {
-                cookie.Domain = configuration.Domain;
-            }
-
-            if (!string.IsNullOrEmpty(configuration.Path))
-            {
-                cookie.Path = configuration.Path;
-            }
-
-            return cookie;
+            return StatelessAuthenticationExtensions.UserLoggedInResponse(userIdentifier, cookieExpiry);
         }
 
 
-        private static string EncryptAndSignCookie(string cookieValue)
+        public static Response Logout(this INancyModule module)
         {
-            var encryptedCookie = CryptographyConfiguration.Default.EncryptionProvider.Encrypt(cookieValue);
-            var hmacBytes = GenerateHmac(encryptedCookie);
-            var hmacString = Convert.ToBase64String(hmacBytes);
-
-            return String.Format("{1}{0}", encryptedCookie, hmacString);
+            return StatelessAuthenticationExtensions.LogOutResponse();
         }
-
-        private static byte[] GenerateHmac(string encryptedCookie)
-        {
-            return CryptographyConfiguration.Default.HmacProvider.GenerateHmac(encryptedCookie);
-        }
-         * 
-         * */
     }
 }

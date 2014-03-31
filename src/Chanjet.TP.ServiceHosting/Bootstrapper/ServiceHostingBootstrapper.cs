@@ -114,6 +114,8 @@ namespace Chanjet.TP.ServiceHosting
 
                 var userIdentity = container.Resolve<IUserMapper>().GetUserFromTicket(ticket) as IUser;
 
+                
+
                 RegisterIThreadContext(container, userIdentity);
                 RegisterIDatabase(container, userIdentity);
 
@@ -137,6 +139,8 @@ namespace Chanjet.TP.ServiceHosting
 
         private string GetTicket(Nancy.NancyContext context)
         {
+            return StatelessAuthenticationExtensions.GetAuthenticatedUserFromCookie(context);
+            /*
             string ticket = string.Empty;
 
             ticket = (string)context.Request.Query.ticket.Value;
@@ -151,7 +155,7 @@ namespace Chanjet.TP.ServiceHosting
                 ticket = (string)context.Request.Form.ticket.Value;
 
             return ticket;
-
+            */
 
         }
 
