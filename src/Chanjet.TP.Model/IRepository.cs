@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Chanjet.TP.Data
+namespace Chanjet.TP.Model
 {
     public interface IRepository<T> where T : class
     {

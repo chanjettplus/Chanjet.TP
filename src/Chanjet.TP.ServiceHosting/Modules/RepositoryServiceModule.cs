@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Chanjet.TP.Core;
 using Chanjet.TP.Data;
+using Chanjet.TP.Model;
 using Nancy;
 using Nancy.Bootstrapper;
 using System;

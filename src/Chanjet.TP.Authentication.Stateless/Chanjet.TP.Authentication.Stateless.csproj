@@ -65,6 +65,14 @@
     <Compile Include="UserIdentity.cs" />
     <Compile Include="UserMapper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="StatelessAuthentication.sequencediagram" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StatelessAuthentication.sequencediagram.layout">
+      <DependentUpon>StatelessAuthentication.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

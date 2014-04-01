@@ -15,15 +15,18 @@ namespace Chanjet.TP.SystemManager.Data
         private ICache _cache;
         private IThreadContext _context;
 
+        
         public MenuRepository(IDatabase db, ICache cache, IThreadContext context)
             :base(db)
         {
             _db = db;
             _cache = cache;
             _context = context;
+
         }
         public override IEnumerable<Menu> GetAll()
         {
+
             return _db.Query<Menu>("select * from eap_menu");
         }
     }

@@ -36,6 +36,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Chanjet.TP.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Chanjet.TP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Chanjet.TP.Model.dll</HintPath>
+    </Reference>
     <Reference Include="Chanjet.TP.SystemManager.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Chanjet.TP.SystemManager.Model.dll</HintPath>
@@ -48,8 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
-    <Compile Include="IAccountRepository.cs" />
-    <Compile Include="IMenuRespository.cs" />
     <Compile Include="MenuRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

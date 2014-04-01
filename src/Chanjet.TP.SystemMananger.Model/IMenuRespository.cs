@@ -1,14 +1,13 @@
-﻿
-using Chanjet.TP.Data;
+﻿using Chanjet.TP.Model;
 using Chanjet.TP.SystemManager.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Chanjet.TP.SystemManager.Data
+namespace Chanjet.TP.SystemManager.Model
 {
-    public interface IAccountRepository : IRepository<Account>
+    public interface IMenuRepository : IRepository<Menu>
     {
     }
 }

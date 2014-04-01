@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="8c07f89a-5e6b-4b4a-b199-f8614ee5a3d7" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="f35ddd28-24d4-45b6-8311-750561733fee" name="基础设施层" />
+    <layer Id="11356612-5eb2-4d62-8f6e-22aaad935eaf" name="Cross-Cutting" />
+    <layer Id="d20e2792-fc11-46fa-a941-76e6c437fa2f" name="领域层">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="06e2c278-4f4e-4d5b-8fee-c4b23942c221" direction="Forward">
+          <layerMoniker Id="f35ddd28-24d4-45b6-8311-750561733fee" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="fd0c34a4-f8f6-4a56-82a5-72d732584d7b" name="表示层">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="d2d12f62-76b2-48fa-8a5d-dfeef1769488" direction="Forward">
+          <layerMoniker Id="4d8948f2-9383-4845-ba60-1403ff078989" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="4d8948f2-9383-4845-ba60-1403ff078989" name="应用层">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4a3d579e-7886-4589-b523-d30fc4831ce3" direction="Forward">
+          <layerMoniker Id="d20e2792-fc11-46fa-a941-76e6c437fa2f" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

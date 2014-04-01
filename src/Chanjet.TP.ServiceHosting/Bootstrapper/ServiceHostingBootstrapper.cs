@@ -23,6 +23,7 @@ using Nancy;
 using Chanjet.TP.Core.Identity;
 using Chanjet.TP.Core.Context;
 using Nancy.Security;
+using Chanjet.TP.Model;
 
 
 
@@ -46,7 +47,7 @@ namespace Chanjet.TP.ServiceHosting
 
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<ExceptionInterceptor>();
+            //builder.RegisterType<ExceptionInterceptor>();
             //builder.RegisterType<DynamicProxyInterceptor>();
 
             builder.RegisterType<UserMapper>().As<IUserMapper>();
@@ -113,8 +114,6 @@ namespace Chanjet.TP.ServiceHosting
                 }
 
                 var userIdentity = container.Resolve<IUserMapper>().GetUserFromTicket(ticket) as IUser;
-
-                
 
                 RegisterIThreadContext(container, userIdentity);
                 RegisterIDatabase(container, userIdentity);
