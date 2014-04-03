@@ -71,7 +71,7 @@ namespace Chanjet.TP.Authentication.Stateless
                 BuildCookie(userIdentifier, cookieExpiry);
 
             response.AddCookie(authenticationCookie);
-
+            
             return response;
         }
 

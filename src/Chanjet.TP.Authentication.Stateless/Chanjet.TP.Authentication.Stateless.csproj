@@ -66,11 +66,31 @@
     <Compile Include="UserMapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="StatelessAuthentication.sequencediagram" />
+    <None Include="Modeling\1151Authentication.sequencediagram" />
+    <None Include="Modeling\1151VoucherLoad.sequencediagram" />
+    <None Include="Modeling\1151VoucherSave.sequencediagram" />
+    <None Include="Modeling\StatelessAuthentication.sequencediagram" />
+    <None Include="Modeling\VoucherLoad.sequencediagram" />
+    <None Include="Modeling\VoucherSave.sequencediagram" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="StatelessAuthentication.sequencediagram.layout">
+    <EmbeddedResource Include="Modeling\1151Authentication.sequencediagram.layout">
+      <DependentUpon>1151Authentication.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modeling\1151VoucherLoad.sequencediagram.layout">
+      <DependentUpon>1151VoucherLoad.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modeling\1151VoucherSave.sequencediagram.layout">
+      <DependentUpon>1151VoucherSave.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modeling\StatelessAuthentication.sequencediagram.layout">
       <DependentUpon>StatelessAuthentication.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modeling\VoucherLoad.sequencediagram.layout">
+      <DependentUpon>VoucherLoad.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modeling\VoucherSave.sequencediagram.layout">
+      <DependentUpon>VoucherSave.sequencediagram</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

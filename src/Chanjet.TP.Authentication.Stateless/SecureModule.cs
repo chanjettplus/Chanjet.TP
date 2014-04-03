@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Chanjet.TP.Authentication.Stateless;
+using System.IO;
+using Nancy.Responses;
 
 
 namespace Chanjet.TP.Authentication.Stateless
@@ -30,7 +32,11 @@ namespace Chanjet.TP.Authentication.Stateless
                 {
                     var userIdentity = userMapper.GetUserFromTicket(ticket);
 
-                    return this.Login(ticket);
+                    var response = this.Login(ticket);
+
+                    response.Contents = GetJsonContents( new { Ticket = ticket, UserName = userIdentity.UserName }, new DefaultJsonSerializer());
+
+                    return response;
 
                     //return this.Response.AsJson(new { Ticket = ticket, UserName = userIdentity.UserName, RememberMe = false });
                 }
@@ -45,5 +51,11 @@ namespace Chanjet.TP.Authentication.Stateless
                 return new Response { StatusCode = HttpStatusCode.OK };
             };
         }
+
+        private static Action<Stream> GetJsonContents( object model, ISerializer serializer)
+        {
+            return stream => serializer.Serialize("application/json", model, stream);
+        }
+
     }
 }

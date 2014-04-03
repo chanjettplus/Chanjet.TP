@@ -14,18 +14,15 @@ namespace SelftHostTest
     {
         static void Main(string[] args)
         {
-           
-            var host = new SelfHosting(new Uri("http://localhost:8888/TP/"), new Uri("http://127.0.0.1:8888/TP/"));
-     
-            //var host = new SelfHosting(new Uri("http://localhost:55581/restApi/"), new Uri("http://localhost:55581/restApi/"));
-            
 
+            var host = new SelfHosting(new Uri("http://localhost:12652/"), new Uri("http://127.0.0.1:12652/"));
+     
             host.Start();
 
-            Console.WriteLine("TPlus now listening - navigating to http://localhost:8888/TP/. Press enter to stop");
+            Console.WriteLine("TPlus now listening - navigating to http://localhost:12652/. Press enter to stop");
             try
             {
-                //Process.Start("http://localhost:8888/TP/");
+                //Process.Start("http://localhost:12652/");
             }
             catch (Exception)
             {

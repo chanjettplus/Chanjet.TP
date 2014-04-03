@@ -80,7 +80,7 @@
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification Id="279c9b5f-e3ee-47f8-b62e-9fcf4c268c93" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Brower" />
+              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Browser" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="eb2df458-565c-440f-b396-42154f0919ee" name="MessageOccurrenceSpecification">
@@ -246,7 +246,7 @@
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification Id="159eee83-f1b7-42af-9d49-ab394c12c77c" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Brower" />
+              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Browser" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="fd2c124d-0d1c-4181-9394-32419bdf52b8" name="MessageOccurrenceSpecification">
@@ -307,7 +307,7 @@
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification Id="ec4bcb87-4aad-4524-9a33-99830804b34d" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Brower" />
+              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Browser" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="e4f0522e-fe33-4ac7-856b-77a0abcc746d" name="MessageOccurrenceSpecification">
@@ -665,7 +665,7 @@
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="ab09f340-7f56-448c-b602-e0ae4ff27b05" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Brower" />
+              <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Browser" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="f5830717-d00a-4b41-959d-048ea2a8feba" name="ExecutionOccurrenceSpecification">
@@ -680,7 +680,7 @@
           </executionOccurrenceSpecification>
         </fragments>
         <lifelines>
-          <lifeline Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" name="Brower" isActor="false" lifelineDisplayName="Brower">
+          <lifeline Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" name="Browser" isActor="false" lifelineDisplayName="Browser">
             <topLevelOccurrences>
               <messageOccurrenceSpecificationMoniker Id="279c9b5f-e3ee-47f8-b62e-9fcf4c268c93" LastKnownName="MessageOccurrenceSpecification" />
               <messageOccurrenceSpecificationMoniker Id="159eee83-f1b7-42af-9d49-ab394c12c77c" LastKnownName="MessageOccurrenceSpecification" />

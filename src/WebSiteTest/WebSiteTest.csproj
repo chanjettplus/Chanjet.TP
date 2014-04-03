@@ -65,11 +65,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
-    <Content Include="login.html" />
-    <Content Include="Scripts\apiToken.js" />
-    <Content Include="Scripts\jquery-1.7.2.min.js" />
-    <Content Include="secure.html" />
+    <Content Include="StaticContent\index.html" />
+    <Content Include="StaticContent\login.html" />
+    <Content Include="StaticContent\Scripts\apiToken.js" />
+    <Content Include="StaticContent\Scripts\jquery-1.7.2.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

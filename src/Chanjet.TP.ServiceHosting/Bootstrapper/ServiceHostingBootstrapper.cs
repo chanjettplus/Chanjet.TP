@@ -24,6 +24,7 @@ using Chanjet.TP.Core.Identity;
 using Chanjet.TP.Core.Context;
 using Nancy.Security;
 using Chanjet.TP.Model;
+using Chanjet.TP.ServiceHosting.Interceptors;
 
 
 
@@ -47,12 +48,18 @@ namespace Chanjet.TP.ServiceHosting
 
             var builder = new ContainerBuilder();
 
-            //builder.RegisterType<ExceptionInterceptor>();
-            //builder.RegisterType<DynamicProxyInterceptor>();
+            builder.RegisterType<ExceptionInterceptor>();
+            builder.RegisterType<UnitOfWorkInterceptor>();
+
 
             builder.RegisterType<UserMapper>().As<IUserMapper>();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
-            builder.RegisterType<DefaultCache>().As<ICache>().SingleInstance();
+            builder.RegisterType<DefaultCache>().As<ICache>()
+                .SingleInstance();
+
+
+
+            builder.Register(c => new ThreadContext(null)).As<IThreadContext>();
 
             var repositorys = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(ass => ass.Location.IndexOf(".Data.dll", StringComparison.OrdinalIgnoreCase) > 0)
@@ -61,14 +68,31 @@ namespace Chanjet.TP.ServiceHosting
 
             foreach (var o in repositorys)
             {
-                builder.RegisterType(o).AsImplementedInterfaces();
+                builder.RegisterType(o)
+                    .AsImplementedInterfaces()
+                    .EnableClassInterceptors()
+                    .InterceptedBy(typeof(ExceptionInterceptor),typeof(UnitOfWorkInterceptor));
             }
 
             builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepository<>));
 
             builder.Update(existingContainer.ComponentRegistry);
 
+
             //DIContainerManager.SetContainer(this);
+        }
+
+        protected override void ConfigureConventions(NancyConventions nancyConventions)
+        {
+            nancyConventions.StaticContentsConventions.Add(
+                 StaticContentConventionBuilder.AddFile("/", @"StaticContent/login.html"));
+
+ 
+
+            nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("", @"StaticContent"));
+            nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Script", @"StaticContent/Script"));
+
+            base.ConfigureConventions(nancyConventions);
         }
 
         protected override IEnumerable<INancyModule> GetAllModules(ILifetimeScope container)
@@ -117,6 +141,7 @@ namespace Chanjet.TP.ServiceHosting
 
                 RegisterIThreadContext(container, userIdentity);
                 RegisterIDatabase(container, userIdentity);
+
 
                 return userIdentity as IUserIdentity;
             });

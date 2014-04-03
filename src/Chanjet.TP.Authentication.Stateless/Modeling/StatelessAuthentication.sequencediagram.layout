@@ -3,14 +3,14 @@
   <SequenceDesignerModelMoniker Id="8e03f588-c19c-4b41-bd9e-ab4a31e48a90" />
   <nestedChildShapes>
     <lifelineShape Id="68f91397-a026-44e8-8b6a-70a212d0fe8c" absoluteBounds="1.025, 1, 0.15, 12.050000000000006" visible="true" visualStyleMode="Modified">
-      <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Brower" />
+      <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Browser" />
       <relativeChildShapes>
         <dotNetLifelineHeadShape Id="fb80739b-c33c-482d-be42-8808d6a9d144" absoluteBounds="0.59999999999999987, 0.6, 1, 0.4" customColor="184, 204, 215" visualStyleMode="Modified">
-          <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Brower" />
+          <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Browser" />
           <relativeChildShapes />
         </dotNetLifelineHeadShape>
         <lifelineHoverShape Id="ef74ad35-2bf7-4651-b1de-98216d29384b" absoluteBounds="1.025, 1, 0, 12">
-          <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Brower" />
+          <lifelineMoniker Id="4f8ab99f-85c7-4a9d-9f79-73c61d848a3c" LastKnownName="Browser" />
         </lifelineHoverShape>
       </relativeChildShapes>
     </lifelineShape>
