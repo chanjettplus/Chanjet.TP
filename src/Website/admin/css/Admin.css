@@ -1,0 +1,72 @@
+﻿body{font: 宋体;font-size: 12px;margin: 0;padding: 0;overflow: auto; top:0;right:0;left:0;bottom:0; position:absolute;background-color: #f9f9f9;}
+.portalForm{position:absolute;}
+/***********************************************************************************************/
+/*********************************** Main page begin ***********************************/
+/* top begin */
+.ngview {
+    margin-top :60px;
+}
+#banner{height: 52px;color: White;background: url(../img/Portal/ufida_X.png) repeat-x 0 -37px;}
+#banner .banner-bg{background-image: url(../img/Portal/banner.png);height: 100%;width: 100%;}
+#logo{float: left;margin: 7px 0px 0px 3px;width: 170px;height: 39px;}
+#operation{float: right;height: 22px;}
+#operation ul.operation{list-style-type: none;margin: 0;padding: 2px 0 0 0;}
+#operation ul.operation li{float: left;margin-right: 5px;vertical-align: middle;line-height: 18px;}
+#operation .img-bg{padding-left: 18px;}
+#operation a{color: White;text-decoration: none;}
+#operation a:hover{text-decoration: underline;}
+#operation .logout{background: url(../img/Portal/ufida.png) no-repeat -2px -25px;}
+#operation .help{background: url(../img/Portal/ufida.png) no-repeat -4px -82px;}
+#more-help{position:absolute;right:5px;top:20px;width:68px;list-style:none;text-align:center; float:none;background-color:rgb(234, 243, 251);border:solid 1px #5a91c8;color:#000;display:none;}
+#more-help li{margin:1px;height:20px;width:100%;}
+#more-help li.hover{margin: 1px;cursor:pointer;width:100%;background-color:#f3f3f3;border:solid 1px #5a91c8;}
+/* top end */
+
+/* tabs begin */
+#tabs{height: 25px;width: 100%;line-height: 25px;background: url(../img/Portal/ufida_X.png) repeat-x 0 -191px;}
+#tabs ul{list-style-type: none;margin: 3px 0 -1px 0;height: 23px;line-height: 23px;padding: 0 0 0 10px;float: left;}
+#tabs ul li{float: left;margin-right: 1px;padding: 0 5px 0 5px;cursor: pointer;}
+#tabs li.selected{cursor: default;background: url(../img/Portal/ufida.png) no-repeat -13px -965px;padding: 0 0 0 5px;}
+#tabs li a{text-decoration: none;padding: 0 5px 0 5px;display: block;}
+#tabs li.selected a{text-decoration: none;padding: 0 5px 0 0;display: block;background: url(../img/Portal/ufida.png) no-repeat right -1003px;}
+#tabs li a span{display: block;padding: 0 0 0 0;color: #00295d;}
+#tabs li.selected a span{display: block;background: url(../img/Portal/ufida_X.png) repeat-x 0 -168px;padding: 0 2px 0 2px;color: #000;}
+#tabs li a span em{padding: 0 2px 0 0;line-height: 22px;float: left;}
+#tabs li.selected a span em{width: 13px;height: 22px;background: url(../img/Portal/ufida.png) no-repeat -19px -605px;cursor: pointer;}
+#tabs li.selected a span em.close{background-position:-21px -643px;}
+/* tabs end */
+
+/* main content begin */
+#main-content{width: 100%;background-color: Gray;}
+#main-content iframe{margin: 0px;padding: 0px;border: 0;left: 0px;top: 0px;width: 100%;display: none;}
+#main-content iframe.selected{display: block;}
+/* main content end */
+
+/*********************************** Main page end ***********************************/
+/***********************************************************************************************/
+
+
+/***********************************************************************************************/
+/*********************************** First page begin ***********************************/
+.first_main_content{width:100%;}
+.first_main_content ul{margin:20px;}
+.first_main_content li{border-top:dashed 1px #a1bbd1; height:110px; background-color:rgb(247,247,247); list-style:none;}
+.ClassTitle{width:120px;height:100%;text-align:center; float:left;margin-right:30px;}
+.ClassTitle span{margin-top:50px; display:block; font-size:15px; font-weight:bold;cursor:default;}
+.first_main_content ul li em{width:78px; height:66px; display:block; float:left; text-align:center; margin:20px auto auto 30px;cursor:pointer;}
+.first_main_content ul li em.hover{background:url(../img/Portal/Admin/admin.png) no-repeat -262px -80px;cursor:pointer;display:block;}
+.first_main_content ul li em div{width:73px; height:58px;display:block;}
+.first_main_content ul li em span{font-style:normal;}
+#CreateAccount div.normal{background:url(../img/Portal/Admin/admin.png) no-repeat 0 0;}
+#CreateAccount div.CreateAccountTitle{display:none;width:163px;height:31px;position:absolute;top:10px;left:210px;background:url(../img/Portal/Admin/admin.png) no-repeat -15px -154px; text-align:right;}
+.CreateAccountTitle span{line-height:20px; margin-right:5px;}
+#MaintenanceAccount div{background:url(../img/Portal/Admin/admin.png) no-repeat -76px 0;}
+#BackupPlan div{background:url(../img/Portal/Admin/admin.png) no-repeat -159px -1px;}
+#HideSettings div{background:url(../img/Portal/Admin/admin.png) no-repeat -251px 0;}
+#SiteView div{background:url(../img/Portal/Admin/admin.png) no-repeat -3px -79px;}
+#TaskMan div{background:url(../img/Portal/Admin/admin.png) no-repeat -85px -81px;}
+#ServerC div{background:url(../img/Portal/Admin/admin.png) no-repeat -166px -80px;}
+#WarningTitle span{color:#c13003;margin:20px auto auto 30px;display:block; cursor:default;}
+#AQDSettings div{background:url(../img/Portal/Admin/aqd.png) no-repeat 8px 10px;}
+/*********************************** First page end ***********************************/
+/***********************************************************************************************/
