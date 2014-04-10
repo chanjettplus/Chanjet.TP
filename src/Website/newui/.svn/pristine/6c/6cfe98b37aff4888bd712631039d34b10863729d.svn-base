@@ -1,0 +1,401 @@
+if(! ('tp' in window) ) window['tp'] = {}
+
+tp.config = {
+ cookie_expiry : 604800, //1 week duration for saved settings
+ storage_method: 2 //2 means use cookies, 1 means localStorage, 0 means localStorage if available otherwise cookies
+}
+
+tp.settings = {
+	is : function(item, status) {
+		//such as tp.settings.is('navbar', 'fixed')
+		return (tp.data.get('settings', item+'-'+status) == 1)
+	},
+	exists : function(item, status) {
+		return (tp.data.get('settings', item+'-'+status) !== null)
+	},
+	set : function(item, status) {
+		tp.data.set('settings', item+'-'+status, 1)
+	},
+	unset : function(item, status) {
+		tp.data.set('settings', item+'-'+status, -1)
+	},
+	remove : function(item, status) {
+		tp.data.remove('settings', item+'-'+status)
+	},
+
+	navbar_fixed : function(fix) {
+		fix = fix || false;
+		if(!fix && tp.settings.is('sidebar', 'fixed')) {
+			tp.settings.sidebar_fixed(false);
+		}
+		
+		var navbar = document.getElementById('navbar');
+		if(fix) {
+			if(!tp.hasClass(navbar , 'navbar-fixed-top'))  tp.addClass(navbar , 'navbar-fixed-top');
+			if(!tp.hasClass(document.body , 'navbar-fixed'))  tp.addClass(document.body , 'navbar-fixed');
+			
+			tp.settings.set('navbar', 'fixed');
+		} else {
+			tp.removeClass(navbar , 'navbar-fixed-top');
+			tp.removeClass(document.body , 'navbar-fixed');
+			
+			tp.settings.unset('navbar', 'fixed');
+		}
+		
+		document.getElementById('tp-settings-navbar').checked = fix;
+	},
+
+
+	breadcrumbs_fixed : function(fix) {
+		fix = fix || false;
+		if(fix && !tp.settings.is('sidebar', 'fixed')) {
+			tp.settings.sidebar_fixed(true);
+		}
+
+		var breadcrumbs = document.getElementById('breadcrumbs');
+		if(fix) {
+			if(!tp.hasClass(breadcrumbs , 'breadcrumbs-fixed'))  tp.addClass(breadcrumbs , 'breadcrumbs-fixed');
+			if(!tp.hasClass(document.body , 'breadcrumbs-fixed'))  tp.addClass(document.body , 'breadcrumbs-fixed');
+			
+			tp.settings.set('breadcrumbs', 'fixed');
+		} else {
+			tp.removeClass(breadcrumbs , 'breadcrumbs-fixed');
+			tp.removeClass(document.body , 'breadcrumbs-fixed');
+			
+			tp.settings.unset('breadcrumbs', 'fixed');
+		}
+		document.getElementById('tp-settings-breadcrumbs').checked = fix;
+	},
+
+
+	sidebar_fixed : function(fix) {
+		fix = fix || false;
+		if(!fix && tp.settings.is('breadcrumbs', 'fixed')) {
+			tp.settings.breadcrumbs_fixed(false);
+		}
+
+		if( fix && !tp.settings.is('navbar', 'fixed') ) {
+			tp.settings.navbar_fixed(true);
+		}
+
+		var sidebar = document.getElementById('sidebar');
+		if(fix) {
+			if( !tp.hasClass(sidebar , 'sidebar-fixed') )  tp.addClass(sidebar , 'sidebar-fixed');
+			tp.settings.set('sidebar', 'fixed');
+		} else {
+			tp.removeClass(sidebar , 'sidebar-fixed');
+			tp.settings.unset('sidebar', 'fixed');
+		}
+		document.getElementById('tp-settings-sidebar').checked = fix;
+	},
+
+	main_container_fixed : function(inside) {
+		inside = inside || false;
+
+		var main_container = document.getElementById('main-container');
+		var navbar_container = document.getElementById('navbar-container');
+		if(inside) {
+			if( !tp.hasClass(main_container , 'container') )  tp.addClass(main_container , 'container');
+			if( !tp.hasClass(navbar_container , 'container') )  tp.addClass(navbar_container , 'container');
+			tp.settings.set('main-container', 'fixed');
+		} else {
+			tp.removeClass(main_container , 'container');
+			tp.removeClass(navbar_container , 'container');
+			tp.settings.unset('main-container', 'fixed');
+		}
+		document.getElementById('tp-settings-add-container').checked = inside;
+		
+		
+		if(navigator.userAgent.match(/webkit/i)) {
+			//webkit has a problem redrawing and moving around the sidebar background in realtime
+			//so we do this, to force redraw
+			//there will be no problems with webkit if the ".container" class is statically put inside HTML code.
+			var sidebar = document.getElementById('sidebar')
+			tp.toggleClass(sidebar , 'menu-min')
+			setTimeout(function() {	tp.toggleClass(sidebar , 'menu-min') } , 0)
+		}
+	},
+
+	sidebar_collapsed : function(collpase) {
+		collpase = collpase || false;
+
+		var sidebar = document.getElementById('sidebar');
+		var icon = document.getElementById('sidebar-collapse').querySelector('[class*="icon-"]');
+		var $icon1 = icon.getAttribute('data-icon1');//the icon for expanded state
+		var $icon2 = icon.getAttribute('data-icon2');//the icon for collapsed state
+
+		if(collpase) {
+			tp.addClass(sidebar , 'menu-min');
+			tp.removeClass(icon , $icon1);
+			tp.addClass(icon , $icon2);
+
+			tp.settings.set('sidebar', 'collapsed');
+		} else {
+			tp.removeClass(sidebar , 'menu-min');
+			tp.removeClass(icon , $icon2);
+			tp.addClass(icon , $icon1);
+
+			tp.settings.unset('sidebar', 'collapsed');
+		}
+
+	},
+	/**
+	select_skin : function(skin) {
+	}
+	*/
+}
+
+
+//check the status of something
+tp.settings.check = function(item, val) {
+	if(! tp.settings.exists(item, val) ) return;//no such setting specified
+	var status = tp.settings.is(item, val);//is breadcrumbs-fixed? or is sidebar-collapsed? etc
+	
+	var mustHaveClass = {
+		'navbar-fixed' : 'navbar-fixed-top',
+		'sidebar-fixed' : 'sidebar-fixed',
+		'breadcrumbs-fixed' : 'breadcrumbs-fixed',
+		'sidebar-collapsed' : 'menu-min',
+		'main-container-fixed' : 'container'
+	}
+
+
+	//if an element doesn't have a specified class, but saved settings say it should, then add it
+	//for example, sidebar isn't .fixed, but user fixed it on a previous page
+	//or if an element has a specified class, but saved settings say it shouldn't, then remove it
+	//for example, sidebar by default is minimized (.menu-min hard coded), but user expanded it and now shouldn't have 'menu-min' class
+	
+	var target = document.getElementById(item);//#navbar, #sidebar, #breadcrumbs
+	if(status != tp.hasClass(target , mustHaveClass[item+'-'+val])) {
+		tp.settings[item.replace('-','_')+'_'+val](status);//call the relevant function to mage the changes
+	}
+}
+
+
+
+
+
+
+//save/retrieve data using localStorage or cookie
+//method == 1, use localStorage
+//method == 2, use cookies
+//method not specified, use localStorage if available, otherwise cookies
+tp.data_storage = function(method, undefined) {
+	var prefix = 'tp.';
+
+	var storage = null;
+	var type = 0;
+	
+	if((method == 1 || method === undefined) && 'localStorage' in window && window['localStorage'] !== null) {
+		storage = tp.storage;
+		type = 1;
+	}
+	else if(storage == null && (method == 2 || method === undefined) && 'cookie' in document && document['cookie'] !== null) {
+		storage = tp.cookie;
+		type = 2;
+	}
+
+	//var data = {}
+	this.set = function(namespace, key, value, undefined) {
+		if(!storage) return;
+		
+		if(value === undefined) {//no namespace here?
+			value = key;
+			key = namespace;
+
+			if(value == null) storage.remove(prefix+key)
+			else {
+				if(type == 1)
+					storage.set(prefix+key, value)
+				else if(type == 2)
+					storage.set(prefix+key, value, tp.config.cookie_expiry)
+			}
+		}
+		else {
+			if(type == 1) {//localStorage
+				if(value == null) storage.remove(prefix+namespace+'.'+key)
+				else storage.set(prefix+namespace+'.'+key, value);
+			}
+			else if(type == 2) {//cookie
+				var val = storage.get(prefix+namespace);
+				var tmp = val ? JSON.parse(val) : {};
+
+				if(value == null) {
+					delete tmp[key];//remove
+					if(tp.sizeof(tmp) == 0) {//no other elements in this cookie, so delete it
+						storage.remove(prefix+namespace);
+						return;
+					}
+				}
+				
+				else {
+					tmp[key] = value;
+				}
+
+				storage.set(prefix+namespace , JSON.stringify(tmp), tp.config.cookie_expiry)
+			}
+		}
+	}
+
+	this.get = function(namespace, key, undefined) {
+		if(!storage) return null;
+		
+		if(key === undefined) {//no namespace here?
+			key = namespace;
+			return storage.get(prefix+key);
+		}
+		else {
+			if(type == 1) {//localStorage
+				return storage.get(prefix+namespace+'.'+key);
+			}
+			else if(type == 2) {//cookie
+				var val = storage.get(prefix+namespace);
+				var tmp = val ? JSON.parse(val) : {};
+				return key in tmp ? tmp[key] : null;
+			}
+		}
+	}
+
+	
+	this.remove = function(namespace, key, undefined) {
+		if(!storage) return;
+		
+		if(key === undefined) {
+			key = namespace
+			this.set(key, null);
+		}
+		else {
+			this.set(namespace, key, null);
+		}
+	}
+}
+
+
+
+
+
+//cookie storage
+tp.cookie = {
+	// The following functions are from Cookie.js class in TinyMCE, Moxiecode, used under LGPL.
+
+	/**
+	 * Get a cookie.
+	 */
+	get : function(name) {
+		var cookie = document.cookie, e, p = name + "=", b;
+
+		if ( !cookie )
+			return;
+
+		b = cookie.indexOf("; " + p);
+
+		if ( b == -1 ) {
+			b = cookie.indexOf(p);
+
+			if ( b != 0 )
+				return null;
+
+		} else {
+			b += 2;
+		}
+
+		e = cookie.indexOf(";", b);
+
+		if ( e == -1 )
+			e = cookie.length;
+
+		return decodeURIComponent( cookie.substring(b + p.length, e) );
+	},
+
+	/**
+	 * Set a cookie.
+	 *
+	 * The 'expires' arg can be either a JS Date() object set to the expiration date (back-compat)
+	 * or the number of seconds until expiration
+	 */
+	set : function(name, value, expires, path, domain, secure) {
+		var d = new Date();
+
+		if ( typeof(expires) == 'object' && expires.toGMTString ) {
+			expires = expires.toGMTString();
+		} else if ( parseInt(expires, 10) ) {
+			d.setTime( d.getTime() + ( parseInt(expires, 10) * 1000 ) ); // time must be in miliseconds
+			expires = d.toGMTString();
+		} else {
+			expires = '';
+		}
+
+		document.cookie = name + "=" + encodeURIComponent(value) +
+			((expires) ? "; expires=" + expires : "") +
+			((path) ? "; path=" + path : "") +
+			((domain) ? "; domain=" + domain : "") +
+			((secure) ? "; secure" : "");
+	},
+
+	/**
+	 * Remove a cookie.
+	 *
+	 * This is done by setting it to an empty value and setting the expiration time in the past.
+	 */
+	remove : function(name, path) {
+		this.set(name, '', -1000, path);
+	}
+};
+
+
+//local storage
+tp.storage = {
+	get: function(key) {
+		return window['localStorage'].getItem(key);
+	},
+	set: function(key, value) {
+		window['localStorage'].setItem(key , value);
+	},
+	remove: function(key) {
+		window['localStorage'].removeItem(key);
+	}
+};
+
+
+
+
+
+
+//count the number of properties in an object
+//useful for getting the number of elements in an associative array
+tp.sizeof = function(obj) {
+	var size = 0;
+	for(var key in obj) if(obj.hasOwnProperty(key)) size++;
+	return size;
+}
+
+//because jQuery may not be loaded at this stage, we use our own toggleClass
+tp.hasClass = function(elem, className) {
+	return (" " + elem.className + " ").indexOf(" " + className + " ") > -1;
+}
+tp.addClass = function(elem, className) {
+ if (!tp.hasClass(elem, className)) {
+	var currentClass = elem.className;
+	elem.className = currentClass + (currentClass.length? " " : "") + className;
+ }
+}
+tp.removeClass = function(elem, className) {tp.replaceClass(elem, className);}
+
+tp.replaceClass = function(elem, className, newClass) {
+	var classToRemove = new RegExp(("(^|\\s)" + className + "(\\s|$)"), "i");
+	elem.className = elem.className.replace(classToRemove, function (match, p1, p2) {
+		return newClass? (p1 + newClass + p2) : " ";
+	}).replace(/^\s+|\s+$/g, "");
+}
+
+tp.toggleClass = function(elem, className) {
+	if(tp.hasClass(elem, className))
+		tp.removeClass(elem, className);
+	else tp.addClass(elem, className);
+}
+
+
+
+
+//data_storage instance used inside tp.settings etc
+tp.data = new tp.data_storage(tp.config.storage_method);

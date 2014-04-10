@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>系统管理 - 畅捷通12.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- basic styles -->
+    <link href="../pub/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../pub/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- page specific plugin styles -->
+
+    <link href="../pub/lib/jquery/css/jquery-ui-1.10.3.full.min.css" rel="stylesheet" />
+    <link href="../pub/lib/bootstrap/css/datepicker.css" rel="stylesheet" />
+    <link href="../pub/lib/jquery/css/ui.jqgrid.css" rel="stylesheet" />
+
+    <!-- fonts -->
+
+    <link href="../pub/lib/tp/css/tp-fonts.css" rel="stylesheet" />
+
+    <!-- tp styles -->
+    <link href="../pub/lib/tp/css/tp.css" rel="stylesheet" />
+    <link href="../pub/lib/tp/css/tp-rtl.css" rel="stylesheet" />
+    <link href="../pub/lib/tp/css/tp-skins.css" rel="stylesheet" />
+
+    <!-- inline styles related to this page -->
+
+    <!-- tp settings handler -->
+
+    <script src="../pub/lib/tp/js/tp-extra.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+
+    <!--[if lt IE 9]>
+		<script src="../pub/lib/html5shiv/html5shiv.js"></script>
+		<script src="../pub/lib/respond/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body ng-app="admin">
+    <div class="navbar navbar-default" id="navbar">
+        <script type="text/javascript">
+            try { tp.settings.check('navbar', 'fixed') } catch (e) { }
+        </script>
+
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="javascript:void(0)" class="navbar-brand">
+                    <small>
+                        <i class="icon-leaf hidden"></i>
+                        畅捷通T+
+                    </small>
+                </a>
+                <!-- /.brand -->
+            </div>
+            <!-- /.navbar-header -->
+
+            <div class="navbar-header pull-right" role="navigation">
+                <ul class="nav tp-nav">
+                    <li class="grey">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">
+                            <i class="icon-tasks"></i>
+                            <span class="badge badge-grey">4</span>
+                        </a>
+
+                        <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="icon-ok"></i>
+                                4 个待办任务
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="clearfix">
+                                        <span class="pull-left">软件升级</span>
+                                        <span class="pull-right">65%</span>
+                                    </div>
+
+                                    <div class="progress progress-mini ">
+                                        <div style="width: 65%" class="progress-bar "></div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="clearfix">
+                                        <span class="pull-left">硬件升级</span>
+                                        <span class="pull-right">35%</span>
+                                    </div>
+
+                                    <div class="progress progress-mini ">
+                                        <div style="width: 35%" class="progress-bar progress-bar-danger"></div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="clearfix">
+                                        <span class="pull-left">单元测试</span>
+                                        <span class="pull-right">15%</span>
+                                    </div>
+
+                                    <div class="progress progress-mini ">
+                                        <div style="width: 15%" class="progress-bar progress-bar-warning"></div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="clearfix">
+                                        <span class="pull-left">缺陷修复</span>
+                                        <span class="pull-right">90%</span>
+                                    </div>
+
+                                    <div class="progress progress-mini progress-striped active">
+                                        <div style="width: 90%" class="progress-bar progress-bar-success"></div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">全部任务
+										<i class="icon-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="purple">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">
+                            <i class="icon-bell-alt icon-animated-bell"></i>
+                            <span class="badge badge-important">8</span>
+                        </a>
+
+                        <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="icon-warning-sign"></i>
+                                8 个提醒
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="clearfix">
+                                        <span class="pull-left">
+                                            <i class="btn btn-xs no-hover btn-pink icon-comment"></i>
+                                            新评论
+                                        </span>
+                                        <span class="pull-right badge badge-info">+12</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="btn btn-xs btn-primary icon-user"></i>
+                                    张四刚登录
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="clearfix">
+                                        <span class="pull-left">
+                                            <i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
+                                            新订单
+                                        </span>
+                                        <span class="pull-right badge badge-success">+8</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="clearfix">
+                                        <span class="pull-left">
+                                            <i class="btn btn-xs no-hover btn-info icon-twitter"></i>
+                                            新粉丝
+                                        </span>
+                                        <span class="pull-right badge badge-info">+11</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">全部提醒
+										<i class="icon-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="green">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">
+                            <i class="icon-envelope icon-animated-vertical"></i>
+                            <span class="badge badge-success">5</span>
+                        </a>
+
+                        <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="icon-envelope-alt"></i>
+                                5 个消息
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="../pub/img/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+                                    <span class="msg-body">
+                                        <span class="msg-title">
+                                            <span class="blue">李三:</span>
+                                            能不能，别这么拽 ...
+                                        </span>
+
+                                        <span class="msg-time">
+                                            <i class="icon-time"></i>
+                                            <span>刚刚</span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="../pub/img/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+                                    <span class="msg-body">
+                                        <span class="msg-title">
+                                            <span class="blue">苏珊:</span>
+                                            我有个新发现 ...
+                                        </span>
+
+                                        <span class="msg-time">
+                                            <i class="icon-time"></i>
+                                            <span>20 分钟之前</span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="../pub/img/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+                                    <span class="msg-body">
+                                        <span class="msg-title">
+                                            <span class="blue">张四:</span>
+                                            明天的会议改在下午2点 ...
+                                        </span>
+
+                                        <span class="msg-time">
+                                            <i class="icon-time"></i>
+                                            <span>15:10 </span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="inbox.html">全部消息
+										<i class="icon-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="light-blue">
+                        <a data-toggle="dropdown" href="javascript:void(0)" class="dropdown-toggle">
+                            <img class="nav-user-photo" src="../pub/img/avatars/user.jpg" alt="Jason's Photo" />
+                            <span class="user-info">
+                                <small>你好,</small>
+                                王五
+                            </span>
+
+                            <i class="icon-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="../pub/lib/tp/index.html">
+                                    <i class="icon-cog"></i>设置
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="icon-user"></i>
+                                    个人信息
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="../login.html">
+                                    <i class="icon-off"></i>
+                                    注销
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /.tp-nav -->
+            </div>
+            <!-- /.navbar-header -->
+        </div>
+        <!-- /.container -->
+    </div>
+
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            try { tp.settings.check('main-container', 'fixed') } catch (e) { }
+        </script>
+
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="javascript:void(0)">
+                <span class="menu-text"></span>
+            </a>
+
+            <div class="sidebar" id="sidebar">
+                <script type="text/javascript">
+                    try { tp.settings.check('sidebar', 'fixed') } catch (e) { }
+                </script>
+
+                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                    <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                        <button class="btn btn-success">
+                            <i class="icon-signal"></i>
+                        </button>
+
+                        <button class="btn btn-info">
+                            <i class="icon-pencil"></i>
+                        </button>
+
+                        <button class="btn btn-warning">
+                            <i class="icon-group"></i>
+                        </button>
+
+                        <button class="btn btn-danger">
+                            <i class="icon-cogs"></i>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                        <span class="btn btn-success"></span>
+
+                        <span class="btn btn-info"></span>
+
+                        <span class="btn btn-warning"></span>
+
+                        <span class="btn btn-danger"></span>
+                    </div>
+                </div>
+                <!-- #sidebar-shortcuts -->
+
+                <ul class="nav nav-list">
+
+                    <li>
+                        <a href="javascript:void(0)" class="dropdown-toggle">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text">账套管理 </span>
+
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="#/account_create">
+                                    <i class="icon-double-angle-right"></i>
+                                    新建账套
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#/account_list">
+                                    <i class="icon-double-angle-right"></i>
+                                    账套维护
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#/backup_list">
+                                    <i class="icon-double-angle-right"></i>
+                                    备份计划
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#/account_hiddenset">
+                                    <i class="icon-double-angle-right"></i>
+                                    隐藏设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/aqd_list">
+                                    <i class="icon-double-angle-right"></i>
+                                    安全盾维护
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" class="dropdown-toggle">
+                            <i class="icon-list"></i>
+                            <span class="menu-text">运行管理</span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="#/site_list">
+                                    <i class="icon-double-angle-right"></i>
+                                    站点查看
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#/job_list">
+                                    <i class="icon-double-angle-right"></i>
+                                    任务管理
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" class="dropdown-toggle">
+                            <i class="icon-edit"></i>
+                            <span class="menu-text">服务器管理 </span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="#/server_setting">
+                                    <i class="icon-double-angle-right"></i>
+                                    服务器配置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/server_recommend">
+                                    <i class="icon-double-angle-right"></i>
+                                    推荐配置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="dropdown-toggle">
+                                    <i class="icon-edit"></i>
+                                    <span class="menu-text">实施工具</span>
+                                    <b class="arrow icon-angle-down"></b>
+                                </a>
+
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#/account_clear">
+                                            <i class="icon-double-angle-right"></i>
+                                            数据清理
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#/account_reindex">
+                                            <i class="icon-double-angle-right"></i>
+                                            碎片整理
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#/account_profiler">
+                                            <i class="icon-double-angle-right"></i>
+                                            性能检测
+                                        </a>
+                                    </li>
+                                </ul>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- /.nav-list -->
+
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+
+                <script type="text/javascript">
+                    try { tp.settings.check('sidebar', 'collapsed') } catch (e) { }
+                </script>
+            </div>
+
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <script type="text/javascript">
+                        try { tp.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+                    </script>
+
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a href="javascript:void(0)">首页</a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)">账套管理</a>
+                        </li>
+                        <li class="active">账套维护</li>
+                    </ul>
+                    <!-- .breadcrumb -->
+
+                    <div class="nav-search" id="nav-search">
+                        <form class="form-search">
+                            <span class="input-icon">
+                                <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                                <i class="icon-search nav-search-icon"></i>
+                            </span>
+                        </form>
+                    </div>
+                    <!-- #nav-search -->
+                </div>
+
+
+                <div class="page-content" ng-view>
+                </div>
+                <!-- /.page-content -->
+            </div>
+            <!-- /.main-content -->
+
+            <div class="tp-settings-container" id="tp-settings-container">
+                <div class="btn btn-app btn-xs btn-warning tp-settings-btn" id="tp-settings-btn">
+                    <i class="icon-cog bigger-150"></i>
+                </div>
+
+                <div class="tp-settings-box" id="tp-settings-box">
+                    <div>
+                        <div class="pull-left">
+                            <select id="skin-colorpicker" class="hide">
+                                <option data-skin="default" value="#438EB9">#438EB9</option>
+                                <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                                <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                            </select>
+                        </div>
+                        <span>主题</span>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="tp tp-checkbox-2" id="tp-settings-navbar" />
+                        <label class="lbl" for="tp-settings-navbar">固定导航</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="tp tp-checkbox-2" id="tp-settings-sidebar" />
+                        <label class="lbl" for="tp-settings-sidebar">固定边栏</label>
+                    </div>
+
+                    <div class="hidden">
+                        <input type="checkbox" class="tp tp-checkbox-2" id="tp-settings-breadcrumbs" />
+                        <label class="lbl" for="tp-settings-breadcrumbs">Fixed Breadcrumbs</label>
+                    </div>
+
+                    <div class="hidden">
+                        <input type="checkbox" class="tp tp-checkbox-2" id="tp-settings-rtl" />
+                        <label class="lbl" for="tp-settings-rtl">Right To Left (rtl)</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" class="tp tp-checkbox-2" id="tp-settings-add-container" />
+                        <label class="lbl" for="tp-settings-add-container">
+                            窄屏显示
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- /#tp-settings-container -->
+        </div>
+        <!-- /.main-container-inner -->
+
+        <a href="javascript:void(0)" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="icon-double-angle-up icon-only bigger-110"></i>
+        </a>
+    </div>
+    <!-- /.main-container -->
+
+    <!-- basic scripts -->
+
+    <script src="../pub/lib/jquery/js/jquery-1.11.0.js"></script>
+
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../pub/lib/jquery/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+
+    <script src="../pub/lib/bootstrap/js/bootstrap.js"></script>
+    <!-- page specific plugin scripts -->
+
+
+    <!-- tp scripts -->
+
+    <script src="../pub/lib/tp/js/tp-elements.js"></script>
+    <script src="../pub/lib/tp/js/tp.js"></script>
+    <script src="../pub/lib/angular/angular.js"></script>
+    <script src="../pub/lib/angular/angular-route.js"></script>
+    <script src="../pub/lib/jqGrid/jquery.jqGrid.src.js"></script>
+    <script src="../pub/lib/jqGrid/i18n/grid.locale-cn.js"></script>
+    <script src="js/app.js"></script> 
+</body>
+</html>

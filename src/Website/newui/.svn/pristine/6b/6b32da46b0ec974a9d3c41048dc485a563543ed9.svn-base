@@ -1,0 +1,50 @@
+﻿<script src="js/account_list.js"></script>
+<div class="page-header" style="font-weight: bold;">
+    <h1>账套维护
+				<small>
+                    <i class="icon-double-angle-right"></i>
+                    红色字体账套为低版本账套，请升级！ 
+                </small>
+    </h1>
+
+</div>
+<!-- /.page-header -->
+
+<div class="page-header">
+    <button class="btn btn-app btn-yellow btn-xs">
+        <i class="  icon-book bigger-160"></i>
+        备份
+    </button>
+    <button class="btn btn-app btn-yellow btn-xs">
+        <i class="icon-download-alt bigger-160"></i>
+        恢复
+    </button>
+    <button class="btn btn-app btn-yellow btn-xs">
+        <i class="icon-external-link bigger-160"></i>
+        升级
+    </button>
+    <button class="btn btn-app btn-yellow btn-xs">
+        <i class="icon-exchange bigger-160"></i>
+        期间结转
+    </button>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+
+        <table id="grid-table"></table>
+
+        <div id="grid-pager"></div>
+
+        <script type="text/javascript">
+            var $path_base = "/";//this will be used in gritter alerts containing images
+        </script>
+
+        <!-- PAGE CONTENT ENDS -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+

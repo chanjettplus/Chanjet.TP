@@ -1,0 +1,46 @@
+﻿<script src="js/backup_list.js"></script>
+<div class="page-header" style="font-weight: bold;">
+    <h1>备份计划
+				<small>
+                    <i class="icon-double-angle-right"></i>
+                    自动备份账套数据 
+                </small>
+    </h1>
+
+</div>
+<!-- /.page-header -->
+
+<div class="page-header">
+    <button class="btn btn-app btn-yellow btn-xs">
+        <i class="icon-plus bigger-160"></i>
+        新建
+    </button>
+    <button class="btn btn-app btn-yellow btn-xs">
+        <i class="  icon-book bigger-160"></i>
+        修改
+    </button>
+    <button class="btn btn-app btn-yellow btn-xs">
+        <i class="icon-download-alt bigger-160"></i>
+        删除
+    </button>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+
+        <table id="backup_list_table"></table>
+
+        <div id="backup_list_pager"></div>
+
+        <script type="text/javascript">
+            var $path_base = "/";//this will be used in gritter alerts containing images
+        </script>
+
+        <!-- PAGE CONTENT ENDS -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+
