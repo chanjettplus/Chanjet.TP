@@ -1,6 +1,19 @@
 ﻿
 
 
+(function ($) {
+    $.fn.setDtoList(items) = function () {
+
+
+    },
+    $.fn.setTableCaption(caption) = function () {
+
+    }
+
+
+
+})
+
 function admin_account_listCtrl($scope) {
 
     var grid_data =
